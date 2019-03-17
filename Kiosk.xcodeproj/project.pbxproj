@@ -14,6 +14,14 @@
 		00984D0D21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00984D0B21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift */; };
 		009A04FA212C74E8001308D7 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 009A04F8212C74E7001308D7 /* HockeySDKResources.bundle */; };
 		009A04FB212C74E8001308D7 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009A04F9212C74E7001308D7 /* HockeySDK.framework */; };
+		52D96381223E98490077FD24 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D96380223E98480077FD24 /* Questionnaire.storyboard */; };
+		52D96387223E9FFA0077FD24 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96384223E9FFA0077FD24 /* QuestionTableViewCell.swift */; };
+		52D96388223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96385223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift */; };
+		52D96389223E9FFA0077FD24 /* SingleAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96386223E9FFA0077FD24 /* SingleAnswerTableViewCell.swift */; };
+		52D9638B223EA05E0077FD24 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9638A223EA05D0077FD24 /* Question.swift */; };
+		52D9638D223EA0AF0077FD24 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9638C223EA0AF0077FD24 /* QuestionsViewController.swift */; };
+		52D9638F223EA16A0077FD24 /* EnterNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9638E223EA1690077FD24 /* EnterNowViewController.swift */; };
+		52D96391223EA1A10077FD24 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96390223EA1A10077FD24 /* ThanksViewController.swift */; };
 		7374E778A6FE79E336270DD1 /* Pods_KioskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 130714DFFAAFD718F063B2E2 /* Pods_KioskUITests.framework */; };
 		77306F4A20833E7E000D5A73 /* RootViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77306F4920833E7E000D5A73 /* RootViewControllerFactory.swift */; };
 		77306F4C20834A69000D5A73 /* SubscriptionFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77306F4B20834A69000D5A73 /* SubscriptionFormViewController.swift */; };
@@ -94,6 +102,14 @@
 		130714DFFAAFD718F063B2E2 /* Pods_KioskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KioskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4408C6106975329E7F0E26A6 /* Pods-KioskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C38E95E789FE85ED70EEDC7 /* Pods-Kiosk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiosk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.debug.xcconfig"; sourceTree = "<group>"; };
+		52D96380223E98480077FD24 /* Questionnaire.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questionnaire.storyboard; sourceTree = "<group>"; };
+		52D96384223E9FFA0077FD24 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		52D96385223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		52D96386223E9FFA0077FD24 /* SingleAnswerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		52D9638A223EA05D0077FD24 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		52D9638C223EA0AF0077FD24 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		52D9638E223EA1690077FD24 /* EnterNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNowViewController.swift; sourceTree = "<group>"; };
+		52D96390223EA1A10077FD24 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 		669FD2F79CE5BDBA3225AD15 /* Pods-KioskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		77306F4920833E7E000D5A73 /* RootViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerFactory.swift; sourceTree = "<group>"; };
 		77306F4B20834A69000D5A73 /* SubscriptionFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFormViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +241,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		52D96382223E9FC50077FD24 /* Questionnaire */ = {
+			isa = PBXGroup;
+			children = (
+				52D9638A223EA05D0077FD24 /* Question.swift */,
+				52D96383223E9FFA0077FD24 /* CustomCell */,
+				52D9638E223EA1690077FD24 /* EnterNowViewController.swift */,
+				52D9638C223EA0AF0077FD24 /* QuestionsViewController.swift */,
+				52D96390223EA1A10077FD24 /* ThanksViewController.swift */,
+			);
+			path = Questionnaire;
+			sourceTree = "<group>";
+		};
+		52D96383223E9FFA0077FD24 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				52D96384223E9FFA0077FD24 /* QuestionTableViewCell.swift */,
+				52D96385223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift */,
+				52D96386223E9FFA0077FD24 /* SingleAnswerTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		77306F4820833E43000D5A73 /* RootViewController Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +369,7 @@
 		77B8BFD720832DD00086107E /* Kiosk */ = {
 			isa = PBXGroup;
 			children = (
+				52D96382223E9FC50077FD24 /* Questionnaire */,
 				0085038B2146EE1000240ABC /* Winner List */,
 				009A04F6212C74B9001308D7 /* Other Frameworks */,
 				77EB2E0B208E3E5D00C11060 /* Kiosk.entitlements */,
@@ -353,6 +392,7 @@
 				77B8BFE420832DD00086107E /* LaunchScreen.storyboard */,
 				77B8BFE720832DD00086107E /* Info.plist */,
 				77B8BFDF20832DD00086107E /* Kiosk.xcdatamodeld */,
+				52D96380223E98480077FD24 /* Questionnaire.storyboard */,
 			);
 			path = Kiosk;
 			sourceTree = "<group>";
@@ -553,6 +593,7 @@
 				77B8BFE620832DD00086107E /* LaunchScreen.storyboard in Resources */,
 				77898821209A16D70017E6D1 /* Fragment.png in Resources */,
 				77898820209A16D70017E6D1 /* Sparkle.png in Resources */,
+				52D96381223E98490077FD24 /* Questionnaire.storyboard in Resources */,
 				77BFFFD5208DCCD000D69C1B /* BebasNeue-Bold.otf in Resources */,
 				77BFFFD6208DCCD000D69C1B /* BebasNeue-Light.otf in Resources */,
 				77BFFFD9208DCCD000D69C1B /* BebasNeue-Thin.otf in Resources */,
@@ -770,7 +811,10 @@
 				77A507A920A4B17600C61D74 /* ScreenSaver+CoreDataClass.swift in Sources */,
 				77EB2E1D2094FC9800C11060 /* main.swift in Sources */,
 				77898825209A16D70017E6D1 /* LTMorphingLabel.swift in Sources */,
+				52D96389223E9FFA0077FD24 /* SingleAnswerTableViewCell.swift in Sources */,
+				52D9638D223EA0AF0077FD24 /* QuestionsViewController.swift in Sources */,
 				7789882A209A16D70017E6D1 /* LTEmitterView.swift in Sources */,
+				52D96391223EA1A10077FD24 /* ThanksViewController.swift in Sources */,
 				77898824209A16D70017E6D1 /* LTMorphingLabel+Pixelate.swift in Sources */,
 				0085038D2146EE3600240ABC /* WinnerTableViewCell.swift in Sources */,
 				77306F4C20834A69000D5A73 /* SubscriptionFormViewController.swift in Sources */,
@@ -779,14 +823,18 @@
 				77306F4A20833E7E000D5A73 /* RootViewControllerFactory.swift in Sources */,
 				7789881D209A16D70017E6D1 /* LTCharacterDiffResult.swift in Sources */,
 				77898828209A16D70017E6D1 /* LTMorphingLabel+Sparkle.swift in Sources */,
+				52D96387223E9FFA0077FD24 /* QuestionTableViewCell.swift in Sources */,
 				77898827209A16D70017E6D1 /* LTMorphingLabel+Evaporate.swift in Sources */,
+				52D9638F223EA16A0077FD24 /* EnterNowViewController.swift in Sources */,
 				77B8BFDB20832DD00086107E /* DeviceRegistrationViewController.swift in Sources */,
 				7789882D209A16D70017E6D1 /* LTStringDiffResult.swift in Sources */,
 				77306F5420837B95000D5A73 /* DeviceInformation+CoreDataProperties.swift in Sources */,
 				77EB2E152090467000C11060 /* SyncEngine.swift in Sources */,
 				77867E9520837FDD00CAB477 /* DeviceUniqueIDManager.swift in Sources */,
 				7789881E209A16D70017E6D1 /* LTMorphingEffect.swift in Sources */,
+				52D9638B223EA05E0077FD24 /* Question.swift in Sources */,
 				00984D0D21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift in Sources */,
+				52D96388223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift in Sources */,
 				77898823209A16D70017E6D1 /* LTMorphingLabel+Fall.swift in Sources */,
 				00984D0C21241371009741FC /* SubscriptionEntry+CoreDataClass.swift in Sources */,
 				77B8BFD920832DD00086107E /* AppDelegate.swift in Sources */,
