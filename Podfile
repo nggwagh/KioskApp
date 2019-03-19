@@ -13,6 +13,8 @@ target 'Kiosk' do
     pod "IQKeyboardManagerSwift"
     pod "DropDown"
     pod "BFPaperCheckbox"
+    pod "MBProgressHUD"
+    
 #    pod "LTMorphingLabel"
 
   target 'KioskTests' do
