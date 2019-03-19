@@ -11,7 +11,6 @@ import BFPaperCheckbox
 import DropDown
 import MagicalRecord
 import SafariServices
-import AVKit
 import Alamofire
 
 
@@ -24,9 +23,10 @@ class CustomerSubscriptionViewController: UIViewController {
         
     @IBOutlet weak var txtFirstName: UITextField!
     @IBOutlet weak var txtLastName: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPostalCode: UITextField!
     @IBOutlet weak var lblTrade: UILabel!
-    
+    @IBOutlet weak var lblLanguagePreference: UILabel!
+
     @IBOutlet weak var languageSelectorView: UIView!
     @IBOutlet weak var xConstraintForSelectorView: NSLayoutConstraint!
     @IBOutlet weak var btnEnglish: UIButton!
@@ -34,14 +34,8 @@ class CustomerSubscriptionViewController: UIViewController {
     
     @IBOutlet weak var lblNewsLetterAgreement: UILabel!
     
-    @IBOutlet weak var btnContestRules: UIButton!
-    @IBOutlet weak var lblContestRules: UILabel!
-    
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var btnVisitMilwaukeeSite: UIButton!
-    // hear about view outlets
-    @IBOutlet weak var hearAboutLabel: UILabel!
-    @IBOutlet weak var hearAboutContainerView: UIView!
     
     @IBOutlet weak var firstNameTopConstarint: NSLayoutConstraint!
     
@@ -53,18 +47,14 @@ class CustomerSubscriptionViewController: UIViewController {
     var availableLanguages = [LanguagePreference(name: "English", localeCode: "EN"), LanguagePreference(name: "French", localeCode: "FR")]
     var selectedLanguage : LanguagePreference!
     
-    var selectedHearAbout : String?
+    var selectedLanguagePreference : String?
     
     
     var tradeDropDown = DropDown()
     var hearAboutDropDown = DropDown()
     
     var checkboxForNewsletterAgreement : BFPaperCheckbox!
-    
-    var screenSaverPlayer = AVPlayerViewController()
-    
-    var numberOfLogoTaps = 0
-    
+        
     var frenchTrades = ["Mécanique d'auto/avion/équipement",
                         "Charpentier",
                         "DIY",
@@ -97,18 +87,11 @@ class CustomerSubscriptionViewController: UIViewController {
                          "Remodeler",
                          "Other"]
     
-    var englishHearAbouts = ["Radio",
-                             "Online Advertisement",
-                             "In Store Advertisement/Staff",
-                             "Milwaukee Rep",
-                             "Word of Mouth",
-                             "Other"]
-    var frenchHearAbouts = ["Radio",
-                            "Publicité en ligne",
-                            "Publicité en magasin / personnel",
-                            "Milwaukee Rep",
-                            "Bouche à oreille",
-                            "Autre"]
+    var englishLanguagePreferences = ["English",
+                             "French"]
+    var frenchLanguagePreferences = ["Anglais",
+                            "français",
+                            ]
     
     
     //MARK: - Controller functions
@@ -120,30 +103,7 @@ class CustomerSubscriptionViewController: UIViewController {
         //configure UI according to selected language here
         
         setupCheckBox()
-        configureContestUI()
         englishTapped(btnEnglish)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handleIdleDevice),
-                                               name: .appIsIdle,
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handleAppActivity),
-                                               name: .appDetectedUserTouch,
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerItemDidReachEnd(notification:)),
-                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                               object: self.screenSaverPlayer.player?.currentItem)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(newScreenSaverUpdated),
-                                               name: .updatedScreenSaver,
-                                               object: nil)
-        
-        self.showHearAboutView()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -175,18 +135,15 @@ class CustomerSubscriptionViewController: UIViewController {
             txtLastName.text = ""
             txtLastName.becomeFirstResponder()
             return false
-        } else if (txtEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-            txtEmail.text = ""
-            txtEmail.becomeFirstResponder()
-            return false
-        } else if !(txtEmail.text?.isValidEmail())! {
-            txtEmail.becomeFirstResponder()
+        } else if (txtPostalCode.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+            txtPostalCode.text = ""
+            txtPostalCode.becomeFirstResponder()
             return false
         } else if selectedTrade == nil {
             self.tradeDropdownTapped(lblTrade)
             return false
-        }else if selectedHearAbout == nil && UserDefaults.standard.bool(forKey: Constant.UserDefaultKey.shouldShowHearedAbout) {
-            self.showHearAboutDropdown(hearAboutLabel)
+        }else if selectedLanguagePreference == nil && UserDefaults.standard.bool(forKey: Constant.UserDefaultKey.shouldShowHearedAbout) {
+            self.showHearAboutDropdown(lblLanguagePreference)
             return false
         } else if !acceptsNewsLetter {
             
@@ -231,7 +188,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             txtFirstName.placeholder = "FIRST NAME"
             txtLastName.placeholder = "LAST NAME"
-            txtEmail.placeholder = "E-MAIL"
+            txtPostalCode.placeholder = "POSTAL CODE"
             if let selectedTrade = selectedTrade{
                 
                 if let index = englishTrades.index(of: selectedTrade){
@@ -244,30 +201,28 @@ class CustomerSubscriptionViewController: UIViewController {
                 lblTrade.text = "TRADE"
             }
             
-            if let selectedHearAbout = selectedHearAbout{
+            if let selectedLanguagePreference = selectedLanguagePreference{
                 
-                if let index = englishHearAbouts.index(of: selectedHearAbout){
-                    hearAboutLabel.text = englishHearAbouts[index]
-                } else if let index = frenchHearAbouts.index(of: selectedHearAbout){
-                    hearAboutLabel.text = englishHearAbouts[index]
+                if let index = englishLanguagePreferences.index(of: selectedLanguagePreference){
+                    lblLanguagePreference.text = englishLanguagePreferences[index]
+                } else if let index = frenchLanguagePreferences.index(of: selectedLanguagePreference){
+                    lblLanguagePreference.text = englishLanguagePreferences[index]
                 }
                 
             } else {
-                hearAboutLabel.text = "How Did You Hear About The Event?".uppercased()
+                lblLanguagePreference.text = "LANGUAGE PREFERENCE".uppercased()
             }
             
             lblNewsLetterAgreement.text = "I agree to receive Milwaukee Tools newsletter containing, news, updates, and promotions. You can unsubscribe at any time"
             
             btnSubmit.setTitle("SUBMIT", for: .normal)
-            lblContestRules.text = "By tapping submit, you agree to the contest rules"
-            btnContestRules.setTitle("CONTEST RULES", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISIT MILWAUKEE WEBSITE", for: .normal)
             
         } else {
             
             txtFirstName.placeholder = "Prénom".uppercased()
             txtLastName.placeholder = "Nom de famille".uppercased()
-            txtEmail.placeholder = "Courriel".uppercased()
+            txtPostalCode.placeholder = "code postal".uppercased()
             
             if let selectedTrade = selectedTrade{
                 if let index = englishTrades.index(of: selectedTrade){
@@ -279,21 +234,19 @@ class CustomerSubscriptionViewController: UIViewController {
                 lblTrade.text = "Métier".uppercased()
             }
             //refactor
-            if let selectedHearAbout = selectedHearAbout{
-                if let index = englishHearAbouts.index(of: selectedHearAbout){
-                    hearAboutLabel.text = frenchHearAbouts[index]
-                } else if let index = frenchHearAbouts.index(of: selectedHearAbout){
-                    hearAboutLabel.text = frenchHearAbouts[index]
+            if let selectedLanguagePreference = selectedLanguagePreference{
+                if let index = englishLanguagePreferences.index(of: selectedLanguagePreference){
+                    lblLanguagePreference.text = frenchLanguagePreferences[index]
+                } else if let index = frenchLanguagePreferences.index(of: selectedLanguagePreference){
+                    lblLanguagePreference.text = frenchLanguagePreferences[index]
                 }
             } else {
-                hearAboutLabel.text = "Comment avez-vous entendu parler de l'événement".uppercased()
+                lblLanguagePreference.text = "PRÉFÉRENCE DE LANGUE".uppercased()
             }
             
             lblNewsLetterAgreement.text = "J'accepte de recevoir des infolettres de la part de Milwaukee Tools, pouvant contenir des actualités, des mises à jour et des promotions. Vous pouvez vous désinscrire à tout moment."
             
             btnSubmit.setTitle("ENVOYER", for: .normal)
-            lblContestRules.text = "En appuyant sur \"Envoyer\", vous acceptez les règles du concours."
-            btnContestRules.setTitle("RÈGLES DU CONCOURS.", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISITEZ LE SITE MILWAUKEE", for: .normal)
             
         }
@@ -305,12 +258,12 @@ class CustomerSubscriptionViewController: UIViewController {
         
         txtFirstName.text = ""
         txtLastName.text = ""
-        txtEmail.text = ""
+        txtPostalCode.text = ""
         lblTrade.text = "TRADE"
         lblTrade.textColor = UIColor(white: 153.0/255.0, alpha: 1.0)
-        self.hearAboutLabel.textColor = UIColor(white: 153.0/255.0, alpha: 1.0)
+        self.lblLanguagePreference.textColor = UIColor(white: 153.0/255.0, alpha: 1.0)
         selectedTrade = nil
-        selectedHearAbout = nil
+        selectedLanguagePreference = nil
         englishTapped(btnEnglish)
         
         checkboxForNewsletterAgreement.uncheck(animated: true)
@@ -319,116 +272,26 @@ class CustomerSubscriptionViewController: UIViewController {
         acceptsEmails = false
         
         acceptsDistributorEmail = false
-        
-    }
-    
-    @objc func handleIdleDevice() {
-        reset()
-        
-        SyncEngine.shared.startEngine()
-        
-        numberOfLogoTaps = 0
-        
-        if let somePresentingController = self.presentedViewController {
-            somePresentingController.dismiss(animated: true) {
-                DispatchQueue.main.async {
-                    self.presentScreenSaver()
-                }
-            }
-        } else {
-            self.presentScreenSaver()
-        }
-    }
-    
-    @objc func handleAppActivity() {
-        
-        self.screenSaverPlayer.player?.pause()
-        self.screenSaverPlayer.player = nil
-        
-        if let somePresentingController = self.presentedViewController {
-            
-            if somePresentingController == screenSaverPlayer {
-                somePresentingController.dismiss(animated: false, completion: nil)
-            }
-        }
-        
-    }
-    
-    @objc func newScreenSaverUpdated() {
-        
-        configureContestUI()
-        
-        if let _ = self.presentedViewController as? AVPlayerViewController {
-            _ = configureScreenSaverPlayer()
-        }
-    }
-    
-    func configureContestUI() {
-        let isContest = ScreenSaver.isCurrentScreenSaverAContest()
-        lblContestRules.isHidden = !isContest
-        btnContestRules.isHidden = !isContest
-    }
-    
-    func presentScreenSaver() {
-        
-        guard configureScreenSaverPlayer () else {
-            return
-        }
-        
-        self.present(screenSaverPlayer, animated: true) {
-            self.screenSaverPlayer.player?.play()
-        }
-    }
-    
-    func configureScreenSaverPlayer() -> Bool {
-        
-        guard let url = ScreenSaver.getUrlForScreensaver() else { return false }
-        
-        screenSaverPlayer.player?.pause()
-        screenSaverPlayer.player = AVPlayer(url: url)
-        screenSaverPlayer.videoGravity = AVLayerVideoGravity.resizeAspectFill.rawValue
-        screenSaverPlayer.entersFullScreenWhenPlaybackBegins = true
-        screenSaverPlayer.showsPlaybackControls = false
-        screenSaverPlayer.player?.play()
-        return true
     }
     
     func presentWinnerSelectionScreen () {
         
         let winnerSelectionController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WinnerSelectionViewController") as! WinnerSelectionViewController
-        winnerSelectionController.delegate = self
         self.present(winnerSelectionController, animated: true)
         
     }
-    
-    @objc func playerItemDidReachEnd(notification: NSNotification) {
-        self.screenSaverPlayer.player?.seek(to: kCMTimeZero)
-        self.screenSaverPlayer.player?.play()
-    }
-    
-    
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "segueToContestRules"{
-            
-            let urlToContestRules = ScreenSaver.getUrlForContestRules()
-            let contestRulesViewController = segue.destination as! ContestRulesViewController
-            contestRulesViewController.contestUrl = urlToContestRules
-            
-        }
+    
         
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        
-        if identifier == "segueToContestRules"{
-            return ScreenSaver.getUrlForContestRules() != nil
-        }
         
         return true;
     }
@@ -459,52 +322,14 @@ class CustomerSubscriptionViewController: UIViewController {
         }
         
     }
-    
-    
-    @IBAction func logoTapped(_ sender: Any) {
-        
-        numberOfLogoTaps += 1
-        
-        if numberOfLogoTaps == 5 {
-            
-            numberOfLogoTaps = 0
-            
-            let masterPasswordAlertController = UIAlertController(title: "Milwaukee", message: "Please enter master key.", preferredStyle: .alert)
-            
-            masterPasswordAlertController.addTextField { (textField) in
-                textField.placeholder = "Master key"
-                textField.isSecureTextEntry = true
-                textField.borderStyle = .roundedRect
-            }
-            
-            let submitAction = UIAlertAction(title: "Submit", style: .default) { submitAction in
-                let passwordField = masterPasswordAlertController.textFields![0]
-                
-                if passwordField.text == "tticanada" {
-                    self.presentWinnerSelectionScreen()
-                }
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
-                
-            }
-            
-            masterPasswordAlertController.addAction(submitAction)
-            masterPasswordAlertController.addAction(cancelAction)
-            
-            self.present(masterPasswordAlertController, animated: true)
-            
-        }
-        
-        
-    }
+
     
     @IBAction func showHearAboutDropdown(_ sender: Any) {
         
-        self.configure(hearAboutDropDown, dataSource: selectedLanguage.localeCode == "EN" ? englishHearAbouts : frenchHearAbouts, sourceView : sender as! UIView) {[weak self] (index, selectedHearAbout) in
-            self?.selectedHearAbout = selectedHearAbout
-            self?.hearAboutLabel.text = selectedHearAbout
-            self?.hearAboutLabel.textColor = UIColor(white: 0.0, alpha: 1.0)
+        self.configure(hearAboutDropDown, dataSource: selectedLanguage.localeCode == "EN" ? englishLanguagePreferences : frenchLanguagePreferences, sourceView : sender as! UIView) {[weak self] (index, selectedLanguagePreference) in
+            self?.selectedLanguagePreference = selectedLanguagePreference
+            self?.lblLanguagePreference.text = selectedLanguagePreference
+            self?.lblLanguagePreference.textColor = UIColor(white: 0.0, alpha: 1.0)
         }
     }
     
@@ -535,7 +360,7 @@ class CustomerSubscriptionViewController: UIViewController {
             self.view.endEditing(true)
             
             let subscriptionEntry = SubscriptionEntry.mr_createEntity()!
-            subscriptionEntry.copy(withFirstname: txtFirstName.text!, lastName: txtLastName.text!, email: txtEmail.text!, postalCode: "", trade: selectedTrade!, hearAbout: hearAboutLabel.text ?? "", language: selectedLanguage!, acceptsNewsLetter: acceptsNewsLetter, acceptsEmails: acceptsEmails, coordinates : LocationService.shared.getCurrentCoordinates() ?? (0.0, 0.0),isReceiveDistributorEmails: acceptsDistributorEmail)
+            subscriptionEntry.copy(withFirstname: txtFirstName.text!, lastName: txtLastName.text!, email: txtPostalCode.text!, postalCode: "", trade: selectedTrade!, hearAbout: lblLanguagePreference.text ?? "", language: selectedLanguage!, acceptsNewsLetter: acceptsNewsLetter, acceptsEmails: acceptsEmails, coordinates : LocationService.shared.getCurrentCoordinates() ?? (0.0, 0.0),isReceiveDistributorEmails: acceptsDistributorEmail)
             NSManagedObjectContext.mr_contextForCurrentThread().mr_saveToPersistentStoreAndWait()
             
             let successAlertController : UIAlertController
@@ -559,12 +384,7 @@ class CustomerSubscriptionViewController: UIViewController {
         }
         
     }
-    
-    @IBAction func contestRulesTapped(_ sender: Any) {
-        
-        
-    }
-    
+
     @IBAction func visitMilwaukeeSiteTapped(_ sender: Any) {
         
         let milwaukeeSiteViewController = SFSafariViewController(url: URL(string: "https://www.milwaukeetool.ca/")!)
@@ -595,19 +415,6 @@ class CustomerSubscriptionViewController: UIViewController {
         //            overlay.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         //            youtubeViewController.view.addSubview(overlay)
         //        }
-        
-    }
-    
-    private func showHearAboutView() {
-        let shouldShown = UserDefaults.standard.bool(forKey: Constant.UserDefaultKey.shouldShowHearedAbout)
-        if shouldShown {
-            hearAboutContainerView.isHidden = false
-            firstNameTopConstarint.constant = 20;
-        } else {
-            hearAboutContainerView.isHidden = true
-            firstNameTopConstarint.constant = 86;
-            
-        }
         
     }
     
@@ -645,13 +452,6 @@ extension CustomerSubscriptionViewController : BFPaperCheckboxDelegate {
         }
         
     }
-}
-
-extension CustomerSubscriptionViewController: WinnerSelectionViewControllerDelegate {
-    func changedSetting() {
-        self.showHearAboutView()
-    }
-    
 }
 
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import MBProgressHUD
 
 class QuestionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,6 +21,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     var completedQuestionsArray = [Question]()
     var randomIndexArray = [Int]()
 
+    var screenSaverPlayer = AVPlayerViewController()
+    var idleTimer : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
         self.getRandomQuestionFromAllQuestions()
-    
-        
+        self.addObservers()
     }
 
     // MARK: - Private Methods
@@ -67,11 +70,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.getRandomQuestionFromAllQuestions()
             }
         }
-        
-        
     }
-
-    
     
     // MARK: - Table view data source
     
@@ -404,7 +403,107 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    //MARK:- Screen saver related
     
+    func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleIdleDevice),
+                                               name: .appIsIdleOnQuestionaire,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleAppActivity),
+                                               name: .appDetectedUserTouch,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidReachEnd(notification:)),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: self.screenSaverPlayer.player?.currentItem)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(newScreenSaverUpdated),
+                                               name: .updatedScreenSaver,
+                                               object: nil)
+    }
+    
+    @objc func handleIdleDevice() {
+        
+        idleTimer = Timer.scheduledTimer(timeInterval: 20,
+                                         target: self,
+                                         selector: #selector(self.handleTimerForIdleDevice),
+                                         userInfo: nil,
+                                         repeats: false)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+    }
+    
+    @objc func handleTimerForIdleDevice() {
+        
+        idleTimer!.invalidate()
+        MBProgressHUD.hide(for: self.view, animated: true)
+        
+        SyncEngine.shared.startEngine()
+        
+        if let somePresentingController = self.presentedViewController {
+            somePresentingController.dismiss(animated: true) {
+                DispatchQueue.main.async {
+                    self.presentScreenSaver()
+                }
+            }
+        } else {
+            self.presentScreenSaver()
+        }
+    }
+    
+    @objc func handleAppActivity() {
+        
+        self.screenSaverPlayer.player?.pause()
+        self.screenSaverPlayer.player = nil
+        
+        if let somePresentingController = self.presentedViewController {
+            
+            if somePresentingController == screenSaverPlayer {
+                somePresentingController.dismiss(animated: false, completion: nil)
+            }
+        }
+        
+    }
+    
+    @objc func newScreenSaverUpdated() {
+        
+        if let _ = self.presentedViewController as? AVPlayerViewController {
+            _ = configureScreenSaverPlayer()
+        }
+    }
+    
+    func presentScreenSaver() {
+        
+        guard configureScreenSaverPlayer () else {
+            return
+        }
+        
+        self.present(screenSaverPlayer, animated: true) {
+            self.screenSaverPlayer.player?.play()
+        }
+    }
+    
+    func configureScreenSaverPlayer() -> Bool {
+        
+//        guard let url = ScreenSaver.getUrlForScreensaver() else { return false }
 
+        let url = URL.init(string: "https://www.youtube.com/watch?v=CD8PP8SHMPM")
+        screenSaverPlayer.player?.pause()
+        screenSaverPlayer.player = AVPlayer(url: url!)
+        screenSaverPlayer.videoGravity = AVLayerVideoGravity.resizeAspectFill.rawValue
+        screenSaverPlayer.entersFullScreenWhenPlaybackBegins = true
+        screenSaverPlayer.showsPlaybackControls = false
+        screenSaverPlayer.player?.play()
+        return true
+    }
+    
+    @objc func playerItemDidReachEnd(notification: NSNotification) {
+        self.screenSaverPlayer.player?.seek(to: kCMTimeZero)
+        self.screenSaverPlayer.player?.play()
+    }
 }
 

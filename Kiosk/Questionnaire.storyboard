@@ -400,14 +400,11 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfM-gs-j36" userLabel="Logo Overlay Button">
                                 <rect key="frame" x="125" y="44" width="518" height="236"/>
-                                <connections>
-                                    <action selector="logoTapped:" destination="xLQ-0Z-bd5" eventType="touchUpInside" id="0Tj-MT-Trh"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sh-Li-ySl">
                                 <rect key="frame" x="134" y="326" width="500" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background" translatesAutoresizingMaskIntoConstraints="NO" id="sPI-2E-bPf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background_white" translatesAutoresizingMaskIntoConstraints="NO" id="sPI-2E-bPf">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="FIRST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10E-8Y-LyE">
@@ -433,7 +430,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxS-vO-fz6">
                                 <rect key="frame" x="134" y="390" width="500" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background" translatesAutoresizingMaskIntoConstraints="NO" id="MhR-0C-Rmj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background_white" translatesAutoresizingMaskIntoConstraints="NO" id="MhR-0C-Rmj">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LAST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2u-A6-hSD">
@@ -457,10 +454,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-zu-XSc">
                                 <rect key="frame" x="134" y="454" width="500" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background" translatesAutoresizingMaskIntoConstraints="NO" id="fZT-3r-41n">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background_white" translatesAutoresizingMaskIntoConstraints="NO" id="fZT-3r-41n">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-MAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xS-PN-ebM">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="POSTAL CODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xS-PN-ebM">
                                         <rect key="frame" x="28" y="10" width="444" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -481,7 +478,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1A-IC-TjP">
                                 <rect key="frame" x="134" y="518" width="500" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background" translatesAutoresizingMaskIntoConstraints="NO" id="9Xq-aZ-zgd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background_white" translatesAutoresizingMaskIntoConstraints="NO" id="9Xq-aZ-zgd">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRADE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-DB-SXK">
@@ -519,11 +516,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xg5-Qj-Myy" userLabel="Heard About View">
                                 <rect key="frame" x="134" y="582" width="500" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background" translatesAutoresizingMaskIntoConstraints="NO" id="XUg-iH-DHb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_background_white" translatesAutoresizingMaskIntoConstraints="NO" id="XUg-iH-DHb">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Did You Hear About The Event?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXQ-HJ-7wm">
-                                        <rect key="frame" x="28" y="10.5" width="329.5" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LANGUAGE PREFERENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXQ-HJ-7wm">
+                                        <rect key="frame" x="28" y="10.5" width="244" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -578,9 +575,8 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I agree to receive Milwaukee Tools newsletter containing, news, updates, and promotions. You can unsubscribe at any time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwV-1u-SYm">
                                 <rect key="frame" x="170" y="644.5" width="464" height="33.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.53051593959999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9D-Lm-jA9">
@@ -604,13 +600,13 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-pO-9jU">
-                                        <rect key="frame" x="400" y="0.0" width="127" height="40"/>
+                                        <rect key="frame" x="468" y="0.0" width="59" height="40"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="CONTEST RULES">
+                                        <state key="normal" title="Youtube">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="contestRulesTapped:" destination="xLQ-0Z-bd5" eventType="touchUpInside" id="m4x-Ic-8Zq"/>
+                                            <action selector="youtubeTapped:" destination="xLQ-0Z-bd5" eventType="touchUpInside" id="inz-yp-7So"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -628,12 +624,6 @@
                                     <constraint firstItem="mTe-pO-9jU" firstAttribute="top" secondItem="K9D-Lm-jA9" secondAttribute="top" id="y00-sd-cNK"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By tapping submit, you agree to the contest rules" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64F-cg-HAQ">
-                                <rect key="frame" x="220" y="884" width="328.5" height="17"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6T-4i-f0f" userLabel="Selector View">
                                 <rect key="frame" x="28" y="934" width="50" height="50"/>
                                 <subviews>
@@ -729,7 +719,6 @@
                             <constraint firstItem="8Sh-Li-ySl" firstAttribute="top" secondItem="iGB-Ug-DhH" secondAttribute="bottom" constant="46" id="VrE-Mh-deT"/>
                             <constraint firstItem="tfM-gs-j36" firstAttribute="bottom" secondItem="iGB-Ug-DhH" secondAttribute="bottom" id="W4I-7B-Trm"/>
                             <constraint firstItem="S6T-4i-f0f" firstAttribute="leading" secondItem="fcI-Ty-Wl0" secondAttribute="leading" constant="28" id="WMZ-AX-eRU"/>
-                            <constraint firstItem="64F-cg-HAQ" firstAttribute="top" secondItem="VUh-8y-DU8" secondAttribute="bottom" constant="20" id="XKe-U8-6nb"/>
                             <constraint firstItem="cnY-rq-65m" firstAttribute="leading" secondItem="fcI-Ty-Wl0" secondAttribute="leading" id="cl8-Rp-uCu"/>
                             <constraint firstItem="K9D-Lm-jA9" firstAttribute="top" secondItem="YQK-lB-C0P" secondAttribute="bottom" id="dSe-K5-6GI"/>
                             <constraint firstItem="tfM-gs-j36" firstAttribute="top" secondItem="iGB-Ug-DhH" secondAttribute="top" id="dWS-Yz-xCF"/>
@@ -746,7 +735,6 @@
                             <constraint firstItem="xcV-uh-81y" firstAttribute="leading" secondItem="gsz-IL-fPR" secondAttribute="leading" id="jx5-1O-gzQ"/>
                             <constraint firstItem="S6T-4i-f0f" firstAttribute="height" secondItem="YQK-lB-C0P" secondAttribute="height" id="k8b-4Q-RxJ"/>
                             <constraint firstItem="VUh-8y-DU8" firstAttribute="centerX" secondItem="sPI-2E-bPf" secondAttribute="centerX" id="kkh-Gg-aaM"/>
-                            <constraint firstItem="64F-cg-HAQ" firstAttribute="centerX" secondItem="VUh-8y-DU8" secondAttribute="centerX" id="kw4-y2-GHk"/>
                             <constraint firstItem="iGB-Ug-DhH" firstAttribute="leading" secondItem="lb6-8X-PKe" secondAttribute="leading" constant="125" id="lwI-ht-3WN"/>
                             <constraint firstItem="K9D-Lm-jA9" firstAttribute="top" secondItem="VUh-8y-DU8" secondAttribute="bottom" constant="120" id="nEh-D3-O1G"/>
                             <constraint firstItem="U1A-IC-TjP" firstAttribute="width" secondItem="i6i-zu-XSc" secondAttribute="width" id="qXo-8U-WXG"/>
@@ -762,21 +750,18 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="btnContestRules" destination="mTe-pO-9jU" id="8J1-Nn-UVw"/>
                         <outlet property="btnEnglish" destination="5fI-bb-i4r" id="azj-gd-4hA"/>
                         <outlet property="btnFrench" destination="EUB-mk-h3e" id="dsu-0U-yml"/>
                         <outlet property="btnSubmit" destination="VUh-8y-DU8" id="tN3-Qh-cYx"/>
                         <outlet property="btnVisitMilwaukeeSite" destination="YRV-3J-Edu" id="YNC-rN-ov6"/>
                         <outlet property="firstNameTopConstarint" destination="VrE-Mh-deT" id="W63-eM-xrb"/>
-                        <outlet property="hearAboutContainerView" destination="Xg5-Qj-Myy" id="yVx-6i-Xrr"/>
-                        <outlet property="hearAboutLabel" destination="dXQ-HJ-7wm" id="Chy-4K-tkC"/>
                         <outlet property="languageSelectorView" destination="S6T-4i-f0f" id="nd5-Af-QdH"/>
-                        <outlet property="lblContestRules" destination="64F-cg-HAQ" id="FgE-fF-OwH"/>
+                        <outlet property="lblLanguagePreference" destination="dXQ-HJ-7wm" id="J4q-YC-LuC"/>
                         <outlet property="lblNewsLetterAgreement" destination="NwV-1u-SYm" id="0aF-jx-hek"/>
                         <outlet property="lblTrade" destination="8NU-DB-SXK" id="gwa-wq-XKt"/>
-                        <outlet property="txtEmail" destination="3xS-PN-ebM" id="GhM-je-0Tm"/>
                         <outlet property="txtFirstName" destination="10E-8Y-LyE" id="evv-P1-INd"/>
                         <outlet property="txtLastName" destination="Z2u-A6-hSD" id="sXS-Ur-D3w"/>
+                        <outlet property="txtPostalCode" destination="3xS-PN-ebM" id="w7l-lX-jia"/>
                         <outlet property="viewForNewsletterCheckbox" destination="xcV-uh-81y" id="Y98-vb-YBP"/>
                         <outlet property="xConstraintForSelectorView" destination="WMZ-AX-eRU" id="Y39-QW-Uah"/>
                     </connections>
@@ -792,6 +777,6 @@
         <image name="ic-unfilled-arrow-down" width="16" height="9"/>
         <image name="logo" width="1495" height="473"/>
         <image name="red_button_background" width="216.5" height="64.5"/>
-        <image name="textbox_background" width="565.5" height="70"/>
+        <image name="textbox_background_white" width="565.5" height="70"/>
     </resources>
 </document>

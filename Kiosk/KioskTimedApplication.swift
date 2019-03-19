@@ -14,7 +14,7 @@ extension Notification.Name {
     
     static let appIsIdle = Notification.Name("appTimeout")
     static let appDetectedUserTouch = Notification.Name("appDetectedUserTouch")
-    
+    static let appIsIdleOnQuestionaire = Notification.Name("appTimeoutForQuestionaire")
 }
 
 class KioskTimedApplication: UIApplication {
@@ -32,7 +32,14 @@ class KioskTimedApplication: UIApplication {
         return 5 * 60
     }
     
+    // the timeout in seconds for Questionaire, after which should perform custom actions
+    // such as disconnecting the user
+    private var timeoutForQuestionaireInSeconds: TimeInterval {
+        return 40
+    }
+    
     private var idleTimer: Timer?
+    private var idleTimerForQuestionaire: Timer?
     
     // resent the timer because there was user interaction
     private func resetIdleTimer() {
@@ -40,17 +47,31 @@ class KioskTimedApplication: UIApplication {
             idleTimer.invalidate()
         }
         
+        if let idleTimerForQuestionaire = idleTimerForQuestionaire {
+            idleTimerForQuestionaire.invalidate()
+        }
+        
         idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds,
                                          target: self,
                                          selector: #selector(KioskTimedApplication.timeHasExceeded),
                                          userInfo: nil,
-                                         repeats: false
-        )
+                                         repeats: false)
+            
+        idleTimerForQuestionaire = Timer.scheduledTimer(timeInterval: timeoutForQuestionaireInSeconds,
+                                             target: self,
+                                             selector: #selector(KioskTimedApplication.timeHasExceededForQuestionaire),
+                                             userInfo: nil,
+                                             repeats: false)
     }
     
     // if the timer reaches the limit as defined in timeoutInSeconds, post this notification
     @objc private func timeHasExceeded() {
         NotificationCenter.default.post(name: .appIsIdle, object: nil)
+    }
+    
+    // if the timer reaches the limit as defined in timeoutInSeconds, post this notification
+    @objc private func timeHasExceededForQuestionaire() {
+        NotificationCenter.default.post(name: .appIsIdleOnQuestionaire, object: nil)
     }
     
     override func sendEvent(_ event: UIEvent) {
