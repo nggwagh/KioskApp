@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F7-MM-mrd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B4I-QP-oP9">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Enter Now View Controller-->
         <scene sceneID="8De-ch-RmG">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="5F7-MM-mrd" customClass="EnterNowViewController" customModule="Kiosk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterNowViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5F7-MM-mrd" customClass="EnterNowViewController" customModule="Kiosk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lsN-lr-9TL">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,12 +129,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5F7-MM-mrd" kind="relationship" relationship="rootViewController" id="95t-fn-qUa"/>
+                        <segue destination="5F7-MM-mrd" kind="relationship" relationship="rootViewController" id="eic-qy-hzb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPC-DZ-d0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452.34375" y="15.234374999999998"/>
+            <point key="canvasLocation" x="-631" y="15"/>
         </scene>
         <!--Thanks View Controller-->
         <scene sceneID="OTe-wG-flQ">

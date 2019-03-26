@@ -246,6 +246,7 @@
 		52D96382223E9FC50077FD24 /* Questionnaire */ = {
 			isa = PBXGroup;
 			children = (
+				52D96380223E98480077FD24 /* Questionnaire.storyboard */,
 				52D9638A223EA05D0077FD24 /* Question.swift */,
 				52D96383223E9FFA0077FD24 /* CustomCell */,
 				52D9638E223EA1690077FD24 /* EnterNowViewController.swift */,
@@ -395,7 +396,6 @@
 				77B8BFE420832DD00086107E /* LaunchScreen.storyboard */,
 				77B8BFE720832DD00086107E /* Info.plist */,
 				77B8BFDF20832DD00086107E /* Kiosk.xcdatamodeld */,
-				52D96380223E98480077FD24 /* Questionnaire.storyboard */,
 			);
 			path = Kiosk;
 			sourceTree = "<group>";

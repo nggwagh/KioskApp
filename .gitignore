@@ -1,0 +1,399 @@
+
+Pods/Target Support Files/SAMKeychain/SAMKeychain.xcconfig
+Pods/Target Support Files/SAMKeychain/SAMKeychain.modulemap
+Pods/Target Support Files/SAMKeychain/SAMKeychain-umbrella.h
+Pods/Target Support Files/SAMKeychain/SAMKeychain-prefix.pch
+Pods/Target Support Files/SAMKeychain/SAMKeychain-dummy.m
+Pods/Target Support Files/SAMKeychain/Info.plist
+Pods/Target Support Files/RxSwift/RxSwift.xcconfig
+Pods/Target Support Files/RxSwift/RxSwift.modulemap
+Pods/Target Support Files/RxSwift/RxSwift-umbrella.h
+Pods/Target Support Files/RxSwift/RxSwift-prefix.pch
+Pods/Target Support Files/RxSwift/RxSwift-dummy.m
+Pods/Target Support Files/RxSwift/Info.plist
+Pods/Target Support Files/RxAtomic/RxAtomic.xcconfig
+Pods/Target Support Files/RxAtomic/RxAtomic.modulemap
+Pods/Target Support Files/RxAtomic/RxAtomic-umbrella.h
+Pods/Target Support Files/RxAtomic/RxAtomic-prefix.pch
+Pods/Target Support Files/RxAtomic/RxAtomic-dummy.m
+Pods/Target Support Files/RxAtomic/Info.plist
+Pods/Target Support Files/RxAlamofire/RxAlamofire.xcconfig
+Pods/Target Support Files/RxAlamofire/RxAlamofire.modulemap
+Pods/Target Support Files/RxAlamofire/RxAlamofire-umbrella.h
+Pods/Target Support Files/RxAlamofire/RxAlamofire-prefix.pch
+Pods/Target Support Files/RxAlamofire/RxAlamofire-dummy.m
+Pods/Target Support Files/RxAlamofire/Info.plist
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests.release.xcconfig
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests.modulemap
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests.debug.xcconfig
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-umbrella.h
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-resources.sh
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-frameworks.sh
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-dummy.m
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-acknowledgements.plist
+Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests-acknowledgements.markdown
+Pods/Target Support Files/Pods-KioskUITests/Info.plist
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.release.xcconfig
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.modulemap
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.debug.xcconfig
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-umbrella.h
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-resources.sh
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-frameworks.sh
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-dummy.m
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-acknowledgements.plist
+Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests-acknowledgements.markdown
+Pods/Target Support Files/Pods-KioskTests/Info.plist
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.release.xcconfig
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.modulemap
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.debug.xcconfig
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-umbrella.h
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-resources.sh
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-frameworks.sh
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-dummy.m
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-acknowledgements.plist
+Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-acknowledgements.markdown
+Pods/Target Support Files/Pods-Kiosk/Info.plist
+Pods/Target Support Files/MagicalRecord/MagicalRecord.xcconfig
+Pods/Target Support Files/MagicalRecord/MagicalRecord.modulemap
+Pods/Target Support Files/MagicalRecord/MagicalRecord-umbrella.h
+Pods/Target Support Files/MagicalRecord/MagicalRecord-prefix.pch
+Pods/Target Support Files/MagicalRecord/MagicalRecord-dummy.m
+Pods/Target Support Files/MagicalRecord/Info.plist
+Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.xcconfig
+Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.modulemap
+Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h
+Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-prefix.pch
+Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-dummy.m
+Pods/Target Support Files/IQKeyboardManagerSwift/Info.plist
+Pods/Target Support Files/DropDown/Info.plist
+Pods/Target Support Files/DropDown/DropDown.xcconfig
+Pods/Target Support Files/DropDown/DropDown.modulemap
+Pods/Target Support Files/DropDown/DropDown-umbrella.h
+Pods/Target Support Files/DropDown/DropDown-prefix.pch
+Pods/Target Support Files/DropDown/DropDown-dummy.m
+Pods/Target Support Files/BFPaperCheckbox/Info.plist
+Pods/Target Support Files/BFPaperCheckbox/BFPaperCheckbox.xcconfig
+Pods/Target Support Files/BFPaperCheckbox/BFPaperCheckbox.modulemap
+Pods/Target Support Files/BFPaperCheckbox/BFPaperCheckbox-umbrella.h
+Pods/Target Support Files/BFPaperCheckbox/BFPaperCheckbox-prefix.pch
+Pods/Target Support Files/BFPaperCheckbox/BFPaperCheckbox-dummy.m
+Pods/Target Support Files/Alamofire/Info.plist
+Pods/Target Support Files/Alamofire/Alamofire.xcconfig
+Pods/Target Support Files/Alamofire/Alamofire.modulemap
+Pods/Target Support Files/Alamofire/Alamofire-umbrella.h
+Pods/Target Support Files/Alamofire/Alamofire-prefix.pch
+Pods/Target Support Files/Alamofire/Alamofire-dummy.m
+Pods/SAMKeychain/Support/SAMKeychain.bundle/en.lproj/SAMKeychain.strings
+Pods/SAMKeychain/Sources/SAMKeychainQuery.m
+Pods/SAMKeychain/Sources/SAMKeychainQuery.h
+Pods/SAMKeychain/Sources/SAMKeychain.m
+Pods/SAMKeychain/Sources/SAMKeychain.h
+Pods/SAMKeychain/Readme.markdown
+Pods/SAMKeychain/LICENSE
+Pods/RxSwift/RxSwift/Traits/Single.swift
+Pods/RxSwift/RxSwift/Traits/PrimitiveSequence.swift
+Pods/RxSwift/RxSwift/Traits/PrimitiveSequence+Zip+arity.swift
+Pods/RxSwift/RxSwift/Traits/ObservableType+PrimitiveSequence.swift
+Pods/RxSwift/RxSwift/Traits/Maybe.swift
+Pods/RxSwift/RxSwift/Traits/Completable.swift
+Pods/RxSwift/RxSwift/Traits/Completable+AndThen.swift
+Pods/RxSwift/RxSwift/SwiftSupport/SwiftSupport.swift
+Pods/RxSwift/RxSwift/Subjects/SubjectType.swift
+Pods/RxSwift/RxSwift/Subjects/ReplaySubject.swift
+Pods/RxSwift/RxSwift/Subjects/PublishSubject.swift
+Pods/RxSwift/RxSwift/Subjects/BehaviorSubject.swift
+Pods/RxSwift/RxSwift/Subjects/AsyncSubject.swift
+Pods/RxSwift/RxSwift/SchedulerType.swift
+Pods/RxSwift/RxSwift/Schedulers/VirtualTimeScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/VirtualTimeConverterType.swift
+Pods/RxSwift/RxSwift/Schedulers/SerialDispatchQueueScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/SchedulerServices+Emulation.swift
+Pods/RxSwift/RxSwift/Schedulers/RecursiveScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/OperationQueueScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/MainScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/Internal/ScheduledItemType.swift
+Pods/RxSwift/RxSwift/Schedulers/Internal/ScheduledItem.swift
+Pods/RxSwift/RxSwift/Schedulers/Internal/InvocableType.swift
+Pods/RxSwift/RxSwift/Schedulers/Internal/InvocableScheduledItem.swift
+Pods/RxSwift/RxSwift/Schedulers/Internal/DispatchQueueConfiguration.swift
+Pods/RxSwift/RxSwift/Schedulers/HistoricalSchedulerTimeConverter.swift
+Pods/RxSwift/RxSwift/Schedulers/HistoricalScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/CurrentThreadScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/ConcurrentMainScheduler.swift
+Pods/RxSwift/RxSwift/Schedulers/ConcurrentDispatchQueueScheduler.swift
+Pods/RxSwift/RxSwift/RxMutableBox.swift
+Pods/RxSwift/RxSwift/Rx.swift
+Pods/RxSwift/RxSwift/Reactive.swift
+Pods/RxSwift/RxSwift/ObserverType.swift
+Pods/RxSwift/RxSwift/Observers/TailRecursiveSink.swift
+Pods/RxSwift/RxSwift/Observers/ObserverBase.swift
+Pods/RxSwift/RxSwift/Observers/AnonymousObserver.swift
+Pods/RxSwift/RxSwift/ObservableType.swift
+Pods/RxSwift/RxSwift/ObservableType+Extensions.swift
+Pods/RxSwift/RxSwift/Observables/Zip.swift
+Pods/RxSwift/RxSwift/Observables/Zip+Collection.swift
+Pods/RxSwift/RxSwift/Observables/Zip+arity.swift
+Pods/RxSwift/RxSwift/Observables/WithLatestFrom.swift
+Pods/RxSwift/RxSwift/Observables/Window.swift
+Pods/RxSwift/RxSwift/Observables/Using.swift
+Pods/RxSwift/RxSwift/Observables/ToArray.swift
+Pods/RxSwift/RxSwift/Observables/Timer.swift
+Pods/RxSwift/RxSwift/Observables/Timeout.swift
+Pods/RxSwift/RxSwift/Observables/Throttle.swift
+Pods/RxSwift/RxSwift/Observables/TakeWhile.swift
+Pods/RxSwift/RxSwift/Observables/TakeUntil.swift
+Pods/RxSwift/RxSwift/Observables/TakeLast.swift
+Pods/RxSwift/RxSwift/Observables/Take.swift
+Pods/RxSwift/RxSwift/Observables/SwitchIfEmpty.swift
+Pods/RxSwift/RxSwift/Observables/Switch.swift
+Pods/RxSwift/RxSwift/Observables/SubscribeOn.swift
+Pods/RxSwift/RxSwift/Observables/StartWith.swift
+Pods/RxSwift/RxSwift/Observables/SkipWhile.swift
+Pods/RxSwift/RxSwift/Observables/SkipUntil.swift
+Pods/RxSwift/RxSwift/Observables/Skip.swift
+Pods/RxSwift/RxSwift/Observables/Sink.swift
+Pods/RxSwift/RxSwift/Observables/SingleAsync.swift
+Pods/RxSwift/RxSwift/Observables/ShareReplayScope.swift
+Pods/RxSwift/RxSwift/Observables/Sequence.swift
+Pods/RxSwift/RxSwift/Observables/Scan.swift
+Pods/RxSwift/RxSwift/Observables/Sample.swift
+Pods/RxSwift/RxSwift/Observables/RetryWhen.swift
+Pods/RxSwift/RxSwift/Observables/Repeat.swift
+Pods/RxSwift/RxSwift/Observables/Reduce.swift
+Pods/RxSwift/RxSwift/Observables/Range.swift
+Pods/RxSwift/RxSwift/Observables/Producer.swift
+Pods/RxSwift/RxSwift/Observables/Optional.swift
+Pods/RxSwift/RxSwift/Observables/ObserveOn.swift
+Pods/RxSwift/RxSwift/Observables/Never.swift
+Pods/RxSwift/RxSwift/Observables/Multicast.swift
+Pods/RxSwift/RxSwift/Observables/Merge.swift
+Pods/RxSwift/RxSwift/Observables/Materialize.swift
+Pods/RxSwift/RxSwift/Observables/Map.swift
+Pods/RxSwift/RxSwift/Observables/Just.swift
+Pods/RxSwift/RxSwift/Observables/GroupBy.swift
+Pods/RxSwift/RxSwift/Observables/Generate.swift
+Pods/RxSwift/RxSwift/Observables/First.swift
+Pods/RxSwift/RxSwift/Observables/Filter.swift
+Pods/RxSwift/RxSwift/Observables/Error.swift
+Pods/RxSwift/RxSwift/Observables/Enumerated.swift
+Pods/RxSwift/RxSwift/Observables/Empty.swift
+Pods/RxSwift/RxSwift/Observables/ElementAt.swift
+Pods/RxSwift/RxSwift/Observables/Do.swift
+Pods/RxSwift/RxSwift/Observables/DistinctUntilChanged.swift
+Pods/RxSwift/RxSwift/Observables/Dematerialize.swift
+Pods/RxSwift/RxSwift/Observables/DelaySubscription.swift
+Pods/RxSwift/RxSwift/Observables/Delay.swift
+Pods/RxSwift/RxSwift/Observables/Deferred.swift
+Pods/RxSwift/RxSwift/Observables/DefaultIfEmpty.swift
+Pods/RxSwift/RxSwift/Observables/Debug.swift
+Pods/RxSwift/RxSwift/Observables/Debounce.swift
+Pods/RxSwift/RxSwift/Observables/Create.swift
+Pods/RxSwift/RxSwift/Observables/Concat.swift
+Pods/RxSwift/RxSwift/Observables/CombineLatest.swift
+Pods/RxSwift/RxSwift/Observables/CombineLatest+Collection.swift
+Pods/RxSwift/RxSwift/Observables/CombineLatest+arity.swift
+Pods/RxSwift/RxSwift/Observables/Catch.swift
+Pods/RxSwift/RxSwift/Observables/Buffer.swift
+Pods/RxSwift/RxSwift/Observables/AsSingle.swift
+Pods/RxSwift/RxSwift/Observables/AsMaybe.swift
+Pods/RxSwift/RxSwift/Observables/Amb.swift
+Pods/RxSwift/RxSwift/Observables/AddRef.swift
+Pods/RxSwift/RxSwift/ObservableConvertibleType.swift
+Pods/RxSwift/RxSwift/Observable.swift
+Pods/RxSwift/RxSwift/ImmediateSchedulerType.swift
+Pods/RxSwift/RxSwift/GroupedObservable.swift
+Pods/RxSwift/RxSwift/Extensions/String+Rx.swift
+Pods/RxSwift/RxSwift/Extensions/Bag+Rx.swift
+Pods/RxSwift/RxSwift/Event.swift
+Pods/RxSwift/RxSwift/Errors.swift
+Pods/RxSwift/RxSwift/Disposables/SubscriptionDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/SingleAssignmentDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/SerialDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/ScheduledDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/RefCountDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/NopDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/DisposeBase.swift
+Pods/RxSwift/RxSwift/Disposables/DisposeBag.swift
+Pods/RxSwift/RxSwift/Disposables/Disposables.swift
+Pods/RxSwift/RxSwift/Disposables/CompositeDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/BooleanDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/BinaryDisposable.swift
+Pods/RxSwift/RxSwift/Disposables/AnonymousDisposable.swift
+Pods/RxSwift/RxSwift/Disposable.swift
+Pods/RxSwift/RxSwift/Deprecated.swift
+Pods/RxSwift/RxSwift/ConnectableObservableType.swift
+Pods/RxSwift/RxSwift/Concurrency/SynchronizedUnsubscribeType.swift
+Pods/RxSwift/RxSwift/Concurrency/SynchronizedOnType.swift
+Pods/RxSwift/RxSwift/Concurrency/SynchronizedDisposeType.swift
+Pods/RxSwift/RxSwift/Concurrency/LockOwnerType.swift
+Pods/RxSwift/RxSwift/Concurrency/Lock.swift
+Pods/RxSwift/RxSwift/Concurrency/AsyncLock.swift
+Pods/RxSwift/RxSwift/Cancelable.swift
+Pods/RxSwift/RxSwift/AnyObserver.swift
+Pods/RxSwift/README.md
+Pods/RxSwift/Platform/RecursiveLock.swift
+Pods/RxSwift/Platform/Platform.Linux.swift
+Pods/RxSwift/Platform/Platform.Darwin.swift
+Pods/RxSwift/Platform/DispatchQueue+Extensions.swift
+Pods/RxSwift/Platform/DeprecationWarner.swift
+Pods/RxSwift/Platform/DataStructures/Queue.swift
+Pods/RxSwift/Platform/DataStructures/PriorityQueue.swift
+Pods/RxSwift/Platform/DataStructures/InfiniteSequence.swift
+Pods/RxSwift/Platform/DataStructures/Bag.swift
+Pods/RxSwift/Platform/AtomicInt.swift
+Pods/RxSwift/LICENSE.md
+Pods/RxAtomic/RxAtomic/RxAtomic.c
+Pods/RxAtomic/RxAtomic/include/RxAtomic.h
+Pods/RxAtomic/README.md
+Pods/RxAtomic/LICENSE.md
+Pods/RxAlamofire/Sources/RxAlamofire.swift
+Pods/RxAlamofire/README.md
+Pods/RxAlamofire/LICENSE.md
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/SAMKeychain.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/RxSwift.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/RxAtomic.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/RxAlamofire.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/Pods-KioskUITests.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/Pods-KioskTests.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/Pods-Kiosk.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/MagicalRecord.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/IQKeyboardManagerSwift.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/DropDown.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/BFPaperCheckbox.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/Alamofire.xcscheme
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Manifest.lock
+Pods/MagicalRecord/README.md
+Pods/MagicalRecord/MagicalRecord/MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordXcode7CompatibilityMacros.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordLogging.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordInternal.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordInternal.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecordDeprecationMacros.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ShorthandMethods.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ShorthandMethods.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Setup.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Setup.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Options.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Options.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+iCloud.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+iCloud.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ErrorHandling.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+ErrorHandling.h
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Actions.m
+Pods/MagicalRecord/MagicalRecord/Core/MagicalRecord+Actions.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStoreCoordinator+MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStore+MagicalRecord.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSPersistentStore+MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectModel+MagicalRecord.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectModel+MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalThreading.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalThreading.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalSaves.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalSaves.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalRecord.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalObserving.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalObserving.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalChainSave.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObjectContext/NSManagedObjectContext+MagicalChainSave.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRequests.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRequests.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRecord.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalRecord.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalFinders.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalFinders.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalAggregation.m
+Pods/MagicalRecord/MagicalRecord/Categories/NSManagedObject/NSManagedObject+MagicalAggregation.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSString+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSString+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSRelationshipDescription+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSRelationshipDescription+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSObject+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSObject+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSNumber+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSNumber+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSEntityDescription+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSEntityDescription+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSAttributeDescription+MagicalDataImport.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/NSAttributeDescription+MagicalDataImport.h
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/MagicalImportFunctions.m
+Pods/MagicalRecord/MagicalRecord/Categories/DataImport/MagicalImportFunctions.h
+Pods/MagicalRecord/LICENSE
+Pods/IQKeyboardManagerSwift/README.md
+Pods/IQKeyboardManagerSwift/LICENSE.md
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowUp@3x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowUp@2x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowRight@3x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowRight@2x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowLeft@3x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowLeft@2x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowDown@3x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle/IQButtonBarArrowDown@2x.png
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQInvocation.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQTextView/IQTextView.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/IQKeyboardManager.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift
+Pods/IQKeyboardManagerSwift/IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift
+Pods/DropDown/README.md
+Pods/DropDown/LICENSE
+Pods/DropDown/DropDown/src/DropDownCell.swift
+Pods/DropDown/DropDown/src/DropDown.swift
+Pods/DropDown/DropDown/src/DropDown+Appearance.swift
+Pods/DropDown/DropDown/resources/DropDownCell.xib
+Pods/DropDown/DropDown/helpers/DPDUIView+Extension.swift
+Pods/DropDown/DropDown/helpers/DPDKeyboardListener.swift
+Pods/DropDown/DropDown/helpers/DPDConstants.swift
+Pods/BFPaperCheckbox/README.md
+Pods/BFPaperCheckbox/LICENSE.md
+Pods/BFPaperCheckbox/Classes/BFPaperCheckbox.m
+Pods/BFPaperCheckbox/Classes/BFPaperCheckbox.h
+Pods/Alamofire/Source/Validation.swift
+Pods/Alamofire/Source/Timeline.swift
+Pods/Alamofire/Source/TaskDelegate.swift
+Pods/Alamofire/Source/SessionManager.swift
+Pods/Alamofire/Source/SessionDelegate.swift
+Pods/Alamofire/Source/ServerTrustPolicy.swift
+Pods/Alamofire/Source/Result.swift
+Pods/Alamofire/Source/ResponseSerialization.swift
+Pods/Alamofire/Source/Response.swift
+Pods/Alamofire/Source/Request.swift
+Pods/Alamofire/Source/ParameterEncoding.swift
+Pods/Alamofire/Source/Notifications.swift
+Pods/Alamofire/Source/NetworkReachabilityManager.swift
+Pods/Alamofire/Source/MultipartFormData.swift
+Pods/Alamofire/Source/DispatchQueue+Alamofire.swift
+Pods/Alamofire/Source/Alamofire.swift
+Pods/Alamofire/Source/AFError.swift
+Pods/Alamofire/README.md
+Pods/Alamofire/LICENSE
+Podfile.lock
+Kiosk.xcworkspace/xcuserdata/mohinimehetre.xcuserdatad/UserInterfaceState.xcuserstate
+Kiosk.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/xcschememanagement.plist
+Podfile
+Pods/MBProgressHUD/LICENSE
+Pods/MBProgressHUD/MBProgressHUD.h
+Pods/MBProgressHUD/MBProgressHUD.m
+Pods/MBProgressHUD/README.mdown
+Pods/Pods.xcodeproj/xcuserdata/mohinimehetre.xcuserdatad/xcschemes/MBProgressHUD.xcscheme
+Pods/Target Support Files/MBProgressHUD/Info.plist
+Pods/Target Support Files/MBProgressHUD/MBProgressHUD-dummy.m
+Pods/Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch
+Pods/Target Support Files/MBProgressHUD/MBProgressHUD-umbrella.h
+Pods/Target Support Files/MBProgressHUD/MBProgressHUD.modulemap
+Pods/Target Support Files/MBProgressHUD/MBProgressHUD.xcconfig

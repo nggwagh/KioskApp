@@ -14,9 +14,15 @@ class ThanksViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
     }
     
-
+    // MARK: - Private Methods
+    
+    @objc func navigateToEnterNowScreen() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
