@@ -163,7 +163,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             }, completion: { finished in
                 UIView.animate(withDuration: 3.0, animations: {
                     
-                    radioAnswerCell.trueButton.setImage(UIImage(named: "FalseGrey"), for: .normal)
+                    radioAnswerCell.trueButton.setImage(UIImage(named: "TrueGrey"), for: .normal)
             //     radioAnswerCell.trueButton.isUserInteractionEnabled = false
                 })
             })
