@@ -19,44 +19,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuesionaireBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8KB-xI-9yh">
-                                <rect key="frame" x="0.0" y="50" width="768" height="974"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRP-qa-HNF">
-                                <rect key="frame" x="49" y="72" width="670" height="950"/>
+                                <rect key="frame" x="49" y="47" width="670" height="950"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Milwaukee_logo_tagline" translatesAutoresizingMaskIntoConstraints="NO" id="gMS-ha-co5">
                                         <rect key="frame" x="100" y="15" width="470" height="236"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpR-7W-REg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="55" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpR-7W-REg">
                                         <rect key="frame" x="0.0" y="266" width="670" height="518"/>
                                         <attributedString key="attributedText">
                                             <fragment content="START NOW TO GET YOUR">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="80" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content=" ">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="90" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="FREE">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="120" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="           ">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="90" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="MILWAUKEE PRODUCT">
@@ -64,7 +64,7 @@
                                                     <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="80" name="Georgia-Bold"/>
                                                     <font key="NSOriginalFont" size="80" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -96,6 +96,7 @@
                                     <constraint firstAttribute="trailing" secondItem="CpR-7W-REg" secondAttribute="trailing" id="RiW-dl-Lbh"/>
                                     <constraint firstItem="CpR-7W-REg" firstAttribute="top" secondItem="gMS-ha-co5" secondAttribute="bottom" constant="15" id="Vdf-Lq-mYb"/>
                                     <constraint firstItem="gMS-ha-co5" firstAttribute="leading" secondItem="PRP-qa-HNF" secondAttribute="leading" constant="100" id="lgk-Ux-OaF"/>
+                                    <constraint firstItem="q7V-up-c4N" firstAttribute="top" secondItem="CpR-7W-REg" secondAttribute="bottom" constant="81" id="nog-5C-TRr"/>
                                     <constraint firstAttribute="height" constant="950" id="sYF-eQ-vxg"/>
                                     <constraint firstItem="gMS-ha-co5" firstAttribute="top" secondItem="PRP-qa-HNF" secondAttribute="top" constant="15" id="uNy-8R-rAd"/>
                                 </constraints>
@@ -113,6 +114,10 @@
                         <viewLayoutGuide key="safeArea" id="Mkd-jl-cbz"/>
                     </view>
                     <navigationItem key="navigationItem" id="MQz-Rl-M6S"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="CpR-7W-REg" id="2JU-4A-ofe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqA-Te-0At" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,10 +126,10 @@
         <!--Navigation Controller-->
         <scene sceneID="JkM-JL-KZo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4I-QP-oP9" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="B4I-QP-oP9" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ChA-ZN-teY">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
