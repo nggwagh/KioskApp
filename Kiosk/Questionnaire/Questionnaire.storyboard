@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B4I-QP-oP9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F7-MM-mrd">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -71,16 +71,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-up-c4N">
-                                        <rect key="frame" x="235" y="865" width="200" height="60"/>
+                                        <rect key="frame" x="210" y="865" width="250" height="60"/>
                                         <color key="backgroundColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JCU-en-JYn"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="alw-bF-ns3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="alw-bF-ns3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
-                                        <state key="normal" title="Enter Now">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                        <state key="normal" title="ENTER NOW">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="xLQ-0Z-bd5" kind="show" id="v6c-JU-5RL"/>
                                         </connections>
@@ -116,6 +121,7 @@
                     <navigationItem key="navigationItem" id="MQz-Rl-M6S"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="enterNowButton" destination="q7V-up-c4N" id="hcj-ta-NRn"/>
                         <outlet property="infoLabel" destination="CpR-7W-REg" id="2JU-4A-ofe"/>
                     </connections>
                 </viewController>
@@ -159,21 +165,21 @@
                                         <rect key="frame" x="100" y="15" width="470" height="236"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTp-p3-CuE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="55" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTp-p3-CuE">
                                         <rect key="frame" x="0.0" y="266" width="670" height="637.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="THANK      YOU     ">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="110" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="PLEASE SEE THE         ">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="0.015686274510000001" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="66" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="MILWAUKEE">
@@ -181,14 +187,14 @@
                                                     <color key="NSColor" red="1" green="0.015686274510000001" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="66" name="Georgia-Bold"/>
                                                     <font key="NSOriginalFont" size="80" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content=" REPRESENTATIVE TO CLAIM YOUR GOOD">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="0.015686274510000001" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="66" name="Georgia-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -201,6 +207,7 @@
                                     <constraint firstItem="Nm4-xH-jAk" firstAttribute="top" secondItem="7vq-MC-i1p" secondAttribute="top" constant="15" id="6BE-Fh-hxv"/>
                                     <constraint firstAttribute="width" constant="670" id="7rj-tf-uHr"/>
                                     <constraint firstItem="tTp-p3-CuE" firstAttribute="top" secondItem="Nm4-xH-jAk" secondAttribute="bottom" constant="15" id="8nm-Qz-Ica"/>
+                                    <constraint firstAttribute="bottom" secondItem="tTp-p3-CuE" secondAttribute="bottom" constant="46.5" id="Cgz-Bm-sUK"/>
                                     <constraint firstItem="Nm4-xH-jAk" firstAttribute="leading" secondItem="7vq-MC-i1p" secondAttribute="leading" constant="100" id="FLp-9r-FLE"/>
                                     <constraint firstAttribute="trailing" secondItem="Nm4-xH-jAk" secondAttribute="trailing" constant="100" id="T0a-rR-9eI"/>
                                     <constraint firstItem="tTp-p3-CuE" firstAttribute="leading" secondItem="7vq-MC-i1p" secondAttribute="leading" id="Ysz-1E-mdi"/>
@@ -220,6 +227,9 @@
                         <viewLayoutGuide key="safeArea" id="iCZ-i7-VV3"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="tTp-p3-CuE" id="8MD-tb-YwR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNA-Mt-MYu" sceneMemberID="firstResponder"/>
             </objects>

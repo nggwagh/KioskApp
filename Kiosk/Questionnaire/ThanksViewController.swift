@@ -10,14 +10,39 @@ import UIKit
 
 class ThanksViewController: UIViewController {
 
+    @IBOutlet weak var infoLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
          Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
+        
+        self.initializeView()
     }
     
     // MARK: - Private Methods
+    func initializeView() {
+        let isFrenchSelected = true
+        if (isFrenchSelected) {
+            let frenchString: String = "MERCI \n SIIL VOUS PLATT VOIR LE REPRÉSENTANT DE MILWAUKEE POUR RÉCLAMER VOTRE BON"
+            let attributeText_french = NSMutableAttributedString.init(string: frenchString)
+            attributeText_french.addAttribute(.foregroundColor, value: UIColor.red,
+                                              range: NSMakeRange(0, attributeText_french.length))
+            attributeText_french.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 75.0)!, range: NSMakeRange(0, attributeText_french.length))
+
+            frenchString.enumerateSubstrings(in: frenchString.startIndex..<frenchString.endIndex, options: .byWords) {
+                (substring, substringRange, _, _) in
+                if substring == "MERCI" {
+                    attributeText_french.addAttribute(.foregroundColor, value: UIColor.black,
+                                                      range: NSRange(substringRange, in: frenchString))
+                    
+                    attributeText_french.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 120.0)!, range: NSRange(substringRange, in: frenchString))
+                }
+            }
+            infoLabel.attributedText = attributeText_french
+        }
+    }
     
     @objc func navigateToEnterNowScreen() {
         self.navigationController?.popToRootViewController(animated: true)

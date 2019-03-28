@@ -11,7 +11,8 @@ import UIKit
 class EnterNowViewController: UIViewController {
     
     @IBOutlet weak var infoLabel: UILabel!
-    
+    @IBOutlet weak var enterNowButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,17 +24,23 @@ class EnterNowViewController: UIViewController {
     func initializeView() {
         let isFrenchSelected = true
         if (isFrenchSelected) {
-            let frenchString: String = "COMMENCEZ MAINTENANT POUR OBTENIR VOTRE PRODUIT GRATUIT MILWAUKEE"
+            
+            let frenchString: String = "COMMENCEZ DÉS MAINTENANT POUR OBTENIR VOTRE PRODUIT MILWAUKEE GRATUIT"
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
             
             frenchString.enumerateSubstrings(in: frenchString.startIndex..<frenchString.endIndex, options: .byWords) {
                 (substring, substringRange, _, _) in
-                if substring == "MILWAUKEE" {
+                if substring == "GRATUIT" {
                     attributeText_french.addAttribute(.foregroundColor, value: UIColor.black,
+                                                      range: NSRange(substringRange, in: frenchString))
+                    
+                    attributeText_french.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 110.0)!,
                                                       range: NSRange(substringRange, in: frenchString))
                 }
             }
             infoLabel.attributedText = attributeText_french
+            
+            enterNowButton.setTitle("   ENTRE MAINTENANT   ", for: UIControlState.normal)
         }
     }
     
