@@ -13,7 +13,8 @@ import RxSwift
 
 class KioskNetworkManager {
     
-    static let serverUrl = "https://www.hdccontacts.com"
+ // static let serverUrl = "https://www.hdccontacts.com" //PROD
+    static let serverUrl = "https://test.hdccontacts.com" // DEV
     static let devUrl = ""
     static let liveUrl = serverUrl + "/api/v1/"
     static let baseURL = liveUrl
