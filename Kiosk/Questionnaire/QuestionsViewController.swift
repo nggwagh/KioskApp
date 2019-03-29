@@ -48,7 +48,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         //Show progress hud
         self.showHUD(progressLabel: "")
         
-        KioskNetworkManager.shared.getQuestions(for: 1) { (responseJson) in
+        KioskNetworkManager.shared.getQuestions(surveyId: 1) { (responseJson) in
             
             // hiding progress hud
             self.dismissHUD(isAnimated: true)
@@ -91,6 +91,24 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.getRandomQuestionFromAllQuestions()
             }
         }
+    }
+    
+    @objc func updateTime(){
+        
+        self.timerLabel.text = String(format: "%d", Int(self.timerLabel.text!)! - 1)
+        
+    }
+    
+    func invalidateAllTimers(){
+        
+        if ((countDownTimer != nil) && (idleTimer != nil)) {
+            
+            countDownTimer!.invalidate()
+            idleTimer!.invalidate()
+            self.timerLabel.isHidden = true
+            self.timerLabel.text = "20"
+        }
+       
     }
     
     // MARK: - Table view data source
@@ -315,6 +333,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        self.invalidateAllTimers()
+        
         var question = self.questionsArray[indexPath.section]
         
         if (question.questionType == "Single") {
@@ -361,6 +381,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func trueButtonAction(sender: UIButton) {
         
+        self.invalidateAllTimers()
+
         var question = self.questionsArray[sender.tag]
         
         if (question.correctAnswer == "True") {
@@ -397,6 +419,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func falseButtonAction(sender: UIButton) {
         
+        self.invalidateAllTimers()
+
         var question = self.questionsArray[sender.tag]
         
         if (question.correctAnswer == "False") {
@@ -472,18 +496,10 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
-    @objc func updateTime(){
-        
-    self.timerLabel.text = String(format: "%d", Int(self.timerLabel.text!)! - 1)
-        
-    }
     
     @objc func handleTimerForIdleDevice() {
         
-        countDownTimer!.invalidate()
-        idleTimer!.invalidate()
-        self.timerLabel.isHidden = true
-        self.timerLabel.text = "20"
+       self.invalidateAllTimers()
 
         SyncEngine.shared.startEngine()
         
@@ -549,22 +565,4 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.screenSaverPlayer.player?.seek(to: kCMTimeZero)
         self.screenSaverPlayer.player?.play()
     }
-}
-
-extension UILabel {
-    
-    func animate(newText: String, characterDelay: TimeInterval) {
-        
-        DispatchQueue.main.async {
-            
-            self.text = ""
-            
-            for (index, character) in newText.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                    self.text?.append(character)
-                }
-            }
-        }
-    }
-    
 }

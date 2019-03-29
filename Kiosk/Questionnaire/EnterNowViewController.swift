@@ -22,7 +22,7 @@ class EnterNowViewController: UIViewController {
     
     // MARK: - Private Methods
     func initializeView() {
-        let isFrenchSelected = true
+        let isFrenchSelected = false
         if (isFrenchSelected) {
             
             let frenchString: String = "COMMENCEZ DÉS MAINTENANT POUR OBTENIR VOTRE PRODUIT MILWAUKEE GRATUIT"

@@ -23,6 +23,8 @@ class KioskNetworkManager {
     
     private var disposeBag = DisposeBag()
     
+    // MARK:- Form
+    
     func registerDevice(success : @escaping (Bool) -> Void) {
         
         let stringURL = KioskNetworkManager.liveUrl + "device"
@@ -282,7 +284,73 @@ class KioskNetworkManager {
     
     // MARK:- Questionnaire
     
-    func getQuestions(for surveyId: Int, completion : @escaping ([String: Any]?) -> Void) {
+    //TODO: MOHINI this api is for you call this after 1st API call
+    func getDeviceState(deviceId: Int, completion : @escaping ([String: Any]?) -> Void) {
+        
+        let stringURL = KioskNetworkManager.liveUrl + "device/\(deviceId)"
+        let manager = SessionManager.default
+        
+        manager.rx.request(.get, stringURL, parameters: nil, encoding: URLEncoding.default)
+            
+            .validate(statusCode: 200 ..< 300)
+            .validate(contentType: ["application/json"])
+            .json()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { response in
+                
+                let response = response as! [String: Any]
+                print(response)
+                completion(response)
+                
+            }, onError: { error in
+                if error is AFError  {
+                    completion(nil)
+                    
+                } else {
+                    completion(nil)
+                }
+                print(error)
+            }, onCompleted: {
+                
+            }).disposed(by: disposeBag)
+        
+    }
+    
+    //TODO: MOHINI this api is to Submit form details
+
+    func submitEntryInfo(surveyId: Int, parameter: [String: Any], completion : @escaping ([String: Any]?) -> Void) {
+        
+        let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)"
+        let manager = SessionManager.default
+        
+        manager.rx.request(.post, stringURL, parameters: parameter, encoding: URLEncoding.default)
+            
+            .validate(statusCode: 200 ..< 300)
+            .validate(contentType: ["application/json"])
+            .json()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { response in
+                
+                let response = response as! [String: Any]
+                print(response)
+                completion(response)
+                
+            }, onError: { error in
+                if error is AFError  {
+                    completion(nil)
+                    
+                } else {
+                    completion(nil)
+                }
+                print(error)
+            }, onCompleted: {
+                
+            }).disposed(by: disposeBag)
+        
+    }
+    
+    
+    func getQuestions(surveyId: Int, completion : @escaping ([String: Any]?) -> Void) {
         
         let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)"
         let manager = SessionManager.default
@@ -313,6 +381,28 @@ class KioskNetworkManager {
         
     }
     
+    
+    func submitAnswerDetails(surveyId: Int, entryId: Int, parameter: [String: Any], completion : @escaping (Bool) -> Void) {
+        
+        let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)" + "/entry/\(entryId)"
+        let manager = SessionManager.default
+        
+        manager.rx.request(.post, stringURL, parameters: parameter, encoding: URLEncoding.default)
+            
+            .validate(statusCode: 200 ..< 300)
+            .validate(contentType: ["application/json"])
+            .json()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { response in
+                print(response)
+                completion(true)
+            }, onError: { error in
+                print(error)
+                completion(false)
+            }, onCompleted: {
+                
+            }).disposed(by: disposeBag)
+    }
 }
 
 

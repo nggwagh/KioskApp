@@ -16,14 +16,14 @@ class ThanksViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 7.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
         
         self.initializeView()
     }
     
     // MARK: - Private Methods
     func initializeView() {
-        let isFrenchSelected = true
+        let isFrenchSelected = false
         if (isFrenchSelected) {
             let frenchString: String = "MERCI \n SIIL VOUS PLATT VOIR LE REPRÉSENTANT DE MILWAUKEE POUR RÉCLAMER VOTRE BON"
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
@@ -45,7 +45,13 @@ class ThanksViewController: UIViewController {
     }
     
     @objc func navigateToEnterNowScreen() {
-        self.navigationController?.popToRootViewController(animated: true)
+    
+    //    self.navigationController?.popToRootViewController(animated: true)
+        
+   //     self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+
+          self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+
     }
     
     /*
