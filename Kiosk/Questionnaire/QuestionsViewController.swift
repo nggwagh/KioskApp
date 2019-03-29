@@ -20,36 +20,57 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     var questionsArray = [Question]()
     var completedQuestionsArray = [Question]()
     var randomIndexArray = [Int]()
-
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    var screenSaveURLString: String?
+    
     var screenSaverPlayer = AVPlayerViewController()
     var idleTimer : Timer?
-    
+    var countDownTimer : Timer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.navigationController?.navigationBar.isHidden = true
         
-        allQuestionsArray.append(Question.init(questionTitle: "When you put a Milwaukee fuel tool through a heavy application, the Redlink+ intelligence can demand more power from the battery to help complete the application.", questionType: "Radio", questionAnswers: ["True", "False"], answerSelection: [], correctAnswer: "True", isVisible: true, isCompleted: false, currentAnswerIsCorrect: ""))
-
-        allQuestionsArray.append(Question.init(questionTitle: "When you put a Milwaukee fuel tool", questionType: "Radio", questionAnswers: ["True", "False"], answerSelection: [], correctAnswer: "False", isVisible: false, isCompleted: false, currentAnswerIsCorrect: ""))
-
-         allQuestionsArray.append(Question.init(questionTitle: "the Redlink+ intelligence can demand more power from the battery to help complete the application.", questionType: "Radio", questionAnswers: ["True", "False"], answerSelection: [], correctAnswer: "False", isVisible: false, isCompleted: false, currentAnswerIsCorrect: ""))
+        self.getQuestionsForSurvey()
         
-      //   allQuestionsArray.append(Question.init(questionTitle: "the battery to help complete the application.", questionType: "Radio", questionAnswers: ["True", "False"], answerSelection: [], correctAnswer: "True", isVisible: false, isCompleted: false, currentAnswerIsCorrect: ""))
-        
-        allQuestionsArray.append(Question.init(questionTitle: "What is Milwaukee fuel?", questionType: "Single", questionAnswers: ["Combination of Red-lithium Batteries, Redlink+ intelligence, and Powerstate Brushless Motors", "Higher voltage Milwaukee tools", "Gas powered Milwaukee tools", "Milwaukee’s brushless tools"], answerSelection: [], correctAnswer: "Milwaukee’s brushless tools", isVisible: false, isCompleted: false, currentAnswerIsCorrect: ""))
-        
-        
-        self.getRandomQuestionFromAllQuestions()
         self.addObservers()
+        
     }
 
     // MARK: - Private Methods
     
+    func getQuestionsForSurvey() {
+        
+        //Show progress hud
+        self.showHUD(progressLabel: "")
+        
+        KioskNetworkManager.shared.getQuestions(for: 1) { (responseJson) in
+            
+            // hiding progress hud
+            self.dismissHUD(isAnimated: true)
+            
+            let response = responseJson
+            
+            let screenSaver = response!["screensaver"] as? [String : Any]
+            
+            self.screenSaveURLString = (screenSaver!["url"] as! String)
+            
+            self.allQuestionsArray = Question.build(from: response!["questions"] as! [[String : Any]])
+            
+            self.getRandomQuestionFromAllQuestions()
+
+        }
+        
+    }
+    
+    
     func getRandomQuestionFromAllQuestions() {
         
-        if (self.completedQuestionsArray.count == 4){
+        if (self.completedQuestionsArray.count == self.allQuestionsArray.count) {
             
             self.performSegue(withIdentifier: "SegueToThanks", sender: self)
         }
@@ -221,13 +242,16 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
 
             singleAnswerCell.selectionStyle = .none
             
-            singleAnswerCell.answerLabel.text = (question.questionAnswers![indexPath.row-1] as! String)
+            let answerObject = question.questionAnswers![indexPath.row-1]
+            
+            singleAnswerCell.answerLabel.text = answerObject.answer
             
             singleAnswerCell.borderLabel.layer.borderColor = UIColor.black.cgColor
             singleAnswerCell.borderLabel.layer.borderWidth = 1.5;
                         
             
-            if ((question.currentAnswerIsCorrect == question.correctAnswer) && (question.currentAnswerIsCorrect == singleAnswerCell.answerLabel.text)) {
+            if ((question.currentAnswerIsCorrect == question.correctAnswer) && (question.currentAnswerIsCorrect == singleAnswerCell.answerLabel.text))
+            {
                 
                 UIView.transition(with: singleAnswerCell.borderLabel!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                     
@@ -270,6 +294,13 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 singleAnswerCell.borderLabel.backgroundColor = UIColor.clear
                 singleAnswerCell.borderLabel.alpha = 0.1
             }
+            else
+            {
+                singleAnswerCell.answerLabel.textColor = UIColor.black
+                singleAnswerCell.answerImageView.isHidden = true
+                singleAnswerCell.borderLabel.backgroundColor = UIColor.clear
+                singleAnswerCell.borderLabel.alpha = 1
+            }
             
             
             return singleAnswerCell
@@ -288,21 +319,21 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if (question.questionType == "Single") {
             
+            let answerObject = question.questionAnswers![indexPath.row-1]
+
             print("select answer: %d",indexPath.row)
             
-            if ((question.questionAnswers![indexPath.row-1] as! String) == question.correctAnswer){
+            if (answerObject.answer == question.correctAnswer){
                 
                 question.isCompleted = true
-                question.isVisible = true
-                question.currentAnswerIsCorrect = (question.questionAnswers![indexPath.row-1] as! String)
-                question.answerSelection!.append((question.questionAnswers![indexPath.row-1] as! String))
+                question.currentAnswerIsCorrect = answerObject.answer
+                question.answerSelection!.append(answerObject.answer!)
                 
             } else {
                 
                 question.isCompleted = false
-                question.isVisible = true
-                question.currentAnswerIsCorrect = (question.questionAnswers![indexPath.row-1] as! String)
-                question.answerSelection!.append((question.questionAnswers![indexPath.row-1] as! String))
+                question.currentAnswerIsCorrect = answerObject.answer
+                question.answerSelection!.append(answerObject.answer!)
             }
             
             self.questionsArray[indexPath.section] = question
@@ -331,18 +362,16 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func trueButtonAction(sender: UIButton) {
         
         var question = self.questionsArray[sender.tag]
-
+        
         if (question.correctAnswer == "True") {
             
             question.isCompleted = true
-            question.isVisible = true
             question.currentAnswerIsCorrect = "True"
             question.answerSelection!.append("True")
             
         } else {
             
             question.isCompleted = false
-            question.isVisible = true
             question.currentAnswerIsCorrect = "True"
             question.answerSelection!.append("True")
         }
@@ -373,7 +402,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         if (question.correctAnswer == "False") {
             
             question.isCompleted = true
-            question.isVisible = true
             question.currentAnswerIsCorrect = "False"
             question.answerSelection!.append("False")
             
@@ -381,7 +409,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             
             question.isCompleted = false
-            question.isVisible = true
             question.currentAnswerIsCorrect = "False"
             question.answerSelection!.append("False")
         }
@@ -434,14 +461,30 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                                          selector: #selector(self.handleTimerForIdleDevice),
                                          userInfo: nil,
                                          repeats: false)
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+      countDownTimer = Timer.scheduledTimer(timeInterval: 1.0,
+                                            target: self,
+                                            selector: #selector(self.updateTime),
+                                            userInfo: nil,
+                                            repeats: true)
+
+           self.timerLabel.isHidden = false
+
+    }
+    
+    @objc func updateTime(){
+        
+    self.timerLabel.text = String(format: "%d", Int(self.timerLabel.text!)! - 1)
+        
     }
     
     @objc func handleTimerForIdleDevice() {
         
+        countDownTimer!.invalidate()
         idleTimer!.invalidate()
-        MBProgressHUD.hide(for: self.view, animated: true)
-        
+        self.timerLabel.isHidden = true
+        self.timerLabel.text = "20"
+
         SyncEngine.shared.startEngine()
         
         if let somePresentingController = self.presentedViewController {
@@ -491,7 +534,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
 //        guard let url = ScreenSaver.getUrlForScreensaver() else { return false }
 
-        let url = URL.init(string: "https://www.youtube.com/watch?v=CD8PP8SHMPM")
+    //  let url = URL.init(string: "https://www.youtube.com/watch?v=CD8PP8SHMPM")
+        let url = URL.init(string: self.screenSaveURLString!)
         screenSaverPlayer.player?.pause()
         screenSaverPlayer.player = AVPlayer(url: url!)
         screenSaverPlayer.videoGravity = AVLayerVideoGravity.resizeAspectFill.rawValue
@@ -507,3 +551,20 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 }
 
+extension UILabel {
+    
+    func animate(newText: String, characterDelay: TimeInterval) {
+        
+        DispatchQueue.main.async {
+            
+            self.text = ""
+            
+            for (index, character) in newText.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
+                    self.text?.append(character)
+                }
+            }
+        }
+    }
+    
+}

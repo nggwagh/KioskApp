@@ -9,41 +9,140 @@
 import UIKit
 
 
+//struct Question{
+//
+//    var questionTitle: String?
+//    var questionType: String?
+//    var questionAnswers: Array<Any>?
+//    var answerSelection: [String]?
+//    var correctAnswer: String?
+//    var isVisible: Bool?
+//    var isCompleted: Bool?
+//    var currentAnswerIsCorrect: String?
+//}
+
+
 struct Question{
     
+    let questionId: Int?
+    let surveyId: Int?
+    let surveyCategoryID: Int?
     var questionTitle: String?
     var questionType: String?
-    var questionAnswers: Array<Any>?
+    var questionAnswers: [Answer]?
     var answerSelection: [String]?
     var correctAnswer: String?
-    var isVisible: Bool?
     var isCompleted: Bool?
     var currentAnswerIsCorrect: String?
 }
 
-/*
-class Question: NSObject {
-
-     var questionTitle: String? = ""
-     var questionType: String? = ""
-     var questionAnswers: Array<Any>? = []
-     var answerSelection: Array<Any>? = []
-     var correctAnswer: String? = ""
-     var isVisible: Bool? = false
-     var isCompleted: Bool? = false
-     var currentAnswerIsCorrect: String? = ""
-
-    init(questionTitle: String, questionType: String, questionAnswers: Array<Any>, answerSelection: Array<Any>, correctAnswer: String, isVisible: Bool, isCompleted: Bool, currentAnswerIsCorrect: String) {
-        
-        self.questionTitle = questionTitle
-        self.questionType = questionType
-        self.questionAnswers = questionAnswers
-        self.answerSelection = answerSelection
-        self.correctAnswer = correctAnswer
-        self.isVisible = isVisible
-        self.isCompleted = isCompleted
-        self.currentAnswerIsCorrect = currentAnswerIsCorrect
-    }
+extension Question {
     
+    static func build(from questionJsonObjects: [[String:Any]]) -> [Question] {
+        
+        return questionJsonObjects.compactMap({ questionJsonObject in
+            
+            let answerArray = Answer.build(from: (questionJsonObject["answers"] as! [[String:Any]]))
+            
+            let correctAnswer = answerArray.filter({$0.isCorrectAnswer == 1})
+            
+            return Question(questionId: questionJsonObject["id"] as? Int,
+                            surveyId: questionJsonObject["surveyID"] as? Int,
+                            surveyCategoryID: questionJsonObject["surveyCategoryID"] as? Int,
+                            questionTitle: questionJsonObject["question"] as? String,
+                            questionType: (answerArray.count == 2) ? "Radio" : "Single",
+                            questionAnswers: answerArray,
+                            answerSelection: [],
+                            correctAnswer:correctAnswer[0].answer,
+                            isCompleted: false,
+                            currentAnswerIsCorrect: "")
+        })
+    }
+}
+
+
+
+
+/*
+{
+    "id": 1,
+    "name": "Sample Survey",
+    "created_at": null,
+    "updated_at": null,
+    "screensaverID": null,
+    "questions": [
+    {
+    "id": 1,
+    "question": "What is 2+2?",
+    "surveyID": 1,
+    "surveyCategoryID": 2,
+    "answers": [
+    {
+    "id": 1,
+    "answer": "Three",
+    "surveyQuestionID": 1,
+    "order": 0,
+    "isCorrectAnswer": 0
+    },
+    {
+    "id": 2,
+    "answer": "Five",
+    "surveyQuestionID": 1,
+    "order": 1,
+    "isCorrectAnswer": 1
+    },
+    {
+    "id": 3,
+    "answer": "Four",
+    "surveyQuestionID": 1,
+    "order": 2,
+    "isCorrectAnswer": 0
+    }
+    ],
+    "category": {
+    "id": 2,
+    "name": "Math"
+    }
+    },
+    {
+    "id": 2,
+    "question": "Capital of Canada?",
+    "surveyID": 1,
+    "surveyCategoryID": 1,
+    "answers": [
+    {
+    "id": 5,
+    "answer": "Montreal",
+    "surveyQuestionID": 2,
+    "order": 0,
+    "isCorrectAnswer": 0
+    },
+    {
+    "id": 6,
+    "answer": "Ottawa",
+    "surveyQuestionID": 2,
+    "order": 1,
+    "isCorrectAnswer": 1
+    },
+    {
+    "id": 4,
+    "answer": "Toronto",
+    "surveyQuestionID": 2,
+    "order": 2,
+    "isCorrectAnswer": 0
+    }
+    ],
+    "category": {
+    "id": 1,
+    "name": "General"
+    }
+    }
+    ],
+    "screensaver": {
+        "id": 0,
+        "url": "https://www.hdccontacts.com/default.mp4",
+        "isContest": 0,
+        "contestRulesURL": ""
+    }
 }
 */

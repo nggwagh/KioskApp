@@ -374,12 +374,24 @@
                                     <outlet property="delegate" destination="oBX-Hf-csv" id="RbT-Od-x82"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-7G-pFG">
+                                <rect key="frame" x="299" y="314" width="170" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="VwL-Ce-Eta"/>
+                                    <constraint firstAttribute="width" constant="170" id="sKz-1S-P0R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
+                                <color key="textColor" red="0.93695913460000002" green="0.1595974024" blue="0.29382444540000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Y30-Sh-g90" firstAttribute="trailing" secondItem="qCq-W5-p6c" secondAttribute="trailing" id="73x-zb-uIN"/>
+                            <constraint firstItem="a8e-7G-pFG" firstAttribute="centerX" secondItem="KKY-aX-uiM" secondAttribute="centerX" id="DQc-0q-7rp"/>
                             <constraint firstItem="t3n-Wi-Twk" firstAttribute="bottom" secondItem="Y30-Sh-g90" secondAttribute="bottom" id="MLt-Po-PmN"/>
                             <constraint firstItem="Y30-Sh-g90" firstAttribute="bottom" secondItem="qCq-W5-p6c" secondAttribute="bottom" id="c5s-9G-L8Y"/>
+                            <constraint firstItem="t3n-Wi-Twk" firstAttribute="top" secondItem="a8e-7G-pFG" secondAttribute="bottom" constant="60" id="fzB-AW-z1J"/>
                             <constraint firstItem="mX8-FY-jcn" firstAttribute="top" secondItem="Y30-Sh-g90" secondAttribute="top" constant="75" id="iQa-Zd-jHE"/>
                             <constraint firstItem="qCq-W5-p6c" firstAttribute="top" secondItem="Y30-Sh-g90" secondAttribute="top" id="jWz-T1-lE3"/>
                             <constraint firstItem="mX8-FY-jcn" firstAttribute="centerX" secondItem="KKY-aX-uiM" secondAttribute="centerX" id="qKF-3W-Jrv"/>
@@ -392,12 +404,13 @@
                     <navigationItem key="navigationItem" title="Question" id="TNY-iK-TeT"/>
                     <connections>
                         <outlet property="questionTableView" destination="t3n-Wi-Twk" id="v8T-Nz-u3e"/>
+                        <outlet property="timerLabel" destination="a8e-7G-pFG" id="T9X-P3-Zjp"/>
                         <segue destination="Kf9-XB-hMz" kind="show" identifier="SegueToThanks" id="uOo-bs-00U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSi-h7-u5t" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="15"/>
+            <point key="canvasLocation" x="1561.71875" y="14.648437499999998"/>
         </scene>
         <!--Customer Subscription View Controller-->
         <scene sceneID="Mk6-IW-UKL">
@@ -787,11 +800,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Milwaukee_logo_tagline" width="747.5" height="236"/>
+        <image name="Milwaukee_logo_tagline" width="747" height="236"/>
         <image name="QuesionaireBackground" width="2049" height="2736"/>
         <image name="ic-unfilled-arrow-down" width="16" height="9"/>
         <image name="logo" width="1495" height="473"/>
-        <image name="red_button_background" width="216.5" height="64.5"/>
-        <image name="textbox_background_white" width="565.5" height="70"/>
+        <image name="red_button_background" width="216" height="64"/>
+        <image name="textbox_background_white" width="565" height="70"/>
     </resources>
 </document>

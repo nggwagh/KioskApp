@@ -15,6 +15,8 @@
 		009A04FA212C74E8001308D7 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 009A04F8212C74E7001308D7 /* HockeySDKResources.bundle */; };
 		009A04FB212C74E8001308D7 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009A04F9212C74E7001308D7 /* HockeySDK.framework */; };
 		35740898223FE71C0020F980 /* CustomerSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */; };
+		5256D3A5224E75C400B1B867 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A4224E75C400B1B867 /* Answer.swift */; };
+		5256D3A7224E9EAB00B1B867 /* MBProgressHudUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A6224E9EAA00B1B867 /* MBProgressHudUtility.swift */; };
 		52D96381223E98490077FD24 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D96380223E98480077FD24 /* Questionnaire.storyboard */; };
 		52D96387223E9FFA0077FD24 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96384223E9FFA0077FD24 /* QuestionTableViewCell.swift */; };
 		52D96388223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D96385223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift */; };
@@ -104,6 +106,8 @@
 		35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSubscriptionViewController.swift; sourceTree = "<group>"; };
 		4408C6106975329E7F0E26A6 /* Pods-KioskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C38E95E789FE85ED70EEDC7 /* Pods-Kiosk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiosk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.debug.xcconfig"; sourceTree = "<group>"; };
+		5256D3A4224E75C400B1B867 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		5256D3A6224E9EAA00B1B867 /* MBProgressHudUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBProgressHudUtility.swift; sourceTree = "<group>"; };
 		52D96380223E98480077FD24 /* Questionnaire.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questionnaire.storyboard; sourceTree = "<group>"; };
 		52D96384223E9FFA0077FD24 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		52D96385223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioAnswerTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 			children = (
 				52D96380223E98480077FD24 /* Questionnaire.storyboard */,
 				52D9638A223EA05D0077FD24 /* Question.swift */,
+				5256D3A4224E75C400B1B867 /* Answer.swift */,
 				52D96383223E9FFA0077FD24 /* CustomCell */,
 				52D9638E223EA1690077FD24 /* EnterNowViewController.swift */,
 				52D9638C223EA0AF0077FD24 /* QuestionsViewController.swift */,
@@ -441,6 +446,7 @@
 		77EB2E0C208F9B3800C11060 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5256D3A6224E9EAA00B1B867 /* MBProgressHudUtility.swift */,
 				77898809209A16C40017E6D1 /* LTMorphingLabel */,
 				77EB2E0D208F9B8700C11060 /* StringUtils.swift */,
 				000EF40C2125EBCA00F7B0DE /* Constant.swift */,
@@ -741,6 +747,7 @@
 				52D9638D223EA0AF0077FD24 /* QuestionsViewController.swift in Sources */,
 				7789882A209A16D70017E6D1 /* LTEmitterView.swift in Sources */,
 				52D96391223EA1A10077FD24 /* ThanksViewController.swift in Sources */,
+				5256D3A5224E75C400B1B867 /* Answer.swift in Sources */,
 				77898824209A16D70017E6D1 /* LTMorphingLabel+Pixelate.swift in Sources */,
 				0085038D2146EE3600240ABC /* WinnerTableViewCell.swift in Sources */,
 				77306F4C20834A69000D5A73 /* SubscriptionFormViewController.swift in Sources */,
@@ -762,6 +769,7 @@
 				00984D0D21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift in Sources */,
 				52D96388223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift in Sources */,
 				77898823209A16D70017E6D1 /* LTMorphingLabel+Fall.swift in Sources */,
+				5256D3A7224E9EAB00B1B867 /* MBProgressHudUtility.swift in Sources */,
 				00984D0C21241371009741FC /* SubscriptionEntry+CoreDataClass.swift in Sources */,
 				77B8BFD920832DD00086107E /* AppDelegate.swift in Sources */,
 				77EB2E0E208F9B8700C11060 /* StringUtils.swift in Sources */,
