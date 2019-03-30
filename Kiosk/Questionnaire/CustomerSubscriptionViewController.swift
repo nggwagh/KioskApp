@@ -26,6 +26,7 @@ class CustomerSubscriptionViewController: UIViewController {
     @IBOutlet weak var txtPostalCode: UITextField!
     @IBOutlet weak var lblTrade: UILabel!
     @IBOutlet weak var lblLanguagePreference: UILabel!
+    @IBOutlet weak var txtEmailAddress: UITextField!
 
     @IBOutlet weak var languageSelectorView: UIView!
     @IBOutlet weak var xConstraintForSelectorView: NSLayoutConstraint!
@@ -142,10 +143,16 @@ class CustomerSubscriptionViewController: UIViewController {
         } else if selectedTrade == nil {
             self.tradeDropdownTapped(lblTrade)
             return false
-        }else if selectedLanguagePreference == nil && UserDefaults.standard.bool(forKey: Constant.UserDefaultKey.shouldShowHearedAbout) {
-            self.showHearAboutDropdown(lblLanguagePreference)
+        }
+        else if selectedLanguagePreference == nil {
+            self.showLanguagePreferenceDropdown(lblLanguagePreference)
             return false
-        } else if !acceptsNewsLetter {
+        }else if ((txtEmailAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! || !(txtEmailAddress.text?.isValidEmail())!) {
+            txtEmailAddress.text = ""
+            txtEmailAddress.becomeFirstResponder()
+            return false
+        }
+        else if !acceptsNewsLetter {
             
             let acceptNewsletterController : UIAlertController
             
@@ -310,6 +317,10 @@ class CustomerSubscriptionViewController: UIViewController {
             self?.view.layoutIfNeeded()
         }
         
+        self.btnEnglish.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.btnFrench.setTitleColor(UIColor.black, for: UIControlState.normal)
+        
+        UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
     }
     
     @IBAction func frenchTapped(_ sender: Any) {
@@ -321,11 +332,14 @@ class CustomerSubscriptionViewController: UIViewController {
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.view.layoutIfNeeded()
         }
+        self.btnFrench.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.btnEnglish.setTitleColor(UIColor.black, for: UIControlState.normal)
         
+        UserDefaults.standard.set("FR", forKey: Constant.UserDefaultKey.languagePreference)
     }
 
     
-    @IBAction func showHearAboutDropdown(_ sender: Any) {
+    @IBAction func showLanguagePreferenceDropdown(_ sender: Any) {
         
         self.configure(hearAboutDropDown, dataSource: selectedLanguage.localeCode == "EN" ? englishLanguagePreferences : frenchLanguagePreferences, sourceView : sender as! UIView) {[weak self] (index, selectedLanguagePreference) in
             self?.selectedLanguagePreference = selectedLanguagePreference
@@ -371,7 +385,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             let parameters = ["firstName":self.txtFirstName.text!,
                               "lastName":self.txtLastName.text!,
-                              "email":"a@b.com",
+                              "email":self.txtEmailAddress.text!,
                               "language": (self.lblLanguagePreference.text! == "English") ? "EN" : "FR",
                               "postalCode": self.txtPostalCode.text!,
                               "trade": self.lblTrade.text!,

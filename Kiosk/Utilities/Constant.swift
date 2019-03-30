@@ -12,5 +12,6 @@ struct Constant {
     
     struct UserDefaultKey {
         static let shouldShowHearedAbout = "shouldShowHearedAbout"
+        static let languagePreference = "languagePreference"
     }
 }
