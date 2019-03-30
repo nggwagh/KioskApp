@@ -23,8 +23,8 @@ class ThanksViewController: UIViewController {
     
     // MARK: - Private Methods
     func initializeView() {
-        let isFrenchSelected = false
-        if (isFrenchSelected) {
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+        if (languagePreference == "FR") {
             let frenchString: String = "MERCI \n SIIL VOUS PLATT VOIR LE REPRÉSENTANT DE MILWAUKEE POUR RÉCLAMER VOTRE BON"
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
             attributeText_french.addAttribute(.foregroundColor, value: UIColor.red,
@@ -41,6 +41,24 @@ class ThanksViewController: UIViewController {
                 }
             }
             infoLabel.attributedText = attributeText_french
+        }
+        else {
+            let englishString: String = "THANK \n YOU \n PLEASE SEE THE \n MILWAUKEE REPRESENTATIVE TO CLAIM YOUR GOOD"
+            let attributeText_english = NSMutableAttributedString.init(string: englishString)
+            attributeText_english.addAttribute(.foregroundColor, value: UIColor.red,
+                                              range: NSMakeRange(0, attributeText_english.length))
+            attributeText_english.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 75.0)!, range: NSMakeRange(0, attributeText_english.length))
+            
+            englishString.enumerateSubstrings(in: englishString.startIndex..<englishString.endIndex, options: .byWords) {
+                (substring, substringRange, _, _) in
+                if (substring == "THANK" || substring == "YOU") {
+                    attributeText_english.addAttribute(.foregroundColor, value: UIColor.black,
+                                                      range: NSRange(substringRange, in: englishString))
+                    
+                    attributeText_english.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 120.0)!, range: NSRange(substringRange, in: englishString))
+                }
+            }
+            infoLabel.attributedText = attributeText_english
         }
     }
     

@@ -12,24 +12,18 @@ class EnterNowViewController: UIViewController {
     
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var enterNowButton: UIButton!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        self.initializeView()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
 
         //reset language preference to english again
         UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
+        self.initializeView()
     }
     
     // MARK: - Private Methods
     func initializeView() {
-        let isFrenchSelected = false
-        if (isFrenchSelected) {
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+        if (languagePreference == "FR") {
             
             let frenchString: String = "COMMENCEZ DÉS MAINTENANT POUR OBTENIR VOTRE PRODUIT MILWAUKEE GRATUIT"
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
@@ -47,6 +41,25 @@ class EnterNowViewController: UIViewController {
             infoLabel.attributedText = attributeText_french
             
             enterNowButton.setTitle("   ENTRE MAINTENANT   ", for: UIControlState.normal)
+        }
+        else {
+            
+            let englishString: String = "START NOW TO GET YOUR FREE \n MILWAUKEE PRODUCT"
+            let attributeText_english = NSMutableAttributedString.init(string: englishString)
+            
+            englishString.enumerateSubstrings(in: englishString.startIndex..<englishString.endIndex, options: .byWords) {
+                (substring, substringRange, _, _) in
+                if substring == "FREE" {
+                    attributeText_english.addAttribute(.foregroundColor, value: UIColor.black,
+                                                      range: NSRange(substringRange, in: englishString))
+                    
+                    attributeText_english.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 110.0)!,
+                                                      range: NSRange(substringRange, in: englishString))
+                }
+            }
+            infoLabel.attributedText = attributeText_english
+            
+            enterNowButton.setTitle("ENTER NOW", for: UIControlState.normal)
         }
     }
     
