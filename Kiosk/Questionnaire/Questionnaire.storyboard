@@ -436,7 +436,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="FIRST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10E-8Y-LyE">
-                                        <rect key="frame" x="28" y="10" width="121.5" height="24"/>
+                                        <rect key="frame" x="28" y="10" width="500" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -445,13 +445,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4uI-63-6qp"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="10E-8Y-LyE" secondAttribute="trailing" id="9eM-W1-MIQ"/>
                                     <constraint firstItem="10E-8Y-LyE" firstAttribute="centerY" secondItem="sPI-2E-bPf" secondAttribute="centerY" id="HTa-o0-zWa"/>
                                     <constraint firstItem="sPI-2E-bPf" firstAttribute="leading" secondItem="8Sh-Li-ySl" secondAttribute="leading" id="VbO-vT-74o"/>
                                     <constraint firstItem="10E-8Y-LyE" firstAttribute="leading" secondItem="8Sh-Li-ySl" secondAttribute="leading" constant="28" id="VtP-np-UvN"/>
                                     <constraint firstAttribute="trailing" secondItem="sPI-2E-bPf" secondAttribute="trailing" id="bPa-8E-Nc1"/>
                                     <constraint firstItem="sPI-2E-bPf" firstAttribute="top" secondItem="8Sh-Li-ySl" secondAttribute="top" id="cJa-Tb-yud"/>
                                     <constraint firstAttribute="width" constant="500" id="eQ8-qb-fVJ"/>
+                                    <constraint firstItem="10E-8Y-LyE" firstAttribute="width" secondItem="8Sh-Li-ySl" secondAttribute="width" id="uFa-0O-Tr3"/>
                                     <constraint firstAttribute="bottom" secondItem="sPI-2E-bPf" secondAttribute="bottom" id="wnE-Bf-UYV"/>
                                 </constraints>
                             </view>
@@ -462,7 +462,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LAST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2u-A6-hSD">
-                                        <rect key="frame" x="28" y="10" width="115.5" height="24"/>
+                                        <rect key="frame" x="28" y="10" width="500" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -475,7 +475,7 @@
                                     <constraint firstAttribute="bottom" secondItem="MhR-0C-Rmj" secondAttribute="bottom" id="G5Y-1B-UQj"/>
                                     <constraint firstAttribute="trailing" secondItem="MhR-0C-Rmj" secondAttribute="trailing" id="Nmi-iN-oRe"/>
                                     <constraint firstItem="Z2u-A6-hSD" firstAttribute="leading" secondItem="CxS-vO-fz6" secondAttribute="leading" constant="28" id="SRd-Ck-jcQ"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z2u-A6-hSD" secondAttribute="trailing" id="U0g-Og-rbR"/>
+                                    <constraint firstItem="Z2u-A6-hSD" firstAttribute="width" secondItem="CxS-vO-fz6" secondAttribute="width" id="bFs-YN-WD6"/>
                                     <constraint firstItem="MhR-0C-Rmj" firstAttribute="top" secondItem="CxS-vO-fz6" secondAttribute="top" id="wMO-O0-6mV"/>
                                 </constraints>
                             </view>
@@ -486,7 +486,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="POSTAL CODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xS-PN-ebM">
-                                        <rect key="frame" x="28" y="10" width="444" height="24"/>
+                                        <rect key="frame" x="28" y="10" width="500" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -494,12 +494,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3xS-PN-ebM" secondAttribute="trailing" constant="28" id="9B7-rv-9Rq"/>
                                     <constraint firstItem="3xS-PN-ebM" firstAttribute="leading" secondItem="i6i-zu-XSc" secondAttribute="leading" constant="28" id="KtG-8Z-FaN"/>
                                     <constraint firstAttribute="trailing" secondItem="fZT-3r-41n" secondAttribute="trailing" id="LDQ-Oy-BXX"/>
                                     <constraint firstItem="fZT-3r-41n" firstAttribute="top" secondItem="i6i-zu-XSc" secondAttribute="top" id="Mlw-Ip-URN"/>
                                     <constraint firstItem="fZT-3r-41n" firstAttribute="leading" secondItem="i6i-zu-XSc" secondAttribute="leading" id="MvY-mN-76d"/>
                                     <constraint firstAttribute="bottom" secondItem="fZT-3r-41n" secondAttribute="bottom" id="SRy-Ch-aw1"/>
+                                    <constraint firstItem="3xS-PN-ebM" firstAttribute="width" secondItem="i6i-zu-XSc" secondAttribute="width" id="f0s-Hj-Dd3"/>
                                     <constraint firstItem="3xS-PN-ebM" firstAttribute="centerY" secondItem="fZT-3r-41n" secondAttribute="centerY" id="fKM-t2-tAn"/>
                                 </constraints>
                             </view>
@@ -510,7 +510,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRADE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-DB-SXK">
-                                        <rect key="frame" x="28" y="10.5" width="64.5" height="23.5"/>
+                                        <rect key="frame" x="28" y="10.5" width="500" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -529,11 +529,11 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9Xq-aZ-zgd" secondAttribute="bottom" id="5CJ-bJ-h43"/>
                                     <constraint firstAttribute="trailing" secondItem="gsz-IL-fPR" secondAttribute="trailing" id="5E0-JH-fAi"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8NU-DB-SXK" secondAttribute="trailing" constant="20" symbolic="YES" id="5cQ-F6-xF6"/>
                                     <constraint firstItem="gsz-IL-fPR" firstAttribute="top" secondItem="U1A-IC-TjP" secondAttribute="top" id="8Wn-Bv-lST"/>
                                     <constraint firstAttribute="trailing" secondItem="9Xq-aZ-zgd" secondAttribute="trailing" id="8ZP-i2-Uer"/>
                                     <constraint firstItem="9Xq-aZ-zgd" firstAttribute="leading" secondItem="U1A-IC-TjP" secondAttribute="leading" id="CbK-0Y-zRn"/>
                                     <constraint firstItem="9Xq-aZ-zgd" firstAttribute="top" secondItem="U1A-IC-TjP" secondAttribute="top" id="NFL-9J-1Vy"/>
+                                    <constraint firstItem="8NU-DB-SXK" firstAttribute="width" secondItem="U1A-IC-TjP" secondAttribute="width" id="PqF-rW-YH1"/>
                                     <constraint firstAttribute="bottom" secondItem="gsz-IL-fPR" secondAttribute="bottom" id="ddr-Eq-G6d"/>
                                     <constraint firstItem="IcL-kj-8jI" firstAttribute="centerY" secondItem="U1A-IC-TjP" secondAttribute="centerY" id="e41-7d-526"/>
                                     <constraint firstItem="gsz-IL-fPR" firstAttribute="leading" secondItem="U1A-IC-TjP" secondAttribute="leading" id="jSc-y3-5Uj"/>
@@ -548,7 +548,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LANGUAGE PREFERENCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXQ-HJ-7wm">
-                                        <rect key="frame" x="28" y="10.5" width="244" height="23.5"/>
+                                        <rect key="frame" x="28" y="10.5" width="500" height="23.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -572,9 +572,9 @@
                                     <constraint firstAttribute="bottom" secondItem="XUg-iH-DHb" secondAttribute="bottom" id="Mfn-Ze-OKA"/>
                                     <constraint firstAttribute="trailing" secondItem="XUg-iH-DHb" secondAttribute="trailing" id="ZNM-5i-Fu2"/>
                                     <constraint firstItem="RAA-EZ-wgb" firstAttribute="top" secondItem="Xg5-Qj-Myy" secondAttribute="top" id="bDx-Zk-G5O"/>
+                                    <constraint firstItem="dXQ-HJ-7wm" firstAttribute="width" secondItem="Xg5-Qj-Myy" secondAttribute="width" id="dQU-nG-tpG"/>
                                     <constraint firstItem="XUg-iH-DHb" firstAttribute="leading" secondItem="Xg5-Qj-Myy" secondAttribute="leading" id="iO0-xL-2JG"/>
                                     <constraint firstAttribute="trailing" secondItem="oKB-5x-gN0" secondAttribute="trailing" constant="20" id="lo9-kz-Ty9"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dXQ-HJ-7wm" secondAttribute="trailing" constant="20" symbolic="YES" id="rlh-Ht-s04"/>
                                     <constraint firstAttribute="bottom" secondItem="RAA-EZ-wgb" secondAttribute="bottom" id="wuH-oV-zeZ"/>
                                     <constraint firstItem="XUg-iH-DHb" firstAttribute="top" secondItem="Xg5-Qj-Myy" secondAttribute="top" id="xeR-ZF-Wt9"/>
                                 </constraints>
@@ -586,7 +586,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-1O-MsI">
-                                        <rect key="frame" x="28" y="10" width="444" height="24"/>
+                                        <rect key="frame" x="28" y="10" width="500" height="24"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -600,7 +600,7 @@
                                     <constraint firstAttribute="height" constant="44" id="PTO-Ky-FI6"/>
                                     <constraint firstItem="CLJ-8M-Y0J" firstAttribute="leading" secondItem="jad-E6-PdL" secondAttribute="leading" id="Zyu-qe-VMf"/>
                                     <constraint firstAttribute="bottom" secondItem="CLJ-8M-Y0J" secondAttribute="bottom" id="flU-sz-1dz"/>
-                                    <constraint firstAttribute="trailing" secondItem="P0c-1O-MsI" secondAttribute="trailing" constant="28" id="ldZ-WU-XxA"/>
+                                    <constraint firstItem="P0c-1O-MsI" firstAttribute="width" secondItem="jad-E6-PdL" secondAttribute="width" id="oLj-0m-xsH"/>
                                     <constraint firstAttribute="width" constant="500" id="pdX-Yn-GNL"/>
                                     <constraint firstItem="P0c-1O-MsI" firstAttribute="leading" secondItem="jad-E6-PdL" secondAttribute="leading" constant="28" id="xCK-gm-76j"/>
                                 </constraints>

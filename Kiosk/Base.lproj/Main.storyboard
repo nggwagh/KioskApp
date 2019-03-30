@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,24 +72,10 @@
                                     <action selector="closeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tOd-TN-cPc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXe-4d-AEe">
-                                <rect key="frame" x="281.5" y="663" width="205" height="61"/>
-                                <color key="backgroundColor" red="0.49803921569999998" green="0.7843137255" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="205" id="ClL-gX-PJD"/>
-                                    <constraint firstAttribute="height" constant="61" id="Igk-FN-QiQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
-                                <state key="normal" title="Questionnaire"/>
-                                <connections>
-                                    <segue destination="rWd-9H-009" kind="show" identifier="segueToQuestionnaire" id="fuK-uv-Df6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AaQ-LV-KXP" firstAttribute="centerX" secondItem="PEj-Zf-6Wl" secondAttribute="centerX" id="8uk-6d-eBP"/>
-                            <constraint firstItem="GXe-4d-AEe" firstAttribute="top" secondItem="AaQ-LV-KXP" secondAttribute="bottom" constant="41" id="CDG-wg-5n1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uUh-Ej-O7p" secondAttribute="trailing" constant="30" id="Dv9-M3-LW1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D8g-9U-TOe" secondAttribute="trailing" id="JF6-QI-Oun"/>
                             <constraint firstItem="AaQ-LV-KXP" firstAttribute="top" secondItem="PEj-Zf-6Wl" secondAttribute="bottom" constant="89" id="K8u-FL-lm4"/>
@@ -99,7 +85,6 @@
                             <constraint firstItem="JHI-lp-uVJ" firstAttribute="centerX" secondItem="D8g-9U-TOe" secondAttribute="centerX" id="PA7-wo-dTR"/>
                             <constraint firstItem="D8g-9U-TOe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-20" id="UTd-Ee-GMk"/>
                             <constraint firstItem="uUh-Ej-O7p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b61-uo-Zzw"/>
-                            <constraint firstItem="GXe-4d-AEe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bfe-G1-4Ii"/>
                             <constraint firstItem="D8g-9U-TOe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dcm-5S-9ek"/>
                             <constraint firstItem="iCj-LJ-3cD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="nry-ir-mO2"/>
                             <constraint firstItem="iCj-LJ-3cD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="125" id="zeK-Zu-nte"/>
@@ -112,6 +97,7 @@
                         <outlet property="btnSubmit" destination="AaQ-LV-KXP" id="vg2-Yq-1Mw"/>
                         <outlet property="txtDeviceName" destination="Yvr-n9-SNy" id="pC5-4g-aHF"/>
                         <segue destination="r37-Lx-7PB" kind="show" identifier="segueToManager" id="qgI-hY-Hmd"/>
+                        <segue destination="rWd-9H-009" kind="show" identifier="segueToQuestionnaire" id="jn5-kq-Exi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,8 +107,8 @@
         <!--Questionnaire-->
         <scene sceneID="rw4-Hg-65X">
             <objects>
-                <viewControllerPlaceholder storyboardName="Questionnaire" id="rWd-9H-009" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXz-dI-bQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Questionnaire" id="rWd-9H-009" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="292" y="-4"/>
         </scene>
