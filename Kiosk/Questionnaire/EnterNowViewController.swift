@@ -20,6 +20,12 @@ class EnterNowViewController: UIViewController {
         self.initializeView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+
+        //reset language preference to english again
+        UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
+    }
+    
     // MARK: - Private Methods
     func initializeView() {
         let isFrenchSelected = false
