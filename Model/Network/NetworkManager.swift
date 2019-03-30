@@ -106,12 +106,15 @@ class KioskNetworkManager {
             .subscribe(onNext: { response in
                 print(response)
                 
+                //temp comment
+                /*
                 if let deviceGroupAndScreenSaverInfo = response as? [String : Any] {
                     completion(deviceGroupAndScreenSaverInfo, nil)
                 } else {
                     //there was some problem
                     completion(nil, NSError(domain: "SomeDomain", code: 1000, userInfo: nil))
                 }
+                 */
                 
             }, onError: { error in
                 print(error)
@@ -284,8 +287,7 @@ class KioskNetworkManager {
     
     // MARK:- Questionnaire
     
-    //TODO: MOHINI this api is for you call this after 1st API call
-    func getDeviceState(deviceId: Int, completion : @escaping ([String: Any]?) -> Void) {
+    func getDeviceStateMode(deviceId: String, completion : @escaping ([String: Any]?) -> Void) {
         
         let stringURL = KioskNetworkManager.liveUrl + "device/\(deviceId)"
         let manager = SessionManager.default

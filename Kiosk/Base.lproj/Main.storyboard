@@ -111,6 +111,7 @@
                         <outlet property="btnClose" destination="uUh-Ej-O7p" id="5dJ-be-CJ5"/>
                         <outlet property="btnSubmit" destination="AaQ-LV-KXP" id="vg2-Yq-1Mw"/>
                         <outlet property="txtDeviceName" destination="Yvr-n9-SNy" id="pC5-4g-aHF"/>
+                        <segue destination="r37-Lx-7PB" kind="show" identifier="segueToManager" id="qgI-hY-Hmd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -124,6 +125,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXz-dI-bQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="292" y="-4"/>
+        </scene>
+        <!--Manager-->
+        <scene sceneID="dXP-YL-yOc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Manager" id="r37-Lx-7PB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-I0-ttu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="86"/>
         </scene>
         <!--Winner Selection View Controller-->
         <scene sceneID="zh7-LK-cTA">
@@ -1039,7 +1048,7 @@
     </scenes>
     <resources>
         <image name="Milwaukee_logo_tagline" width="747" height="236"/>
-        <image name="background" width="2049" height="2736"/>
+        <image name="background" width="1024" height="1368"/>
         <image name="frame_0" width="1602" height="1564"/>
         <image name="ic-unfilled-arrow-down" width="16" height="9"/>
         <image name="red_button_background" width="216" height="64"/>

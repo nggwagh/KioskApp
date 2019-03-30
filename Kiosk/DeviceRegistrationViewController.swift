@@ -41,6 +41,10 @@ class DeviceRegistrationViewController: UIViewController {
             if (txtDeviceName.text?.isEmpty)! {
                 txtDeviceName.becomeFirstResponder()
             } else {
+                
+                //Show progress hud
+                self.showHUD(progressLabel: "")
+                
                 let deviceInfo = DeviceInformation.mr_findFirst() ?? DeviceInformation.mr_createEntity()
                 deviceInfo?.copy(deviceName: txtDeviceName.text!)
                 NSManagedObjectContext.mr_contextForCurrentThread().mr_saveToPersistentStoreAndWait()
@@ -48,6 +52,9 @@ class DeviceRegistrationViewController: UIViewController {
                 sender.isEnabled = false
                 
                 KioskNetworkManager.shared.registerDevice { [weak self] success in
+                    
+                    // hiding progress hud
+                    self!.dismissHUD(isAnimated: true)
                     
                     if !success {
                         
@@ -64,17 +71,51 @@ class DeviceRegistrationViewController: UIViewController {
                         
                     } else if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
                         
-                        if !(self?.isFromSetting)! {
-                            appDelegate.reloadRootViewController()
-                        } else {
+                        if !(self?.isFromSetting)!
+                        {
+                            //Show progress hud
+                            self!.showHUD(progressLabel: "")
+                            
+                            //Check for Device Mode
+                            KioskNetworkManager.shared.getDeviceStateMode(deviceId: DeviceUniqueIDManager.shared.uniqueID, completion: { (responseObject) in
+
+                                // hiding progress hud
+                                self!.dismissHUD(isAnimated: true)
+                                
+                                let moduleDetails = responseObject!["group"] as? [String : Any]
+                                
+//                              let moduleType = moduleDetails!["moduleType"] as! String
+                                let moduleType = "survey"
+
+                                if (moduleType == "survey")
+                                {
+                                  self?.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+                                }
+                                else if (moduleType == "survey_admin")
+                                {
+                                    self?.performSegue(withIdentifier: "segueToManager", sender: self)
+                                }
+                                else if ((moduleType == "signup") || (moduleType == "contest"))
+                                {
+                                    appDelegate.reloadRootViewController()
+                                    SyncEngine.shared.startEngine()
+                                }
+                            })
+                        }
+                        else
+                        {
                             let networkAlert = UIAlertController(title: "Milwaukee", message: "Device name updated!", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK", style: .default) { action in
                                 self?.dismiss(animated: true)
                             }
                             networkAlert.addAction(okAction)
                             self?.present(networkAlert, animated: true)
+                            
+                            SyncEngine.shared.startEngine()
+
                         }
-                        SyncEngine.shared.startEngine()
+                      
+                        //  SyncEngine.shared.startEngine()
                     }
                 }
                 
