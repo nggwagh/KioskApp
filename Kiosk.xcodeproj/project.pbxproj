@@ -14,6 +14,9 @@
 		00984D0D21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00984D0B21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift */; };
 		009A04FA212C74E8001308D7 /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 009A04F8212C74E7001308D7 /* HockeySDKResources.bundle */; };
 		009A04FB212C74E8001308D7 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009A04F9212C74E7001308D7 /* HockeySDK.framework */; };
+		3572CFC7224F59160075F719 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572CFC4224F59150075F719 /* ManagerViewController.swift */; };
+		3572CFC8224F59160075F719 /* Manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3572CFC5224F59160075F719 /* Manager.storyboard */; };
+		3572CFC9224F59160075F719 /* ManagerContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572CFC6224F59160075F719 /* ManagerContainerController.swift */; };
 		35740898223FE71C0020F980 /* CustomerSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */; };
 		5256D3A5224E75C400B1B867 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A4224E75C400B1B867 /* Answer.swift */; };
 		5256D3A7224E9EAB00B1B867 /* MBProgressHudUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A6224E9EAA00B1B867 /* MBProgressHudUtility.swift */; };
@@ -104,6 +107,9 @@
 		009A04F9212C74E7001308D7 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
 		0D4D470830890534B260258A /* Pods-KioskUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KioskUITests/Pods-KioskUITests.release.xcconfig"; sourceTree = "<group>"; };
 		130714DFFAAFD718F063B2E2 /* Pods_KioskUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KioskUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3572CFC4224F59150075F719 /* ManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerViewController.swift; path = Kiosk/Manager/ManagerViewController.swift; sourceTree = SOURCE_ROOT; };
+		3572CFC5224F59160075F719 /* Manager.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Manager.storyboard; path = Kiosk/Manager/Manager.storyboard; sourceTree = SOURCE_ROOT; };
+		3572CFC6224F59160075F719 /* ManagerContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagerContainerController.swift; path = Kiosk/Manager/ManagerContainerController.swift; sourceTree = SOURCE_ROOT; };
 		35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSubscriptionViewController.swift; sourceTree = "<group>"; };
 		4408C6106975329E7F0E26A6 /* Pods-KioskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C38E95E789FE85ED70EEDC7 /* Pods-Kiosk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiosk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +240,17 @@
 				009A04F9212C74E7001308D7 /* HockeySDK.framework */,
 			);
 			path = HockeySDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		3572CFC3224F58FC0075F719 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3572CFC5224F59160075F719 /* Manager.storyboard */,
+				3572CFC6224F59160075F719 /* ManagerContainerController.swift */,
+				3572CFC4224F59150075F719 /* ManagerViewController.swift */,
+			);
+			name = Manager;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		3AB162D040842AB9107E8994 /* Pods */ = {
@@ -381,6 +398,7 @@
 		77B8BFD720832DD00086107E /* Kiosk */ = {
 			isa = PBXGroup;
 			children = (
+				3572CFC3224F58FC0075F719 /* Manager */,
 				52D96382223E9FC50077FD24 /* Questionnaire */,
 				0085038B2146EE1000240ABC /* Winner List */,
 				009A04F6212C74B9001308D7 /* Other Frameworks */,
@@ -600,6 +618,7 @@
 				77B8BFE620832DD00086107E /* LaunchScreen.storyboard in Resources */,
 				77898821209A16D70017E6D1 /* Fragment.png in Resources */,
 				77898820209A16D70017E6D1 /* Sparkle.png in Resources */,
+				3572CFC8224F59160075F719 /* Manager.storyboard in Resources */,
 				52D96381223E98490077FD24 /* Questionnaire.storyboard in Resources */,
 				77BFFFD5208DCCD000D69C1B /* BebasNeue-Bold.otf in Resources */,
 				77BFFFD6208DCCD000D69C1B /* BebasNeue-Light.otf in Resources */,
@@ -765,6 +784,7 @@
 				52D9638F223EA16A0077FD24 /* EnterNowViewController.swift in Sources */,
 				77B8BFDB20832DD00086107E /* DeviceRegistrationViewController.swift in Sources */,
 				7789882D209A16D70017E6D1 /* LTStringDiffResult.swift in Sources */,
+				3572CFC9224F59160075F719 /* ManagerContainerController.swift in Sources */,
 				77306F5420837B95000D5A73 /* DeviceInformation+CoreDataProperties.swift in Sources */,
 				77EB2E152090467000C11060 /* SyncEngine.swift in Sources */,
 				77867E9520837FDD00CAB477 /* DeviceUniqueIDManager.swift in Sources */,
@@ -773,6 +793,7 @@
 				00984D0D21241371009741FC /* SubscriptionEntry+CoreDataProperties.swift in Sources */,
 				52D96388223E9FFA0077FD24 /* RadioAnswerTableViewCell.swift in Sources */,
 				77898823209A16D70017E6D1 /* LTMorphingLabel+Fall.swift in Sources */,
+				3572CFC7224F59160075F719 /* ManagerViewController.swift in Sources */,
 				5256D3A7224E9EAB00B1B867 /* MBProgressHudUtility.swift in Sources */,
 				00984D0C21241371009741FC /* SubscriptionEntry+CoreDataClass.swift in Sources */,
 				77B8BFD920832DD00086107E /* AppDelegate.swift in Sources */,
