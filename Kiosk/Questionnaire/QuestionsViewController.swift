@@ -48,7 +48,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         //Show progress hud
         self.showHUD(progressLabel: "")
         
-        KioskNetworkManager.shared.getQuestions(surveyId: 1) { (responseJson) in
+        KioskNetworkManager.shared.getQuestions(surveyId: 2) { (responseJson) in
             
             // hiding progress hud
             self.dismissHUD(isAnimated: true)
@@ -359,7 +359,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.questionsArray[indexPath.section] = question
             self.questionTableView.reloadData()
             
-            if ((self.completedQuestionsArray.count < 4) && (question.isCompleted == true)) {
+            if ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                     
@@ -402,7 +402,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.questionTableView.reloadData()
 
         
-        if  ((self.completedQuestionsArray.count < 4) && (question.isCompleted == true)) {
+        if  ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 
@@ -441,7 +441,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.questionTableView.reloadData()
 
         
-        if ((self.completedQuestionsArray.count < 4) && (question.isCompleted == true)) {
+        if ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                 

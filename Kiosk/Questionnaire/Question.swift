@@ -45,7 +45,7 @@ extension Question {
             let answerArray = Answer.build(from: (questionJsonObject["answers"] as! [[String:Any]]))
             
             let correctAnswer = answerArray.filter({$0.isCorrectAnswer == 1})
-            
+
             return Question(questionId: questionJsonObject["id"] as? Int,
                             surveyId: questionJsonObject["surveyID"] as? Int,
                             surveyCategoryID: questionJsonObject["surveyCategoryID"] as? Int,
@@ -53,7 +53,7 @@ extension Question {
                             questionType: (answerArray.count == 2) ? "Radio" : "Single",
                             questionAnswers: answerArray,
                             answerSelection: [],
-                            correctAnswer:correctAnswer[0].answer,
+                            correctAnswer: (correctAnswer.count > 0) ?  correctAnswer[0].answer : answerArray[0].answer,
                             isCompleted: false,
                             currentAnswerIsCorrect: "")
         })
