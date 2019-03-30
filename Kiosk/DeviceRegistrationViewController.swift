@@ -84,9 +84,13 @@ class DeviceRegistrationViewController: UIViewController {
                                 
                                 let moduleDetails = responseObject!["group"] as? [String : Any]
                                 
-//                              let moduleType = moduleDetails!["moduleType"] as! String
-                                let moduleType = "survey"
+                                let moduleType = moduleDetails!["moduleType"] as! String
+                                let moduleTypeId = moduleDetails!["moduleTypeID"] as! Int
 
+                                UserDefaults.standard.set(moduleType, forKey: "moduleType")
+                                UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
+                                UserDefaults.standard.synchronize()
+                                
                                 if (moduleType == "survey")
                                 {
                                   self?.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)

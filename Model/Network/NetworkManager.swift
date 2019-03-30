@@ -318,7 +318,6 @@ class KioskNetworkManager {
         
     }
     
-    //TODO: MOHINI this api is to Submit form details
 
     func submitEntryInfo(surveyId: Int, parameter: [String: Any], completion : @escaping ([String: Any]?) -> Void) {
         
@@ -384,7 +383,7 @@ class KioskNetworkManager {
     }
     
     
-    func submitAnswerDetails(surveyId: Int, entryId: Int, parameter: [String: Any], completion : @escaping (Bool) -> Void) {
+    func submitAnswerDetails(surveyId: Int, entryId: Int, parameter: [String: Int], completion : @escaping (Bool) -> Void) {
         
         let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)" + "/entry/\(entryId)"
         let manager = SessionManager.default

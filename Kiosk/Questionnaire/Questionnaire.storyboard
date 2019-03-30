@@ -590,7 +590,6 @@
                                 </state>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="xLQ-0Z-bd5" eventType="touchUpInside" id="W5U-A3-5UJ"/>
-                                    <segue destination="oBX-Hf-csv" kind="show" id="Z6y-45-Dds"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-uh-81y" userLabel="View For Newsletter Checkbox">
@@ -792,6 +791,7 @@
                         <outlet property="txtPostalCode" destination="3xS-PN-ebM" id="w7l-lX-jia"/>
                         <outlet property="viewForNewsletterCheckbox" destination="xcV-uh-81y" id="Y98-vb-YBP"/>
                         <outlet property="xConstraintForSelectorView" destination="WMZ-AX-eRU" id="Y39-QW-Uah"/>
+                        <segue destination="oBX-Hf-csv" kind="show" identifier="segueToQuestionnaire" id="8rV-Y5-cbl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAb-4k-z8h" sceneMemberID="firstResponder"/>

@@ -167,6 +167,7 @@ class CustomerSubscriptionViewController: UIViewController {
                 self.lblNewsLetterAgreement.layer.add(animation, forKey: "position")
                 
             };
+            
             acceptNewsletterController.addAction(okAction)
             self.present(acceptNewsletterController, animated: true)
             return false
@@ -215,7 +216,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             lblNewsLetterAgreement.text = "I agree to receive Milwaukee Tools newsletter containing, news, updates, and promotions. You can unsubscribe at any time"
             
-            btnSubmit.setTitle("SUBMIT", for: .normal)
+            btnSubmit.setTitle("NEXT FORM", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISIT MILWAUKEE WEBSITE", for: .normal)
             
         } else {
@@ -246,7 +247,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             lblNewsLetterAgreement.text = "J'accepte de recevoir des infolettres de la part de Milwaukee Tools, pouvant contenir des actualités, des mises à jour et des promotions. Vous pouvez vous désinscrire à tout moment."
             
-            btnSubmit.setTitle("ENVOYER", for: .normal)
+            btnSubmit.setTitle("FORMULAIRE SUIVANT", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISITEZ LE SITE MILWAUKEE", for: .normal)
             
         }
@@ -359,28 +360,85 @@ class CustomerSubscriptionViewController: UIViewController {
             
             self.view.endEditing(true)
             
+            /*
             let subscriptionEntry = SubscriptionEntry.mr_createEntity()!
             subscriptionEntry.copy(withFirstname: txtFirstName.text!, lastName: txtLastName.text!, email: txtPostalCode.text!, postalCode: "", trade: selectedTrade!, hearAbout: lblLanguagePreference.text ?? "", language: selectedLanguage!, acceptsNewsLetter: acceptsNewsLetter, acceptsEmails: acceptsEmails, coordinates : LocationService.shared.getCurrentCoordinates() ?? (0.0, 0.0),isReceiveDistributorEmails: acceptsDistributorEmail)
             NSManagedObjectContext.mr_contextForCurrentThread().mr_saveToPersistentStoreAndWait()
+            */
             
-            let successAlertController : UIAlertController
-            let doneAction : UIAlertAction
+            //Show progress hud
+            self.showHUD(progressLabel: "")
             
-            if selectedLanguage.localeCode == "EN" {
-                successAlertController = UIAlertController(title: "Thank you!", message: "Thank you for entering. Please look out for an email from Milwaukee Tool to confirm your submission.", preferredStyle: .alert)
-                doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)
-            } else {
-                successAlertController = UIAlertController(title: "Merci!", message: "Merci d'être entré. S'il vous plaît regarder pour un email de Milwaukee Tool pour confirmer votre soumission", preferredStyle: .alert)
-                doneAction = UIAlertAction(title: "Terminé", style: .default, handler: nil)
+            let parameters = ["firstName":self.txtFirstName.text!,
+                              "lastName":self.txtLastName.text!,
+                              "email":"a@b.com",
+                              "language": (self.lblLanguagePreference.text! == "English") ? "EN" : "FR",
+                              "postalCode": self.txtPostalCode.text!,
+                              "trade": self.lblTrade.text!,
+                              "deviceID": DeviceUniqueIDManager.shared.uniqueID]
+            
+            let surveyId = UserDefaults.standard.value(forKey: "moduleTypeID")
+
+            KioskNetworkManager.shared.submitEntryInfo(surveyId: surveyId as! Int, parameter: parameters) { (reponseObject) in
+                
+                // hiding progress hud
+                self.dismissHUD(isAnimated: true)
+                
+                if reponseObject != nil {
+                 
+                    let entryId = reponseObject!["id"] as? Int
+                    
+                    UserDefaults.standard.set(entryId, forKey: "entryID")
+                    UserDefaults.standard.synchronize()
+                    
+                    self.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+
+                    /*
+                    let successAlertController : UIAlertController
+                    let doneAction : UIAlertAction
+                    
+                    if self.selectedLanguage.localeCode == "EN" {
+                        
+                        successAlertController = UIAlertController(title: "Thank you!", message: "Thank you for entering. Please look out for an email from Milwaukee Tool to confirm your submission.", preferredStyle: .alert)
+                        
+                        doneAction = UIAlertAction(title: "Done", style: .default){ action in
+                            
+                            self.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+                            
+                        };
+                        
+                    }
+                    else {
+                        
+                        successAlertController = UIAlertController(title: "Merci!", message: "Merci d'être entré. S'il vous plaît regarder pour un email de Milwaukee Tool pour confirmer votre soumission", preferredStyle: .alert)
+                        
+                        doneAction = UIAlertAction(title: "Terminé", style: .default){ action in
+                            
+                            self.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+                            
+                        };
+                    }
+                    
+                    successAlertController.addAction(doneAction)
+                    
+                    self.present(successAlertController, animated: true, completion: nil)
+                    */
+                    
+                    self.reset()
+                    
+                    SyncEngine.shared.startEngine()
+                    
+                } else {
+                    
+                    let networkAlert = UIAlertController(title: "Milwaukee", message: "Error in Submitting Entry", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                        self.dismiss(animated: true)
+                    }
+                    networkAlert.addAction(okAction)
+                    self.present(networkAlert, animated: true)
+                    
+                }
             }
-            
-            successAlertController.addAction(doneAction)
-            
-            self.present(successAlertController, animated: true, completion: nil)
-            
-            reset()
-            
-            SyncEngine.shared.startEngine()
         }
         
     }

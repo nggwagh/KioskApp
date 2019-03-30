@@ -48,7 +48,9 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         //Show progress hud
         self.showHUD(progressLabel: "")
         
-        KioskNetworkManager.shared.getQuestions(surveyId: 2) { (responseJson) in
+        let surveyId = UserDefaults.standard.value(forKey: "moduleTypeID")
+        
+        KioskNetworkManager.shared.getQuestions(surveyId: surveyId as! Int) { (responseJson) in
             
             // hiding progress hud
             self.dismissHUD(isAnimated: true)
@@ -109,6 +111,29 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.timerLabel.text = "20"
         }
        
+    }
+    
+    func submitAnswer(question: Question, answer: Answer){
+    
+        let surveyId = UserDefaults.standard.value(forKey: "moduleTypeID") as! Int
+        
+        let entryId = UserDefaults.standard.value(forKey: "entryID") as! Int
+        
+        let parameters = ["surveyQuestionID":question.questionId,
+                          "surveyAnswerID":answer.id,
+                          "tries":question.answerSelection!.count]
+        
+        KioskNetworkManager.shared.submitAnswerDetails(surveyId: surveyId, entryId: entryId, parameter: parameters as! [String : Int]) { (isTrue) in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                
+                self.completedQuestionsArray.append(question)
+                self.questionsArray.removeAll()
+                self.questionTableView.reloadData()
+                
+                self.getRandomQuestionFromAllQuestions()
+            })
+        }
     }
     
     // MARK: - Table view data source
@@ -361,19 +386,13 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             if ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                    
-                    self.completedQuestionsArray.append(question)
-                    self.questionsArray.removeAll()
-                    self.questionTableView.reloadData()
-                    
-                    self.getRandomQuestionFromAllQuestions()
-                })
+                let answerObject = question.questionAnswers![indexPath.row-1]
+
+                self.submitAnswer(question: question, answer: answerObject)
             }
         }
-        
-        
     }
+    
     
     
     // MARK: - Button Action
@@ -404,18 +423,10 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if  ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                
-                self.completedQuestionsArray.append(question)
-                self.questionsArray.removeAll()
-                self.questionTableView.reloadData()
-
-                self.getRandomQuestionFromAllQuestions()
-            })
+            self.submitAnswer(question: question, answer: question.questionAnswers![0])
         }
     }
     
-
     
     @objc func falseButtonAction(sender: UIButton) {
         
@@ -443,14 +454,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if ((self.completedQuestionsArray.count < self.allQuestionsArray.count) && (question.isCompleted == true)) {
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                
-                self.completedQuestionsArray.append(question)
-                self.questionsArray.removeAll()
-                self.questionTableView.reloadData()
-                
-                self.getRandomQuestionFromAllQuestions()
-            })
+            self.submitAnswer(question: question, answer: question.questionAnswers![1])
         }
     }
     
