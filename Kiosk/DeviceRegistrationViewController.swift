@@ -84,12 +84,20 @@ class DeviceRegistrationViewController: UIViewController {
                                 
                                 let moduleDetails = responseObject!["group"] as? [String : Any]
                                 
-                                let moduleType = moduleDetails!["moduleType"] as! String
-                                let moduleTypeId = moduleDetails!["moduleTypeID"] as! Int
+                                let moduleType = moduleDetails!["module_type"] as? String
+                                
+                                let moduleTypeId = moduleDetails!["module_id"] as? Int
 
-                                UserDefaults.standard.set(moduleType, forKey: "moduleType")
-                                UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
-                                UserDefaults.standard.synchronize()
+                                if (moduleType != nil && moduleTypeId != nil) {
+                                    UserDefaults.standard.set(moduleType, forKey: "moduleType")
+                                    UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
+                                    UserDefaults.standard.synchronize()
+                                }
+                                else {
+                                    UserDefaults.standard.set("survey", forKey: "moduleType")
+                                    UserDefaults.standard.set( 1, forKey: "moduleTypeID")
+                                    UserDefaults.standard.synchronize()
+                                }
                                 
                                 if (moduleType == "survey")
                                 {
