@@ -272,7 +272,6 @@ class CustomerSubscriptionViewController: UIViewController {
         self.lblLanguagePreference.textColor = UIColor(white: 153.0/255.0, alpha: 1.0)
         selectedTrade = nil
         selectedLanguagePreference = nil
-        englishTapped(btnEnglish)
         
         checkboxForNewsletterAgreement.uncheck(animated: true)
         acceptsNewsLetter = false
@@ -321,6 +320,7 @@ class CustomerSubscriptionViewController: UIViewController {
         self.btnFrench.setTitleColor(UIColor.black, for: UIControlState.normal)
         
         UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
+        UserDefaults.standard.synchronize()
     }
     
     @IBAction func frenchTapped(_ sender: Any) {
@@ -336,6 +336,7 @@ class CustomerSubscriptionViewController: UIViewController {
         self.btnEnglish.setTitleColor(UIColor.black, for: UIControlState.normal)
         
         UserDefaults.standard.set("FR", forKey: Constant.UserDefaultKey.languagePreference)
+        UserDefaults.standard.synchronize()
     }
 
     

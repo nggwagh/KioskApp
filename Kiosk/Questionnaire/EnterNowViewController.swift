@@ -17,6 +17,7 @@ class EnterNowViewController: UIViewController {
 
         //reset language preference to english again
         UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
+        UserDefaults.standard.synchronize()
         self.initializeView()
     }
     
