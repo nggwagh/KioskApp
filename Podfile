@@ -14,7 +14,8 @@ target 'Kiosk' do
     pod "DropDown"
     pod "BFPaperCheckbox"
     pod "MBProgressHUD"
-    pod "AlamofireImage", '~> 3.5'
+    pod "AlamofireImage"
+  #  pod "AlamofireImage", '~> 3.5'
     
 #    pod "LTMorphingLabel"
 

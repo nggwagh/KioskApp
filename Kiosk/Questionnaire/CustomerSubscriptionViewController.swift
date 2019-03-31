@@ -440,8 +440,6 @@ class CustomerSubscriptionViewController: UIViewController {
                     
                     self.reset()
                     
-                    SyncEngine.shared.startEngine()
-                    
                 } else {
                     
                     let networkAlert = UIAlertController(title: "Milwaukee", message: "Error in Submitting Entry", preferredStyle: .alert)

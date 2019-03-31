@@ -513,10 +513,15 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         if let somePresentingController = self.presentedViewController {
             
             if somePresentingController == screenSaverViewController {
+                
+                somePresentingController.dismiss(animated: false, completion: nil)
+
+                /*
                 somePresentingController.dismiss(animated: false, completion: {
                     self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: false, completion: nil)
 
                 })
+               */
             }
         }
     }

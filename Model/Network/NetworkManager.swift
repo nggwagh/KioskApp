@@ -105,16 +105,14 @@ class KioskNetworkManager {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { response in
                 print(response)
-                
-                //temp comment
-                /*
+                                
                 if let deviceGroupAndScreenSaverInfo = response as? [String : Any] {
                     completion(deviceGroupAndScreenSaverInfo, nil)
                 } else {
                     //there was some problem
                     completion(nil, NSError(domain: "SomeDomain", code: 1000, userInfo: nil))
                 }
-                 */
+                
                 
             }, onError: { error in
                 print(error)

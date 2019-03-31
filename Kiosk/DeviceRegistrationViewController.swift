@@ -137,8 +137,6 @@ class DeviceRegistrationViewController: UIViewController {
                             SyncEngine.shared.startEngine()
 
                         }
-                      
-                        //  SyncEngine.shared.startEngine()
                     }
                 }
                 

@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         
-        SyncEngine.shared.startEngine()
+      //  SyncEngine.shared.startEngine()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(AppDelegate.applicationDidTimeout(notification:)),
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
-        SyncEngine.shared.startEngine()
+      //  SyncEngine.shared.startEngine()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
