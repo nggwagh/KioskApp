@@ -15,12 +15,22 @@ class ManagerViewController: UIViewController {
     var iPad3VC = ManagerContainerController()
     var iPad4VC = ManagerContainerController()
     
+    let appDel = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
-   }
+        appDel.myOrientation = .landscape
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        appDel.myOrientation = .portrait
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
     
     // MARK: - Navigation
 
