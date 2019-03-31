@@ -9,6 +9,8 @@
 import UIKit
 import AVKit
 import MBProgressHUD
+import Alamofire
+import AlamofireImage
 
 class QuestionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,7 +27,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var screenSaveURLString: String?
     
-    var screenSaverPlayer = AVPlayerViewController()
+    var screenSaverViewController = ScreensaverViewController()
     var idleTimer : Timer?
     var countDownTimer : Timer?
 
@@ -470,16 +472,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                                                selector: #selector(handleAppActivity),
                                                name: .appDetectedUserTouch,
                                                object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerItemDidReachEnd(notification:)),
-                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
-                                               object: self.screenSaverPlayer.player?.currentItem)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(newScreenSaverUpdated),
-                                               name: .updatedScreenSaver,
-                                               object: nil)
     }
     
     @objc func handleIdleDevice() {
@@ -504,8 +496,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     @objc func handleTimerForIdleDevice() {
         
        self.invalidateAllTimers()
-
-        SyncEngine.shared.startEngine()
         
         if let somePresentingController = self.presentedViewController {
             somePresentingController.dismiss(animated: true) {
@@ -520,56 +510,24 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func handleAppActivity() {
         
-        self.screenSaverPlayer.player?.pause()
-        self.screenSaverPlayer.player = nil
-        
         if let somePresentingController = self.presentedViewController {
             
-            if somePresentingController == screenSaverPlayer {
+            if somePresentingController == screenSaverViewController {
                 somePresentingController.dismiss(animated: false, completion: {
                     self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: false, completion: nil)
 
                 })
             }
         }
-        
-    }
-    
-    @objc func newScreenSaverUpdated() {
-        
-        if let _ = self.presentedViewController as? AVPlayerViewController {
-            _ = configureScreenSaverPlayer()
-        }
     }
     
     func presentScreenSaver() {
         
-        guard configureScreenSaverPlayer () else {
-            return
-        }
-        
-        self.present(screenSaverPlayer, animated: true) {
-            self.screenSaverPlayer.player?.play()
-        }
-    }
-    
-    func configureScreenSaverPlayer() -> Bool {
-        
-//        guard let url = ScreenSaver.getUrlForScreensaver() else { return false }
+        self.screenSaverViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScreenSaverViewController") as! ScreensaverViewController
 
-    //  let url = URL.init(string: "https://www.youtube.com/watch?v=CD8PP8SHMPM")
-        let url = URL.init(string: self.screenSaveURLString!)
-        screenSaverPlayer.player?.pause()
-        screenSaverPlayer.player = AVPlayer(url: url!)
-        screenSaverPlayer.videoGravity = AVLayerVideoGravity.resizeAspectFill.rawValue
-        screenSaverPlayer.entersFullScreenWhenPlaybackBegins = true
-        screenSaverPlayer.showsPlaybackControls = false
-        screenSaverPlayer.player?.play()
-        return true
-    }
-    
-    @objc func playerItemDidReachEnd(notification: NSNotification) {
-        self.screenSaverPlayer.player?.seek(to: kCMTimeZero)
-        self.screenSaverPlayer.player?.play()
+        self.present(screenSaverViewController, animated: true) {
+            let url = URL.init(string: self.screenSaveURLString!)
+            self.screenSaverViewController.screenSaverImageview?.af_setImage(withURL: url!)
+        }
     }
 }

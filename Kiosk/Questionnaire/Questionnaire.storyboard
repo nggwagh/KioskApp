@@ -828,6 +828,36 @@
             </objects>
             <point key="canvasLocation" x="898" y="15"/>
         </scene>
+        <!--Screensaver View Controller-->
+        <scene sceneID="UzT-fH-hnI">
+            <objects>
+                <viewController storyboardIdentifier="ScreenSaverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6xO-fm-9Ff" customClass="ScreensaverViewController" customModule="Kiosk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ikg-dx-e44">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuesionaireBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PFq-d3-zcM">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PFq-d3-zcM" firstAttribute="top" secondItem="3vT-Kd-3bh" secondAttribute="top" constant="-20" id="2n1-4X-fx5"/>
+                            <constraint firstItem="PFq-d3-zcM" firstAttribute="leading" secondItem="3vT-Kd-3bh" secondAttribute="leading" id="59H-QL-Trt"/>
+                            <constraint firstItem="3vT-Kd-3bh" firstAttribute="trailing" secondItem="PFq-d3-zcM" secondAttribute="trailing" id="Inz-oq-mUC"/>
+                            <constraint firstItem="3vT-Kd-3bh" firstAttribute="bottom" secondItem="PFq-d3-zcM" secondAttribute="bottom" id="f9w-rr-98j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3vT-Kd-3bh"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="screenSaverImageview" destination="PFq-d3-zcM" id="gnD-LF-mHY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Dx-JB-yPP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2878" y="15"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Milwaukee_logo_tagline" width="747" height="236"/>
