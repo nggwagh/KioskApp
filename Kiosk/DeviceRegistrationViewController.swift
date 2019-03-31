@@ -84,31 +84,44 @@ class DeviceRegistrationViewController: UIViewController {
                                 
                                 let moduleDetails = responseObject!["group"] as? [String : Any]
                                 
-                                var moduleType = moduleDetails!["module_type"] as? String
+                                var moduleType = moduleDetails!["moduleType"] as? String
                                 
-                                var moduleTypeId = moduleDetails!["module_id"] as? Int
+                                var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
 
-                                if (moduleType == nil && moduleTypeId == nil) {
-                                    moduleType = "survey"
-                                    moduleTypeId = 1
-                                }
-                                
-                                UserDefaults.standard.set(moduleType, forKey: "moduleType")
-                                UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
-                                UserDefaults.standard.synchronize()
-                                
-                                if (moduleType == "survey")
-                                {
-                                  self?.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
-                                }
-                                else if (moduleType == "survey_admin")
-                                {
-                                    self?.performSegue(withIdentifier: "segueToManager", sender: self)
-                                }
-                                else if ((moduleType == "signup") || (moduleType == "contest"))
-                                {
-                                    appDelegate.reloadRootViewController()
-                                    SyncEngine.shared.startEngine()
+                                if (moduleType != nil && moduleTypeId != nil) {
+                                    
+                                    UserDefaults.standard.set(moduleType, forKey: "moduleType")
+                                    UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
+                                    UserDefaults.standard.synchronize()
+                                    
+                                    if (moduleType == "survey")
+                                    {
+                                        self?.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+                                    }
+                                    else if (moduleType == "survey_admin")
+                                    {
+                                        self?.performSegue(withIdentifier: "segueToManager", sender: self)
+                                    }
+                                    else if ((moduleType == "signup") || (moduleType == "contest"))
+                                    {
+                                        appDelegate.reloadRootViewController()
+                                        SyncEngine.shared.startEngine()
+                                    }
+                                    
+                                } else {
+                                    
+                                   // Uncomment when testing
+//                                    moduleType = "survey"
+//                                    moduleTypeId = 1
+                                    
+                                    sender.isEnabled = true
+
+                                    let networkAlert = UIAlertController(title: "Milwaukee", message: "Module details are not avaliable for your device. Please contact support team.", preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                                        self?.dismiss(animated: true)
+                                    }
+                                    networkAlert.addAction(okAction)
+                                    self?.present(networkAlert, animated: true)
                                 }
                             })
                         }
