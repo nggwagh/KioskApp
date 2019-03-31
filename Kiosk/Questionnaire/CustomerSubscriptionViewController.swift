@@ -136,20 +136,19 @@ class CustomerSubscriptionViewController: UIViewController {
             txtLastName.text = ""
             txtLastName.becomeFirstResponder()
             return false
-        } else if (txtPostalCode.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
-            txtPostalCode.text = ""
-            txtPostalCode.becomeFirstResponder()
+        } else if ((txtEmailAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! || !(txtEmailAddress.text?.isValidEmail())!) {
+            txtEmailAddress.text = ""
+            txtEmailAddress.becomeFirstResponder()
             return false
         } else if selectedTrade == nil {
             self.tradeDropdownTapped(lblTrade)
             return false
-        }
-        else if selectedLanguagePreference == nil {
+        } else if selectedLanguagePreference == nil {
             self.showLanguagePreferenceDropdown(lblLanguagePreference)
             return false
-        }else if ((txtEmailAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! || !(txtEmailAddress.text?.isValidEmail())!) {
-            txtEmailAddress.text = ""
-            txtEmailAddress.becomeFirstResponder()
+        } else if (txtPostalCode.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+            txtPostalCode.text = ""
+            txtPostalCode.becomeFirstResponder()
             return false
         }
         else if !acceptsNewsLetter {
