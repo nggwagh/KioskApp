@@ -20,6 +20,7 @@
 		35128E96224F84C000AB84D1 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35128E95224F84C000AB84D1 /* UserTableViewCell.swift */; };
 		35128E982250A1DD00AB84D1 /* ScreensaverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35128E972250A1DD00AB84D1 /* ScreensaverViewController.swift */; };
 		35740898223FE71C0020F980 /* CustomerSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */; };
+		3579973422525CBE0014E5DC /* LocationSettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3579973322525CBE0014E5DC /* LocationSettingManager.swift */; };
 		5256D3A5224E75C400B1B867 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A4224E75C400B1B867 /* Answer.swift */; };
 		5256D3A7224E9EAB00B1B867 /* MBProgressHudUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D3A6224E9EAA00B1B867 /* MBProgressHudUtility.swift */; };
 		52D96381223E98490077FD24 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D96380223E98480077FD24 /* Questionnaire.storyboard */; };
@@ -114,6 +115,7 @@
 		35128E95224F84C000AB84D1 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		35128E972250A1DD00AB84D1 /* ScreensaverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensaverViewController.swift; sourceTree = "<group>"; };
 		35740897223FE71C0020F980 /* CustomerSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSubscriptionViewController.swift; sourceTree = "<group>"; };
+		3579973322525CBE0014E5DC /* LocationSettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingManager.swift; sourceTree = "<group>"; };
 		4408C6106975329E7F0E26A6 /* Pods-KioskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KioskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KioskTests/Pods-KioskTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C38E95E789FE85ED70EEDC7 /* Pods-Kiosk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kiosk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk.debug.xcconfig"; sourceTree = "<group>"; };
 		5256D3A4224E75C400B1B867 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				7790F0AE2084D151008FC603 /* LocationService.swift */,
+				3579973322525CBE0014E5DC /* LocationSettingManager.swift */,
 			);
 			path = "Location Service";
 			sourceTree = "<group>";
@@ -706,7 +709,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Kiosk/Pods-Kiosk-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BFPaperCheckbox/BFPaperCheckbox.framework",
@@ -715,6 +718,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 			);
@@ -728,12 +732,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kiosk/Pods-Kiosk-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kiosk/Pods-Kiosk-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F063E406F33CE432286A16C9 /* [CP] Check Pods Manifest.lock */ = {
@@ -790,6 +795,7 @@
 				77898827209A16D70017E6D1 /* LTMorphingLabel+Evaporate.swift in Sources */,
 				52D9638F223EA16A0077FD24 /* EnterNowViewController.swift in Sources */,
 				77B8BFDB20832DD00086107E /* DeviceRegistrationViewController.swift in Sources */,
+				3579973422525CBE0014E5DC /* LocationSettingManager.swift in Sources */,
 				7789882D209A16D70017E6D1 /* LTStringDiffResult.swift in Sources */,
 				77306F5420837B95000D5A73 /* DeviceInformation+CoreDataProperties.swift in Sources */,
 				77EB2E152090467000C11060 /* SyncEngine.swift in Sources */,

@@ -85,6 +85,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        
+        if let moduleType = UserDefaults.standard.value(forKey: "moduleType") as? String {
+            
+            if (moduleType == "survey")
+            {
+                //Reset launchtime latitude and longitude
+                LocationSettingManager.shared().setUserCurrentLatitude(0)
+                LocationSettingManager.shared().setUserCurrentLongitude(0)
+            }
+        }
+        
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

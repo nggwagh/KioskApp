@@ -14,4 +14,9 @@ struct Constant {
         static let shouldShowHearedAbout = "shouldShowHearedAbout"
         static let languagePreference = "languagePreference"
     }
+    
+    struct LocationKeys {
+        static let currentLatitude = "currentLatitude"
+        static let currentLongitude = "currentLongitude"
+    }
 }
