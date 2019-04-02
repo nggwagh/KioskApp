@@ -320,6 +320,13 @@ class CustomerSubscriptionViewController: UIViewController {
         
         UserDefaults.standard.set("EN", forKey: Constant.UserDefaultKey.languagePreference)
         UserDefaults.standard.synchronize()
+        
+        if selectedLanguage.localeCode == "EN" {
+            self.lblLanguagePreference?.text = "English"
+        } else {
+            self.lblLanguagePreference?.text = "French"
+        }
+        self.lblLanguagePreference?.textColor = UIColor(white: 0.0, alpha: 1.0)
     }
     
     @IBAction func frenchTapped(_ sender: Any) {
