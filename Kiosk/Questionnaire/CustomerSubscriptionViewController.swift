@@ -222,7 +222,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             lblNewsLetterAgreement.text = "I agree to receive Milwaukee Tools newsletter containing, news, updates, and promotions. You can unsubscribe at any time"
             
-            btnSubmit.setTitle("NEXT FORM", for: .normal)
+            btnSubmit.setTitle("NEXT", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISIT MILWAUKEE WEBSITE", for: .normal)
             
         } else {
@@ -253,7 +253,7 @@ class CustomerSubscriptionViewController: UIViewController {
             
             lblNewsLetterAgreement.text = "J'accepte de recevoir des infolettres de la part de Milwaukee Tools, pouvant contenir des actualités, des mises à jour et des promotions. Vous pouvez vous désinscrire à tout moment."
             
-            btnSubmit.setTitle("FORMULAIRE SUIVANT", for: .normal)
+            btnSubmit.setTitle("SUIVANT", for: .normal)
             btnVisitMilwaukeeSite.setTitle("VISITEZ LE SITE MILWAUKEE", for: .normal)
             
         }
