@@ -29,7 +29,7 @@ class ThanksViewController: UIViewController {
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
             attributeText_french.addAttribute(.foregroundColor, value: UIColor.red,
                                               range: NSMakeRange(0, attributeText_french.length))
-            attributeText_french.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 75.0)!, range: NSMakeRange(0, attributeText_french.length))
+            attributeText_french.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 75.0)!, range: NSMakeRange(0, attributeText_french.length))
 
             frenchString.enumerateSubstrings(in: frenchString.startIndex..<frenchString.endIndex, options: .byWords) {
                 (substring, substringRange, _, _) in
@@ -37,7 +37,7 @@ class ThanksViewController: UIViewController {
                     attributeText_french.addAttribute(.foregroundColor, value: UIColor.black,
                                                       range: NSRange(substringRange, in: frenchString))
                     
-                    attributeText_french.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 120.0)!, range: NSRange(substringRange, in: frenchString))
+                    attributeText_french.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 110.0)!, range: NSRange(substringRange, in: frenchString))
                 }
             }
             infoLabel.attributedText = attributeText_french
@@ -47,7 +47,7 @@ class ThanksViewController: UIViewController {
             let attributeText_english = NSMutableAttributedString.init(string: englishString)
             attributeText_english.addAttribute(.foregroundColor, value: UIColor.red,
                                               range: NSMakeRange(0, attributeText_english.length))
-            attributeText_english.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 75.0)!, range: NSMakeRange(0, attributeText_english.length))
+            attributeText_english.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 75.0)!, range: NSMakeRange(0, attributeText_english.length))
             
             englishString.enumerateSubstrings(in: englishString.startIndex..<englishString.endIndex, options: .byWords) {
                 (substring, substringRange, _, _) in
@@ -55,7 +55,7 @@ class ThanksViewController: UIViewController {
                     attributeText_english.addAttribute(.foregroundColor, value: UIColor.black,
                                                       range: NSRange(substringRange, in: englishString))
                     
-                    attributeText_english.addAttribute(.font, value: UIFont(name: self.infoLabel.font.fontName, size: 120.0)!, range: NSRange(substringRange, in: englishString))
+                    attributeText_english.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 110.0)!, range: NSRange(substringRange, in: englishString))
                 }
             }
             infoLabel.attributedText = attributeText_english
