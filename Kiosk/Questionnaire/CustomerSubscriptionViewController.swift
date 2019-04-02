@@ -322,10 +322,11 @@ class CustomerSubscriptionViewController: UIViewController {
         UserDefaults.standard.synchronize()
         
         if selectedLanguage.localeCode == "EN" {
-            self.lblLanguagePreference?.text = "English"
+            self.selectedLanguagePreference = "English"
         } else {
-            self.lblLanguagePreference?.text = "French"
+            self.selectedLanguagePreference = "French"
         }
+        self.lblLanguagePreference?.text = self.selectedLanguagePreference
         self.lblLanguagePreference?.textColor = UIColor(white: 0.0, alpha: 1.0)
     }
     
