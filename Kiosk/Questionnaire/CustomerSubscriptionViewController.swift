@@ -497,7 +497,7 @@ class CustomerSubscriptionViewController: UIViewController {
     
     private func createCheckBoxView(size: CGSize) -> BFPaperCheckbox {
         
-        var checkboxForNewsletterAgreement = BFPaperCheckbox(frame: CGRect(x: 0,
+        let checkboxForNewsletterAgreement = BFPaperCheckbox(frame: CGRect(x: 0,
                                                                            y: 0,
                                                                            width: size.width,
                                                                            height: size.height))
@@ -511,6 +511,7 @@ class CustomerSubscriptionViewController: UIViewController {
         checkboxForNewsletterAgreement.startDiameter = 10
         checkboxForNewsletterAgreement.endDiameter = 35
         checkboxForNewsletterAgreement.burstAmount = 10
+        viewForNewsletterCheckbox.layer.borderWidth = 0.5
         return checkboxForNewsletterAgreement
     }
     
