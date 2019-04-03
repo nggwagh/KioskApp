@@ -287,15 +287,38 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
 
             singleAnswerCell.selectionStyle = .none
             
+            
+            
             let answerObject = question.questionAnswers![indexPath.row-1]
             
-            singleAnswerCell.answerLabel.text = answerObject.answer
+            var answerString = ""
+            
+            if (indexPath.row-1) == 0 {
+                
+                answerString = "a. " + answerObject.answer!
+                
+            } else if (indexPath.row-1) == 1 {
+
+                answerString = "b. " + answerObject.answer!
+
+            } else if (indexPath.row-1) == 2 {
+                
+                answerString = "c. " + answerObject.answer!
+
+            }  else if (indexPath.row-1) == 3 {
+
+                answerString = "d. " + answerObject.answer!
+
+            }
+
+            
+            singleAnswerCell.answerLabel.text = answerString
             
             singleAnswerCell.borderLabel.layer.borderColor = UIColor.black.cgColor
             singleAnswerCell.borderLabel.layer.borderWidth = 1.5;
                         
             
-            if ((question.currentAnswerIsCorrect == question.correctAnswer) && (question.currentAnswerIsCorrect == singleAnswerCell.answerLabel.text))
+            if ((question.currentAnswerIsCorrect == question.correctAnswer) && (question.currentAnswerIsCorrect == answerObject.answer!))
             {
                 
                 UIView.transition(with: singleAnswerCell.borderLabel!, duration: 1.5, options: .transitionFlipFromRight, animations: {
@@ -310,7 +333,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 }, completion: nil)
                 
             }
-            else if ((singleAnswerCell.answerLabel.text == question.currentAnswerIsCorrect) && ((question.currentAnswerIsCorrect?.count)! > 0))
+            else if ((answerObject.answer! == question.currentAnswerIsCorrect) && ((question.currentAnswerIsCorrect?.count)! > 0))
             {
                 
                 UIView.transition(with: singleAnswerCell.borderLabel!, duration: 1.5, options: .transitionFlipFromRight, animations: {
@@ -331,7 +354,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                     })
                 })
             }
-            else if (question.answerSelection!.contains(singleAnswerCell.answerLabel.text!))
+            else if (question.answerSelection!.contains(answerObject.answer!))
             {
                 
                 singleAnswerCell.answerLabel.textColor = UIColor.lightGray

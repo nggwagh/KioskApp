@@ -254,10 +254,10 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t3n-Wi-Twk">
-                                <rect key="frame" x="60" y="424" width="648" height="560"/>
+                                <rect key="frame" x="60" y="414" width="648" height="580"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="560" id="GLC-C9-JyN"/>
+                                    <constraint firstAttribute="height" constant="580" id="GLC-C9-JyN"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionCell" id="xtZ-u5-XoY" customClass="QuestionTableViewCell" customModule="Kiosk" customModuleProvider="target">
@@ -328,8 +328,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="648" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-tw-Ocj">
-                                                    <rect key="frame" x="0.0" y="30" width="648" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-tw-Ocj">
+                                                    <rect key="frame" x="10" y="30" width="628" height="20"/>
                                                     <string key="text">When you put a Milwaukee fuel tool through a heavy application, the Redlink+ intelligence can demand more power from the battery to help complete the application.</string>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <nil key="textColor"/>
@@ -353,12 +353,12 @@
                                             <constraints>
                                                 <constraint firstItem="9up-AY-Wrc" firstAttribute="centerY" secondItem="Z9M-Mv-6RG" secondAttribute="centerY" id="G4k-Qi-9dl"/>
                                                 <constraint firstAttribute="bottom" secondItem="vGR-Qb-5iH" secondAttribute="bottom" constant="20" id="LQV-Jm-7fH"/>
-                                                <constraint firstItem="fqN-tw-Ocj" firstAttribute="leading" secondItem="Z9M-Mv-6RG" secondAttribute="leading" id="N6g-s9-4oo"/>
+                                                <constraint firstItem="fqN-tw-Ocj" firstAttribute="leading" secondItem="Z9M-Mv-6RG" secondAttribute="leading" constant="10" id="N6g-s9-4oo"/>
                                                 <constraint firstItem="vGR-Qb-5iH" firstAttribute="top" secondItem="Z9M-Mv-6RG" secondAttribute="top" constant="20" id="Sij-a9-Xs4"/>
                                                 <constraint firstAttribute="trailing" secondItem="vGR-Qb-5iH" secondAttribute="trailing" id="Utz-Sw-SjK"/>
                                                 <constraint firstItem="9up-AY-Wrc" firstAttribute="centerX" secondItem="Z9M-Mv-6RG" secondAttribute="centerX" id="Ywf-iC-MiX"/>
                                                 <constraint firstItem="vGR-Qb-5iH" firstAttribute="leading" secondItem="Z9M-Mv-6RG" secondAttribute="leading" id="aXJ-9y-arF"/>
-                                                <constraint firstAttribute="trailing" secondItem="fqN-tw-Ocj" secondAttribute="trailing" id="dFF-3B-N0G"/>
+                                                <constraint firstAttribute="trailing" secondItem="fqN-tw-Ocj" secondAttribute="trailing" constant="10" id="dFF-3B-N0G"/>
                                                 <constraint firstItem="fqN-tw-Ocj" firstAttribute="top" secondItem="Z9M-Mv-6RG" secondAttribute="top" constant="30" id="jsu-oh-cLt"/>
                                                 <constraint firstAttribute="bottom" secondItem="fqN-tw-Ocj" secondAttribute="bottom" constant="30" id="wFf-gD-65k"/>
                                             </constraints>
@@ -377,7 +377,7 @@
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-7G-pFG">
-                                <rect key="frame" x="299" y="259" width="170" height="90"/>
+                                <rect key="frame" x="299" y="249" width="170" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="VwL-Ce-Eta"/>
                                     <constraint firstAttribute="width" constant="170" id="sKz-1S-P0R"/>
@@ -395,7 +395,7 @@
                             <constraint firstItem="Y30-Sh-g90" firstAttribute="bottom" secondItem="qCq-W5-p6c" secondAttribute="bottom" id="c5s-9G-L8Y"/>
                             <constraint firstItem="t3n-Wi-Twk" firstAttribute="top" secondItem="a8e-7G-pFG" secondAttribute="bottom" constant="75" id="fzB-AW-z1J"/>
                             <constraint firstItem="mX8-FY-jcn" firstAttribute="top" secondItem="Y30-Sh-g90" secondAttribute="top" constant="35" id="iQa-Zd-jHE"/>
-                            <constraint firstItem="Y30-Sh-g90" firstAttribute="bottom" secondItem="t3n-Wi-Twk" secondAttribute="bottom" constant="40" id="ivW-g5-wAu"/>
+                            <constraint firstItem="Y30-Sh-g90" firstAttribute="bottom" secondItem="t3n-Wi-Twk" secondAttribute="bottom" constant="30" id="ivW-g5-wAu"/>
                             <constraint firstItem="qCq-W5-p6c" firstAttribute="top" secondItem="Y30-Sh-g90" secondAttribute="top" id="jWz-T1-lE3"/>
                             <constraint firstItem="mX8-FY-jcn" firstAttribute="centerX" secondItem="KKY-aX-uiM" secondAttribute="centerX" id="qKF-3W-Jrv"/>
                             <constraint firstItem="t3n-Wi-Twk" firstAttribute="leading" secondItem="Y30-Sh-g90" secondAttribute="leading" constant="60" id="qgt-Yq-nDi"/>
@@ -862,11 +862,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Milwaukee_logo_tagline" width="747.5" height="236"/>
+        <image name="Milwaukee_logo_tagline" width="747" height="236"/>
         <image name="QuesionaireBackground" width="2049" height="2736"/>
         <image name="ic-unfilled-arrow-down" width="16" height="9"/>
         <image name="logo" width="1495" height="473"/>
-        <image name="red_button_background" width="216.5" height="64.5"/>
-        <image name="textbox_background_white" width="565.5" height="70"/>
+        <image name="red_button_background" width="216" height="64"/>
+        <image name="textbox_background_white" width="565" height="70"/>
     </resources>
 </document>
