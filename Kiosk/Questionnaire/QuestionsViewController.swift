@@ -24,6 +24,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     var randomIndexArray = [Int]()
     
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var timerView: UIView!
+    @IBOutlet weak var timerTextLabel: UILabel!
     
     var screenSaveURLString: String?
     
@@ -40,6 +42,14 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getQuestionsForSurvey()
         
         self.addObservers()
+        
+        self.timerView.layer.borderColor = UIColor.black.cgColor
+        self.timerView.layer.borderWidth = 1;
+        self.timerView.layer.cornerRadius = 10
+        
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+
+        self.timerTextLabel.text = (languagePreference == "EN") ? "Are you still there?" : "Tu es encore la?"
         
     }
 
@@ -109,7 +119,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             countDownTimer!.invalidate()
             idleTimer!.invalidate()
-            self.timerLabel.isHidden = true
+            self.timerView.isHidden = true
             self.timerLabel.text = "20"
         }
        
@@ -511,7 +521,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                                             userInfo: nil,
                                             repeats: true)
 
-           self.timerLabel.isHidden = false
+           self.timerView.isHidden = false
+
 
     }
     
