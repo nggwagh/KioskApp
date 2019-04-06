@@ -96,8 +96,8 @@ class CustomerSubscriptionViewController: UIViewController {
     
     
     //MARK: - Controller functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Do any additional setup after loading the view.
         selectedLanguage = availableLanguages.first
@@ -265,6 +265,7 @@ class CustomerSubscriptionViewController: UIViewController {
         
         txtFirstName.text = ""
         txtLastName.text = ""
+        txtEmailAddress.text = ""
         txtPostalCode.text = ""
         lblTrade.text = "TRADE"
         lblTrade.textColor = UIColor(white: 153.0/255.0, alpha: 1.0)

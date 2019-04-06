@@ -551,7 +551,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
               //  somePresentingController.dismiss(animated: false, completion: nil)
 
                 somePresentingController.dismiss(animated: false, completion: {
-                    self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: false, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
 
                 })
             

@@ -16,7 +16,7 @@ class ThanksViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         Timer.scheduledTimer(timeInterval: 7.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
         
         self.initializeView()
     }
@@ -63,12 +63,10 @@ class ThanksViewController: UIViewController {
     }
     
     @objc func navigateToEnterNowScreen() {
-    
-    //    self.navigationController?.popToRootViewController(animated: true)
         
-   //     self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 
-          self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+//          self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
 
     }
     
