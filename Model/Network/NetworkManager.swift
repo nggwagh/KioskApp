@@ -351,7 +351,7 @@ class KioskNetworkManager {
     
     func getQuestions(surveyId: Int, completion : @escaping ([String: Any]?) -> Void) {
         
-        let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)"
+        let stringURL = KioskNetworkManager.liveUrl + "survey/\(surveyId)?randomize=1"
         let manager = SessionManager.default
         
         manager.rx.request(.get, stringURL, parameters: nil, encoding: URLEncoding.default)

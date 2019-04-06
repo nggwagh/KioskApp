@@ -42,14 +42,16 @@ extension Question {
         
         return questionJsonObjects.compactMap({ questionJsonObject in
             
+            let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+            
             let answerArray = Answer.build(from: (questionJsonObject["answers"] as! [[String:Any]]))
             
             let correctAnswer = answerArray.filter({$0.isCorrectAnswer == 1})
-
+            
             return Question(questionId: questionJsonObject["id"] as? Int,
                             surveyId: questionJsonObject["surveyID"] as? Int,
                             surveyCategoryID: questionJsonObject["surveyCategoryID"] as? Int,
-                            questionTitle: questionJsonObject["question"] as? String,
+                            questionTitle: (languagePreference == "EN") ? questionJsonObject["question"] as? String : questionJsonObject["question_fr"] as? String,
                             questionType: (answerArray.count == 2) ? "Radio" : "Single",
                             questionAnswers: answerArray,
                             answerSelection: [],

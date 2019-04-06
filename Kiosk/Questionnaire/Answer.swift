@@ -25,12 +25,13 @@ extension Answer {
     
         return answerJsonObjects.compactMap({ answerJsonObject in
             
-            return Answer(id: answerJsonObject["id"] as? Int,
-                          answer: answerJsonObject["answer"] as? String,
-                          surveyQuestionID: answerJsonObject["surveyQuestionID"] as? Int,
-                          order: answerJsonObject["order"] as? Int,
-                          isCorrectAnswer: answerJsonObject["isCorrectAnswer"] as? Int)
-    
+            let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+            
+                return Answer(id: answerJsonObject["id"] as? Int,
+                              answer: (languagePreference == "EN") ? answerJsonObject["answer"] as? String : answerJsonObject["answer_fr"] as? String,
+                              surveyQuestionID: answerJsonObject["surveyQuestionID"] as? Int,
+                              order: answerJsonObject["order"] as? Int,
+                              isCorrectAnswer: answerJsonObject["isCorrectAnswer"] as? Int)
         })
     }
 }

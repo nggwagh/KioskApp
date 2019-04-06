@@ -88,6 +88,9 @@ class DeviceRegistrationViewController: UIViewController {
                                 
                                 var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
 
+                                moduleType = "survey"
+                                moduleTypeId = 2
+                                
                                 if (moduleType != nil && moduleTypeId != nil) {
                                     
                                     UserDefaults.standard.set(moduleType, forKey: "moduleType")
