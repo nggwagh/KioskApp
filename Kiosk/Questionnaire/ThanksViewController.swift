@@ -11,12 +11,14 @@ import UIKit
 class ThanksViewController: UIViewController {
 
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var finishedButton: UIButton!
+    var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
+         timer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(navigateToEnterNowScreen), userInfo: nil, repeats: false)
         
         self.initializeView()
     }
@@ -41,6 +43,8 @@ class ThanksViewController: UIViewController {
                 }
             }
             infoLabel.attributedText = attributeText_french
+            finishedButton.setTitle("FINI", for: UIControlState.normal)
+
         }
         else {
             let englishString: String = "THANK \n YOU \n PLEASE SEE THE \n MILWAUKEE REPRESENTATIVE TO CLAIM YOUR GOOD"
@@ -59,16 +63,21 @@ class ThanksViewController: UIViewController {
                 }
             }
             infoLabel.attributedText = attributeText_english
+            finishedButton.setTitle("FINISHED", for: UIControlState.normal)
+
         }
     }
     
     @objc func navigateToEnterNowScreen() {
-        
+        timer.invalidate()
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-
-//          self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
-
     }
+    
+    @IBAction func finshedButtonTapped(_ sender: UIButton) {
+        timer.invalidate()
+        self.view.window!.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     
     /*
     // MARK: - Navigation

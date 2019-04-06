@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F7-MM-mrd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5F7-MM-mrd">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -163,10 +163,12 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Milwaukee_logo_tagline" translatesAutoresizingMaskIntoConstraints="NO" id="Nm4-xH-jAk">
                                         <rect key="frame" x="100" y="15" width="470" height="236"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="Milwaukee_logo_tagline" translatesAutoresizingMaskIntoConstraints="NO" id="Nm4-xH-jAk">
+                                        <rect key="frame" x="100" y="0.0" width="470" height="236"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="55" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTp-p3-CuE">
-                                        <rect key="frame" x="0.0" y="266" width="670" height="637.5"/>
+                                        <rect key="frame" x="0.0" y="202" width="670" height="667.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="THANK      YOU     ">
                                                 <attributes>
@@ -200,16 +202,39 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6R-aR-JMa">
+                                        <rect key="frame" x="255" y="875" width="160" height="60"/>
+                                        <color key="backgroundColor" red="0.12941176469999999" green="0.1215686275" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="1uZ-BR-nvq"/>
+                                            <constraint firstAttribute="height" constant="60" id="iAd-Lv-RPp"/>
+                                            <constraint firstAttribute="width" constant="160" id="l8j-Dy-CYA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                        <state key="normal" title="FINISHED">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="finshedButtonTapped:" destination="Kf9-XB-hMz" eventType="touchUpInside" id="eoO-Qp-QVJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="950" id="4E7-75-k5h"/>
-                                    <constraint firstItem="Nm4-xH-jAk" firstAttribute="top" secondItem="7vq-MC-i1p" secondAttribute="top" constant="15" id="6BE-Fh-hxv"/>
+                                    <constraint firstItem="Nm4-xH-jAk" firstAttribute="top" secondItem="7vq-MC-i1p" secondAttribute="top" id="6BE-Fh-hxv"/>
+                                    <constraint firstItem="B6R-aR-JMa" firstAttribute="centerX" secondItem="7vq-MC-i1p" secondAttribute="centerX" id="6mD-PW-qls"/>
                                     <constraint firstAttribute="width" constant="670" id="7rj-tf-uHr"/>
-                                    <constraint firstItem="tTp-p3-CuE" firstAttribute="top" secondItem="Nm4-xH-jAk" secondAttribute="bottom" constant="15" id="8nm-Qz-Ica"/>
-                                    <constraint firstAttribute="bottom" secondItem="tTp-p3-CuE" secondAttribute="bottom" constant="46.5" id="Cgz-Bm-sUK"/>
+                                    <constraint firstItem="tTp-p3-CuE" firstAttribute="top" secondItem="Nm4-xH-jAk" secondAttribute="bottom" constant="-34" id="8nm-Qz-Ica"/>
+                                    <constraint firstAttribute="bottom" secondItem="tTp-p3-CuE" secondAttribute="bottom" constant="80.5" id="Cgz-Bm-sUK"/>
                                     <constraint firstItem="Nm4-xH-jAk" firstAttribute="leading" secondItem="7vq-MC-i1p" secondAttribute="leading" constant="100" id="FLp-9r-FLE"/>
                                     <constraint firstAttribute="trailing" secondItem="Nm4-xH-jAk" secondAttribute="trailing" constant="100" id="T0a-rR-9eI"/>
+                                    <constraint firstAttribute="bottom" secondItem="B6R-aR-JMa" secondAttribute="bottom" constant="15" id="YF4-2p-LaD"/>
                                     <constraint firstItem="tTp-p3-CuE" firstAttribute="leading" secondItem="7vq-MC-i1p" secondAttribute="leading" id="Ysz-1E-mdi"/>
                                     <constraint firstAttribute="trailing" secondItem="tTp-p3-CuE" secondAttribute="trailing" id="f25-32-kcp"/>
                                 </constraints>
@@ -228,6 +253,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="finishedButton" destination="B6R-aR-JMa" id="pz4-K3-ubg"/>
                         <outlet property="infoLabel" destination="tTp-p3-CuE" id="8MD-tb-YwR"/>
                     </connections>
                 </viewController>
