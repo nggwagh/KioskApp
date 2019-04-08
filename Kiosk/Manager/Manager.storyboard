@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9ri-64-aVR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9ri-64-aVR">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuesionaireBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-1i-oEU">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Milwaukee_logo_tagline" translatesAutoresizingMaskIntoConstraints="NO" id="2UP-L6-LNS">
                                 <rect key="frame" x="20" y="20" width="350" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,7 +68,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="tMZ-fb-IMx" secondAttribute="bottom" constant="10" id="58B-Gh-WGm"/>
                                     <constraint firstAttribute="trailing" secondItem="tMZ-fb-IMx" secondAttribute="trailing" constant="10" id="PRF-rO-ph4"/>
@@ -128,14 +131,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zGU-hX-o62" firstAttribute="trailing" secondItem="Xd0-CU-gFt" secondAttribute="trailing" constant="20" id="24b-zl-TiR"/>
+                            <constraint firstItem="hAS-1i-oEU" firstAttribute="leading" secondItem="zGU-hX-o62" secondAttribute="leading" id="4Ze-vU-Szs"/>
                             <constraint firstItem="NID-U6-YzU" firstAttribute="centerX" secondItem="wPC-xP-lTp" secondAttribute="centerX" id="A0D-sh-hn9"/>
                             <constraint firstItem="6eY-ek-r3a" firstAttribute="centerX" secondItem="saf-X0-gOB" secondAttribute="centerX" id="AOk-bD-h1O"/>
                             <constraint firstItem="rbr-3Z-uD1" firstAttribute="centerY" secondItem="Dp7-PV-1SY" secondAttribute="centerY" id="Dnm-X1-WGS"/>
                             <constraint firstItem="wPC-xP-lTp" firstAttribute="centerX" secondItem="UJF-Ih-xco" secondAttribute="centerX" id="Drb-hM-C8S"/>
+                            <constraint firstItem="hAS-1i-oEU" firstAttribute="bottom" secondItem="zGU-hX-o62" secondAttribute="bottom" id="GEZ-fW-bxj"/>
                             <constraint firstItem="6eY-ek-r3a" firstAttribute="top" secondItem="Dp7-PV-1SY" secondAttribute="top" id="LI2-xN-fXR"/>
                             <constraint firstItem="Mek-rj-0H2" firstAttribute="top" secondItem="Dp7-PV-1SY" secondAttribute="top" id="N9B-yT-gNr"/>
+                            <constraint firstItem="hAS-1i-oEU" firstAttribute="top" secondItem="xA2-Sz-phW" secondAttribute="top" id="NbH-hT-TGl"/>
                             <constraint firstItem="Dp7-PV-1SY" firstAttribute="centerX" secondItem="p3C-lp-tRa" secondAttribute="centerX" id="Nr1-A9-PAM"/>
                             <constraint firstItem="NID-U6-YzU" firstAttribute="centerY" secondItem="wPC-xP-lTp" secondAttribute="centerY" id="O82-qM-EoO"/>
+                            <constraint firstItem="hAS-1i-oEU" firstAttribute="trailing" secondItem="zGU-hX-o62" secondAttribute="trailing" id="Qsh-Lk-HZH"/>
                             <constraint firstItem="Mek-rj-0H2" firstAttribute="centerX" secondItem="8ox-wy-bAa" secondAttribute="centerX" id="T5i-0H-jow"/>
                             <constraint firstItem="wPC-xP-lTp" firstAttribute="top" secondItem="Dp7-PV-1SY" secondAttribute="top" id="V61-lr-OWT"/>
                             <constraint firstItem="fXy-ss-0Kn" firstAttribute="centerY" secondItem="Mek-rj-0H2" secondAttribute="centerY" id="Yx8-lj-uBg"/>
@@ -168,11 +175,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lwy-1T-FEg">
                                 <rect key="frame" x="0.0" y="0.0" width="226" height="348"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="wWz-QR-EAf">
                                     <rect key="frame" x="0.0" y="72" width="226" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="Dzs-C5-6u3" customClass="UserTableViewCell" customModule="Kiosk" customModuleProvider="target">
@@ -201,12 +208,14 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="aZK-oe-Vvd" firstAttribute="centerY" secondItem="Xcf-L3-v5H" secondAttribute="centerY" id="cH9-N2-Fl1"/>
                                                 <constraint firstItem="aZK-oe-Vvd" firstAttribute="width" relation="lessThanOrEqual" secondItem="Xcf-L3-v5H" secondAttribute="width" constant="-30" id="d90-SY-YeL"/>
                                                 <constraint firstItem="aZK-oe-Vvd" firstAttribute="centerX" secondItem="Xcf-L3-v5H" secondAttribute="centerX" id="j3Q-N0-pTS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="checkUncheckImageView" destination="Mby-kL-7yS" id="9ig-MR-5V8"/>
                                             <outlet property="userName" destination="pvI-ZP-nO1" id="mkA-NP-q3c"/>
@@ -226,6 +235,7 @@
                             <constraint firstItem="lwy-1T-FEg" firstAttribute="leading" secondItem="h5H-Ol-oAM" secondAttribute="leading" id="azv-Lu-nva"/>
                             <constraint firstItem="lwy-1T-FEg" firstAttribute="top" secondItem="h5H-Ol-oAM" secondAttribute="top" id="pet-2P-C0V"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="xF3-ca-gGd"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kp-yX-evf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,11 +252,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="41r-sW-hXj">
                                 <rect key="frame" x="0.0" y="20" width="226" height="328"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Ml7-hM-Edz">
                                     <rect key="frame" x="0.0" y="72" width="226" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="bCp-Qd-O9u" customClass="UserTableViewCell" customModule="Kiosk" customModuleProvider="target">
@@ -275,12 +285,14 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Gbw-t3-efZ" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Wm-T4-PfK" secondAttribute="width" constant="-30" id="IJU-2b-efw"/>
                                                 <constraint firstItem="Gbw-t3-efZ" firstAttribute="centerY" secondItem="6Wm-T4-PfK" secondAttribute="centerY" id="lek-SL-2LK"/>
                                                 <constraint firstItem="Gbw-t3-efZ" firstAttribute="centerX" secondItem="6Wm-T4-PfK" secondAttribute="centerX" id="vHO-nl-rrB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="checkUncheckImageView" destination="p1N-aB-D80" id="y4H-vK-3Yn"/>
                                             <outlet property="userName" destination="cgv-v5-yIK" id="kPT-Zh-PEa"/>
@@ -317,11 +329,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wqv-Bl-pIc">
                                 <rect key="frame" x="0.0" y="20" width="226" height="328"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="OSM-cw-jXa">
                                     <rect key="frame" x="0.0" y="72" width="226" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="FkO-XK-8gP" customClass="UserTableViewCell" customModule="Kiosk" customModuleProvider="target">
@@ -350,12 +362,14 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Pcs-Ly-Oh7" firstAttribute="centerY" secondItem="d9q-fs-jig" secondAttribute="centerY" id="Vvs-uA-btd"/>
                                                 <constraint firstItem="Pcs-Ly-Oh7" firstAttribute="width" relation="lessThanOrEqual" secondItem="d9q-fs-jig" secondAttribute="width" constant="-30" id="c6L-YR-LQH"/>
                                                 <constraint firstItem="Pcs-Ly-Oh7" firstAttribute="centerX" secondItem="d9q-fs-jig" secondAttribute="centerX" id="gkd-Wh-ccI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="checkUncheckImageView" destination="tRq-BB-TPk" id="aRW-0o-wo2"/>
                                             <outlet property="userName" destination="JX8-EM-bKg" id="EkO-RL-SKv"/>
@@ -392,11 +406,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lQp-hi-RfZ">
                                 <rect key="frame" x="0.0" y="20" width="226" height="328"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="8N9-my-WvC">
                                     <rect key="frame" x="0.0" y="72" width="226" height="1"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="Gca-Nk-bXH" customClass="UserTableViewCell" customModule="Kiosk" customModuleProvider="target">
@@ -425,12 +439,14 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="oQW-6Z-191" firstAttribute="width" relation="lessThanOrEqual" secondItem="xp9-wW-WZr" secondAttribute="width" constant="-30" id="7uF-io-C0A"/>
                                                 <constraint firstItem="oQW-6Z-191" firstAttribute="centerY" secondItem="xp9-wW-WZr" secondAttribute="centerY" id="bdh-HO-U7V"/>
                                                 <constraint firstItem="oQW-6Z-191" firstAttribute="centerX" secondItem="xp9-wW-WZr" secondAttribute="centerX" id="qMN-4C-CW1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="checkUncheckImageView" destination="o6s-Z9-AzN" id="DLr-Hw-ig8"/>
                                             <outlet property="userName" destination="Uw3-Mz-nwR" id="o51-4D-cEH"/>
@@ -460,7 +476,8 @@
     </scenes>
     <resources>
         <image name="DeviceIcon" width="215" height="293"/>
-        <image name="Milwaukee_logo_tagline" width="747" height="236"/>
+        <image name="Milwaukee_logo_tagline" width="747.5" height="236"/>
+        <image name="QuesionaireBackground" width="2049" height="2736"/>
         <image name="Unchecked" width="15" height="15"/>
     </resources>
 </document>
