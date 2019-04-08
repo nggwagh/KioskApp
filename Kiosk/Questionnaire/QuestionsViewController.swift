@@ -170,7 +170,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let question = self.questionsArray[indexPath.section]
-
+        
         if (question.questionType == "Radio")
         {
             if indexPath.row == 0 {
@@ -194,6 +194,9 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let question = self.questionsArray[indexPath.section]
         
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+
+        
         if indexPath.row == 0 {
             
             let questionCell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionTableViewCell
@@ -213,22 +216,25 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // CASE: TRUE
         
+        let trueText = (languagePreference == "EN") ? "True" : "Vrai"
+
         if (question.currentAnswerIsCorrect == "") {
             
-            radioAnswerCell.trueButton.setImage(UIImage(named: "True"), for: .normal)
+            let imageName = (languagePreference == "EN") ? "True" : "True_Fr"
+            radioAnswerCell.trueButton.setImage(UIImage(named: imageName), for: .normal)
             
         }
-        else if ((question.correctAnswer == "True") && (question.currentAnswerIsCorrect == "True")){
+        else if ((question.correctAnswer == trueText) && (question.currentAnswerIsCorrect == trueText)){
 
             UIView.transition(with: radioAnswerCell.trueButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
-                
+
                 radioAnswerCell.trueButton.setImage(UIImage(named: "Tick"), for: .normal)
             //  radioAnswerCell.trueButton.isUserInteractionEnabled = false
 
             }, completion: nil)
             
         }
-        else if ((question.currentAnswerIsCorrect == "True") && (question.currentAnswerIsCorrect != question.correctAnswer))
+        else if ((question.currentAnswerIsCorrect == trueText) && (question.currentAnswerIsCorrect != question.correctAnswer))
         {
             UIView.transition(with: radioAnswerCell.trueButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
@@ -239,7 +245,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             }, completion: { finished in
                 UIView.animate(withDuration: 3.0, animations: {
                     
-                    radioAnswerCell.trueButton.setImage(UIImage(named: "TrueGrey"), for: .normal)
+                    let imageName = (languagePreference == "EN") ? "TrueGrey" : "TrueGrey_Fr"
+                    radioAnswerCell.trueButton.setImage(UIImage(named: imageName), for: .normal)
             //     radioAnswerCell.trueButton.isUserInteractionEnabled = false
                 })
             })
@@ -252,12 +259,15 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // CASE: FALSE
         
+        let falseText = (languagePreference == "EN") ? "False" : "Faux"
+            
         if (question.currentAnswerIsCorrect == "") {
             
-            radioAnswerCell.falseButton.setImage(UIImage(named: "False"), for: .normal)
+            let imageName = (languagePreference == "EN") ? "False" : "False_Fr"
+            radioAnswerCell.falseButton.setImage(UIImage(named: imageName), for: .normal)
             
         }
-        else if ((question.correctAnswer == "False") && (question.currentAnswerIsCorrect == "False")) {
+        else if ((question.correctAnswer == falseText) && (question.currentAnswerIsCorrect == falseText)) {
 
             UIView.transition(with: radioAnswerCell.falseButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
@@ -267,7 +277,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             }, completion: nil)
             
         }
-        else if ((question.currentAnswerIsCorrect == "False") && (question.currentAnswerIsCorrect != question.correctAnswer))
+        else if ((question.currentAnswerIsCorrect == falseText) && (question.currentAnswerIsCorrect != question.correctAnswer))
         {
             UIView.transition(with: radioAnswerCell.falseButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
@@ -278,7 +288,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             }, completion: { finished in
                 UIView.animate(withDuration: 3.0, animations: {
                     
-                    radioAnswerCell.falseButton.setImage(UIImage(named: "FalseGrey"), for: .normal)
+                    let imageName = (languagePreference == "EN") ? "FalseGrey" : "FalseGrey_Fr"
+                    radioAnswerCell.falseButton.setImage(UIImage(named: imageName), for: .normal)
              //     radioAnswerCell.falseButton.isUserInteractionEnabled = false
                 })
             })
@@ -439,17 +450,22 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
 
         var question = self.questionsArray[sender.tag]
         
-        if (question.correctAnswer == "True") {
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+
+        let trueText = (languagePreference == "EN") ? "True" : "Vrai"
+
+        
+        if (question.correctAnswer == trueText) {
             
             question.isCompleted = true
-            question.currentAnswerIsCorrect = "True"
-            question.answerSelection!.append("True")
+            question.currentAnswerIsCorrect = trueText
+            question.answerSelection!.append(trueText)
             
         } else {
             
             question.isCompleted = false
-            question.currentAnswerIsCorrect = "True"
-            question.answerSelection!.append("True")
+            question.currentAnswerIsCorrect = trueText
+            question.answerSelection!.append(trueText)
         }
         
         self.questionsArray[sender.tag] = question
@@ -469,18 +485,22 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
 
         var question = self.questionsArray[sender.tag]
         
-        if (question.correctAnswer == "False") {
+        let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
+
+        let falseText = (languagePreference == "EN") ? "False" : "Faux"
+
+        
+        if (question.correctAnswer == falseText) {
             
             question.isCompleted = true
-            question.currentAnswerIsCorrect = "False"
-            question.answerSelection!.append("False")
-            
+            question.currentAnswerIsCorrect = falseText
+            question.answerSelection!.append(falseText)
             
         } else {
             
             question.isCompleted = false
-            question.currentAnswerIsCorrect = "False"
-            question.answerSelection!.append("False")
+            question.currentAnswerIsCorrect = falseText
+            question.answerSelection!.append(falseText)
         }
         
         self.questionsArray[sender.tag] = question
