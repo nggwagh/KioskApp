@@ -94,6 +94,7 @@ class CustomerSubscriptionViewController: UIViewController {
                             "français",
                             ]
     
+    var numberOfLogoTaps = 0
     
     //MARK: - Controller functions
     override func viewWillAppear(_ animated: Bool) {
@@ -105,6 +106,8 @@ class CustomerSubscriptionViewController: UIViewController {
         
         setupCheckBox()
         englishTapped(btnEnglish)
+        
+        numberOfLogoTaps = 0
     }
     
     override func didReceiveMemoryWarning() {
@@ -280,13 +283,6 @@ class CustomerSubscriptionViewController: UIViewController {
         
         acceptsDistributorEmail = false
     }
-    
-    func presentWinnerSelectionScreen () {
-        
-        let winnerSelectionController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WinnerSelectionViewController") as! WinnerSelectionViewController
-        self.present(winnerSelectionController, animated: true)
-        
-    }
 
     // MARK: - Navigation
     
@@ -305,6 +301,78 @@ class CustomerSubscriptionViewController: UIViewController {
     
     
     // MARK: - IBAction
+    
+    @IBAction func logoTapped(_ sender: Any) {
+        
+        numberOfLogoTaps += 1
+        
+        if numberOfLogoTaps == 5 {
+            
+            numberOfLogoTaps = 0
+            
+            let masterPasswordAlertController = UIAlertController(title: "Milwaukee", message: "Please enter master key.", preferredStyle: .alert)
+            
+            masterPasswordAlertController.addTextField { (textField) in
+                textField.placeholder = "Master key"
+                textField.isSecureTextEntry = true
+                textField.borderStyle = .roundedRect
+            }
+            
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { submitAction in
+                let passwordField = masterPasswordAlertController.textFields![0]
+                
+                if passwordField.text == "tticanada" {
+                    self.showOptions()
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
+                
+            }
+            
+            masterPasswordAlertController.addAction(submitAction)
+            masterPasswordAlertController.addAction(cancelAction)
+            
+            self.present(masterPasswordAlertController, animated: true)
+        }
+    }
+    
+    func showOptions() {
+        let masterPasswordAlertController = UIAlertController(title: "Milwaukee", message: "Please select one option.", preferredStyle: .alert)
+        
+        let dashboardAction = UIAlertAction(title: "DashBoard", style: .default) { submitAction in
+            
+            let serverUrlString =  KioskNetworkManager.serverUrl
+            let completeURLString = serverUrlString + "#" + "/device/" + DeviceUniqueIDManager.shared.uniqueID + "/stats"
+            
+            let dashboardViewController = SFSafariViewController(url: URL(string: completeURLString)!)
+            dashboardViewController.navigationItem.setRightBarButtonItems([], animated: true)
+            self.present(dashboardViewController, animated: true){
+                let width: CGFloat = 130
+                let x: CGFloat = self.view.frame.width - width
+                
+                // It can be any overlay. May be your logo image here inside an imageView.
+                let overlay = UIView(frame: CGRect(x: x, y: 20, width: width, height: 44))
+                overlay.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+                dashboardViewController.view.addSubview(overlay)
+            }
+        }
+        
+        let deviceNameAction = UIAlertAction(title: "Change Device Name", style: .default) { submitAction in
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DeviceRegistrationViewController")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
+            
+        }
+        
+        masterPasswordAlertController.addAction(dashboardAction)
+        masterPasswordAlertController.addAction(deviceNameAction)
+        masterPasswordAlertController.addAction(cancelAction)
+        
+        self.present(masterPasswordAlertController, animated: true)
+    }
     
     @IBAction func englishTapped(_ sender: Any) {
         setLanguage(to: availableLanguages.first!)
