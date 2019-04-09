@@ -20,8 +20,21 @@ class LocationService: NSObject {
     
     override init() {
         super.init()
+        
         locationManger.requestWhenInUseAuthorization()
+        
+        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
+
+        locationManger.distanceFilter = kCLDistanceFilterNone
+        
+        locationManger.allowsBackgroundLocationUpdates = true
+        
+        locationManger.pausesLocationUpdatesAutomatically = true
+        
         locationManger.delegate = self
+        
+        locationManger.startMonitoringSignificantLocationChanges()
+
     }
     
     func checkAuthorization() -> Bool {
@@ -43,6 +56,7 @@ class LocationService: NSObject {
 
 
 extension LocationService: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let moduleType = UserDefaults.standard.value(forKey: "moduleType") as? String {
