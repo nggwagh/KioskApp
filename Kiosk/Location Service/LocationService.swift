@@ -23,13 +23,13 @@ class LocationService: NSObject {
         
         locationManger.requestWhenInUseAuthorization()
         
-        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
-
-        locationManger.distanceFilter = kCLDistanceFilterNone
-        
-        locationManger.allowsBackgroundLocationUpdates = true
-        
-        locationManger.pausesLocationUpdatesAutomatically = true
+//        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
+//
+//        locationManger.distanceFilter = kCLDistanceFilterNone
+//        
+//        locationManger.allowsBackgroundLocationUpdates = true
+//        
+//        locationManger.pausesLocationUpdatesAutomatically = true
         
         locationManger.delegate = self
         
