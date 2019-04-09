@@ -146,7 +146,7 @@ class CustomerSubscriptionViewController: UIViewController {
         } else if selectedLanguagePreference == nil {
             self.showLanguagePreferenceDropdown(lblLanguagePreference)
             return false
-        } else if (txtPostalCode.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+        } else if ((txtPostalCode.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! || (txtPostalCode.text?.count)! < 6 || (txtPostalCode.text?.count)! > 6){
             txtPostalCode.text = ""
             txtPostalCode.becomeFirstResponder()
             return false
