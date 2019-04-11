@@ -48,10 +48,25 @@ extension Question {
             
             let correctAnswer = answerArray.filter({$0.isCorrectAnswer == 1})
             
+            // IDENTIFY SUPERSCRIPT AND REPLACE WITH UNICODE
+            var questionText: String =  (languagePreference == "EN") ? questionJsonObject["question"] as! String : questionJsonObject["question_fr"] as! String
+            
+            if questionText.contains("^MC"){
+               questionText = questionText.replacingOccurrences(of: "^MC", with: "\u{1F16A}")
+            }
+            
+            if questionText.contains("^MD"){
+              questionText = questionText.replacingOccurrences(of: "^MD", with: "\u{1F16B}")
+            }
+            
+            if questionText.contains("^TM"){
+             questionText = questionText.replacingOccurrences(of: "^TM", with: "\u{2122}")
+            }
+            
             return Question(questionId: questionJsonObject["id"] as? Int,
                             surveyId: questionJsonObject["surveyID"] as? Int,
                             surveyCategoryID: questionJsonObject["surveyCategoryID"] as? Int,
-                            questionTitle: (languagePreference == "EN") ? questionJsonObject["question"] as? String : questionJsonObject["question_fr"] as? String,
+                            questionTitle: questionText,
                             questionType: (answerArray.count == 2) ? "Radio" : "Single",
                             questionAnswers: answerArray,
                             answerSelection: [],

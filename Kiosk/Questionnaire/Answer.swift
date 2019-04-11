@@ -27,8 +27,24 @@ extension Answer {
             
             let languagePreference = UserDefaults.standard.value(forKey: Constant.UserDefaultKey.languagePreference) as! String
             
+            // IDENTIFY SUPERSCRIPT AND REPLACE WITH UNICODE
+            var answerText: String =  (languagePreference == "EN") ? answerJsonObject["answer"] as! String : answerJsonObject["answer_fr"] as! String
+            
+            if answerText.contains("^MC"){
+               answerText = answerText.replacingOccurrences(of: "^MC", with: "\u{1F16A}")
+            }
+            
+            if answerText.contains("^MD"){
+               answerText = answerText.replacingOccurrences(of: "^MD", with: "\u{1F16B}")
+            }
+            
+            if answerText.contains("^TM"){
+              answerText = answerText.replacingOccurrences(of: "^TM", with: "\u{2122}")
+            }
+            
+            
                 return Answer(id: answerJsonObject["id"] as? Int,
-                              answer: (languagePreference == "EN") ? answerJsonObject["answer"] as? String : answerJsonObject["answer_fr"] as? String,
+                              answer: answerText,
                               surveyQuestionID: answerJsonObject["surveyQuestionID"] as? Int,
                               order: answerJsonObject["order"] as? Int,
                               isCorrectAnswer: answerJsonObject["isCorrectAnswer"] as? Int)
