@@ -602,4 +602,18 @@ extension CustomerSubscriptionViewController : BFPaperCheckboxDelegate {
     }
 }
 
-
+extension CustomerSubscriptionViewController : UITextFieldDelegate {
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == txtPostalCode) {
+            let maxLength = 6
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+        else {
+            return true
+        }
+    }
+}
