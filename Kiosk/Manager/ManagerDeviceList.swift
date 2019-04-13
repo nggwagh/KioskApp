@@ -23,7 +23,7 @@ struct DeviceElement: Codable {
     let id, surveyGroupID: Int
     let deviceID: String
     let isManagerDevice: Int
-    let lastEntries: [LastEntry]
+    var lastEntries: [LastEntry]
     let device: DeviceDevice
 }
 

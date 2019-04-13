@@ -160,7 +160,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             //UPDATE MANAGER SCREEN DEVICE NAME WITH RECEIVED DATA
+            let viewController = self.window?.rootViewController
             
+            if (viewController is ManagerViewController) {
+                (viewController as! ManagerViewController).reloadDevicesFromPushNotification(id: 99, entry: userInfo["entry"] as! String, deviceID: userInfo["deviceID"] as! String)
+            }
         }
         
     }
