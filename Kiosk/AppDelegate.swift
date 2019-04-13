@@ -143,6 +143,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    
+    
+    
+    // MARK: - Other functions
+    func reloadRootViewController() {
+        self.window?.rootViewController = RootViewControllerFactory.getRootViewController()
+    }
+
     func handlePushNotification(userInfo: [AnyHashable : Any]){
         
         //for silent notification
@@ -151,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set("", forKey: "moduleTypeID")
         UserDefaults.standard.synchronize()
         
-    
+        
         if (userInfo["type"] as? String == "all") {
             //BRING IPAD TO DEVICE NAME SCREEN
             
@@ -165,12 +173,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    
-    // MARK: - Other functions
-    func reloadRootViewController() {
-        self.window?.rootViewController = RootViewControllerFactory.getRootViewController()
-    }
-
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -200,6 +202,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {

@@ -222,6 +222,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let imageName = (languagePreference == "EN") ? "True" : "True_Fr"
             radioAnswerCell.trueButton.setImage(UIImage(named: imageName), for: .normal)
+            radioAnswerCell.trueButton.isUserInteractionEnabled = true
+
             
         }
         else if ((question.correctAnswer == trueText) && (question.currentAnswerIsCorrect == trueText)){
@@ -229,7 +231,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             UIView.transition(with: radioAnswerCell.trueButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
 
                 radioAnswerCell.trueButton.setImage(UIImage(named: "Tick"), for: .normal)
-            //  radioAnswerCell.trueButton.isUserInteractionEnabled = false
 
             }, completion: nil)
             
@@ -239,7 +240,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             UIView.transition(with: radioAnswerCell.trueButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
                 radioAnswerCell.trueButton.setImage(UIImage(named: "Cross"), for: .normal)
-            //  radioAnswerCell.trueButton.isUserInteractionEnabled = false
+                radioAnswerCell.trueButton.isUserInteractionEnabled = false
 
 
             }, completion: { finished in
@@ -247,7 +248,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     let imageName = (languagePreference == "EN") ? "TrueGrey" : "TrueGrey_Fr"
                     radioAnswerCell.trueButton.setImage(UIImage(named: imageName), for: .normal)
-            //     radioAnswerCell.trueButton.isUserInteractionEnabled = false
                 })
             })
         }
@@ -265,6 +265,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let imageName = (languagePreference == "EN") ? "False" : "False_Fr"
             radioAnswerCell.falseButton.setImage(UIImage(named: imageName), for: .normal)
+            radioAnswerCell.falseButton.isUserInteractionEnabled = true
             
         }
         else if ((question.correctAnswer == falseText) && (question.currentAnswerIsCorrect == falseText)) {
@@ -272,7 +273,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             UIView.transition(with: radioAnswerCell.falseButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
                 radioAnswerCell.falseButton.setImage(UIImage(named: "Tick"), for: .normal)
-            //  radioAnswerCell.falseButton.isUserInteractionEnabled = false
 
             }, completion: nil)
             
@@ -282,7 +282,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
             UIView.transition(with: radioAnswerCell.falseButton!, duration: 1.5, options: .transitionFlipFromRight, animations: {
                 
                 radioAnswerCell.falseButton.setImage(UIImage(named: "Cross"), for: .normal)
-           //   radioAnswerCell.falseButton.isUserInteractionEnabled = false
+                radioAnswerCell.falseButton.isUserInteractionEnabled = false
 
                 
             }, completion: { finished in
@@ -290,7 +290,6 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     let imageName = (languagePreference == "EN") ? "FalseGrey" : "FalseGrey_Fr"
                     radioAnswerCell.falseButton.setImage(UIImage(named: imageName), for: .normal)
-             //     radioAnswerCell.falseButton.isUserInteractionEnabled = false
                 })
             })
         }
@@ -371,6 +370,7 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                         singleAnswerCell.answerImageView.isHidden = true
                         singleAnswerCell.borderLabel.backgroundColor = UIColor.clear
                         singleAnswerCell.borderLabel.alpha = 0.1
+                        singleAnswerCell.isUserInteractionEnabled = false
 
                     })
                 })
@@ -382,6 +382,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 singleAnswerCell.answerImageView.isHidden = true
                 singleAnswerCell.borderLabel.backgroundColor = UIColor.clear
                 singleAnswerCell.borderLabel.alpha = 0.1
+                singleAnswerCell.isUserInteractionEnabled = false
+
             }
             else
             {
@@ -389,6 +391,8 @@ class QuestionsViewController: UIViewController, UITableViewDelegate, UITableVie
                 singleAnswerCell.answerImageView.isHidden = true
                 singleAnswerCell.borderLabel.backgroundColor = UIColor.clear
                 singleAnswerCell.borderLabel.alpha = 1
+                singleAnswerCell.isUserInteractionEnabled = true
+
             }
             
             

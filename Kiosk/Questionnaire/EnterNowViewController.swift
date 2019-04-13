@@ -28,7 +28,7 @@ class EnterNowViewController: UIViewController {
             
             let frenchString: String = "COMMENCEZ DÉS MAINTENANT POUR OBTENIR VOTRE PRODUIT MILWAUKEE GRATUIT"
             let attributeText_french = NSMutableAttributedString.init(string: frenchString)
-             attributeText_french.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 75.0)!, range: NSMakeRange(0, attributeText_french.length))
+             attributeText_french.addAttribute(.font, value: UIFont(name: "Helvetica-Bold", size: 85.0)!, range: NSMakeRange(0, attributeText_french.length))
             
             frenchString.enumerateSubstrings(in: frenchString.startIndex..<frenchString.endIndex, options: .byWords) {
                 (substring, substringRange, _, _) in
@@ -36,7 +36,7 @@ class EnterNowViewController: UIViewController {
                     attributeText_french.addAttribute(.foregroundColor, value: UIColor.black,
                                                       range: NSRange(substringRange, in: frenchString))
                     
-                    attributeText_french.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 110.0)!,
+                    attributeText_french.addAttribute(.font, value: UIFont(name: "Helvetica-Bold", size: 110.0)!,
                                                       range: NSRange(substringRange, in: frenchString))
                 }
             }
@@ -48,7 +48,7 @@ class EnterNowViewController: UIViewController {
             
             let englishString: String = "START NOW TO GET YOUR FREE \n MILWAUKEE PRODUCT"
             let attributeText_english = NSMutableAttributedString.init(string: englishString)
-            attributeText_english.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 75.0)!, range: NSMakeRange(0, attributeText_english.length))
+            attributeText_english.addAttribute(.font, value: UIFont(name: "Helvetica-Bold", size: 85.0)!, range: NSMakeRange(0, attributeText_english.length))
             
             englishString.enumerateSubstrings(in: englishString.startIndex..<englishString.endIndex, options: .byWords) {
                 (substring, substringRange, _, _) in
@@ -56,7 +56,7 @@ class EnterNowViewController: UIViewController {
                     attributeText_english.addAttribute(.foregroundColor, value: UIColor.black,
                                                       range: NSRange(substringRange, in: englishString))
                     
-                    attributeText_english.addAttribute(.font, value: UIFont(name: "Georgia-Bold", size: 110.0)!,
+                    attributeText_english.addAttribute(.font, value: UIFont(name: "Helvetica-Bold", size: 110.0)!,
                                                       range: NSRange(substringRange, in: englishString))
                 }
             }
