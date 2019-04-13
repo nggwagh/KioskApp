@@ -31,7 +31,7 @@ class RootViewControllerFactory {
                     return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionFormViewController")
                 }
             }
-            return UIStoryboard(name: "Questionnaire", bundle: nil).instantiateInitialViewController()!
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DeviceRegistrationViewController")
         }
     }
     
