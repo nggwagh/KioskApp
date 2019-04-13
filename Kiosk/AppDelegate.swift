@@ -153,20 +153,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func handlePushNotification(userInfo: [AnyHashable : Any]){
         
-        //for silent notification
-        UserDefaults.standard.set(true, forKey: "silentNotification")
-        UserDefaults.standard.set("", forKey: "moduleType")
-        UserDefaults.standard.set("", forKey: "moduleTypeID")
-        UserDefaults.standard.synchronize()
-        
-        
         if (userInfo["type"] as? String == "all") {
+            
             //BRING IPAD TO DEVICE NAME SCREEN
+            //for silent notification
+            UserDefaults.standard.set(true, forKey: "silentNotification")
+            UserDefaults.standard.set("", forKey: "moduleType")
+            UserDefaults.standard.set("", forKey: "moduleTypeID")
+            UserDefaults.standard.synchronize()
             
             self.reloadRootViewController()
             
             
         } else {
+            
             //UPDATE MANAGER SCREEN DEVICE NAME WITH RECEIVED DATA
             let viewController = self.window?.rootViewController
             

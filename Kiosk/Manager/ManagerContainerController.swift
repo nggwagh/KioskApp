@@ -11,7 +11,8 @@ import UIKit
 class ManagerContainerController: UIViewController {
 
     public var usersArray = [LastEntry]()
-    
+    public var deviceName: String?
+
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -49,5 +50,24 @@ extension ManagerContainerController: UITableViewDataSource {
         return userCell
     }
     
+    func tableView(_ tableView : UITableView,  titleForHeaderInSection section: Int)->String? {
+        
+        return deviceName ?? ""
+    }
     
+    
+}
+
+
+extension ManagerContainerController: UITableViewDelegate {
+   
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.backgroundView?.backgroundColor = .clear
+        headerView.textLabel?.textColor = UIColor.black
+        headerView.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 25)!
+        headerView.textLabel?.textAlignment = .center
+
+
+    }
 }

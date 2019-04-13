@@ -74,6 +74,7 @@ class ManagerViewController: UIViewController {
                     let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
                     self.devices[0].lastEntries.insert(latestEntry, at: 0)
                     iPad1VC?.usersArray = self.devices[0].lastEntries
+                    iPad1VC?.deviceName = self.devices[0].device.name
                     iPad1VC?.reloadDeviceEntries()
                 }
             }
@@ -84,8 +85,9 @@ class ManagerViewController: UIViewController {
                 if (self.devices[1].deviceID == deviceID) {
                     let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
                     self.devices[1].lastEntries.insert(latestEntry, at: 0)
-                    iPad1VC?.usersArray = self.devices[1].lastEntries
-                    iPad1VC?.reloadDeviceEntries()
+                    iPad2VC?.usersArray = self.devices[1].lastEntries
+                    iPad2VC?.deviceName = self.devices[1].device.name
+                    iPad2VC?.reloadDeviceEntries()
                 }
             }
         }
@@ -95,8 +97,9 @@ class ManagerViewController: UIViewController {
                 if (self.devices[2].deviceID == deviceID) {
                     let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
                     self.devices[2].lastEntries.insert(latestEntry, at: 0)
-                    iPad1VC?.usersArray = self.devices[2].lastEntries
-                    iPad1VC?.reloadDeviceEntries()
+                    iPad3VC?.usersArray = self.devices[2].lastEntries
+                    iPad3VC?.deviceName = self.devices[2].device.name
+                    iPad3VC?.reloadDeviceEntries()
                 }
             }
         }
@@ -106,8 +109,9 @@ class ManagerViewController: UIViewController {
                 if (self.devices[3].deviceID == deviceID) {
                     let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
                     self.devices[3].lastEntries.insert(latestEntry, at: 0)
-                    iPad1VC?.usersArray = self.devices[3].lastEntries
-                    iPad1VC?.reloadDeviceEntries()
+                    iPad4VC?.usersArray = self.devices[3].lastEntries
+                    iPad4VC?.deviceName = self.devices[3].device.name
+                    iPad4VC?.reloadDeviceEntries()
                 }
             }
             
@@ -118,6 +122,7 @@ class ManagerViewController: UIViewController {
         if (iPad1VC != nil) {
             if (self.devices.count >= 1) {
                 iPad1VC?.usersArray = self.devices[0].lastEntries
+                iPad1VC?.deviceName = self.devices[0].device.name
             }
             iPad1VC?.reloadDeviceEntries()
         }
@@ -125,6 +130,7 @@ class ManagerViewController: UIViewController {
         if (iPad2VC != nil) {
             if (self.devices.count >= 2) {
                 iPad2VC?.usersArray = self.devices[1].lastEntries
+                iPad2VC?.deviceName = self.devices[1].device.name
             }
             iPad2VC?.reloadDeviceEntries()
         }
@@ -132,6 +138,7 @@ class ManagerViewController: UIViewController {
         if (iPad3VC != nil) {
             if (self.devices.count >= 3) {
                 iPad3VC?.usersArray = self.devices[2].lastEntries
+                iPad3VC?.deviceName = self.devices[2].device.name
             }
             iPad3VC?.reloadDeviceEntries()
         }
@@ -139,6 +146,7 @@ class ManagerViewController: UIViewController {
         if (iPad4VC != nil) {
             if (self.devices.count >= 4) {
                 iPad4VC?.usersArray = self.devices[3].lastEntries
+                iPad4VC?.deviceName = self.devices[3].device.name
             }
             iPad4VC?.reloadDeviceEntries()
         }

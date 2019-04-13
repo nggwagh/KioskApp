@@ -63,8 +63,8 @@ class DeviceRegistrationViewController: UIViewController {
             
             var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
             
-            moduleType = "survey"
-            moduleTypeId = 2
+            moduleType = "survey_admin"
+            moduleTypeId = 1
             
             if (moduleType != nil && moduleTypeId != nil) {
                 
@@ -72,19 +72,13 @@ class DeviceRegistrationViewController: UIViewController {
                 UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
                 UserDefaults.standard.synchronize()
                 
-                if (moduleType == "survey")
+                appDelegate?.reloadRootViewController()
+
+                if ((moduleType == "signup") || (moduleType == "contest"))
                 {
-                    self.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
-                }
-                else if (moduleType == "survey_admin")
-                {
-                    self.performSegue(withIdentifier: "segueToManager", sender: self)
-                }
-                else if ((moduleType == "signup") || (moduleType == "contest"))
-                {
-                    appDelegate?.reloadRootViewController()
                     SyncEngine.shared.startEngine()
                 }
+                
                 
             } else {
                 
