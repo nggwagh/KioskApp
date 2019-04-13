@@ -47,6 +47,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need location for device registration</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need location for device registration</string>
 	<key>UIAppFonts</key>
@@ -60,6 +62,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

@@ -18,34 +18,38 @@ class LocationService: NSObject {
     
     let questionaireDistance = 5.0 //in km
     
-    override init() {
-        super.init()
-        
-        locationManger.requestWhenInUseAuthorization()
-        
-//        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
-//
-//        locationManger.distanceFilter = kCLDistanceFilterNone
-//        
-//        locationManger.allowsBackgroundLocationUpdates = true
-//        
-//        locationManger.pausesLocationUpdatesAutomatically = true
+    override init() {}
+    
+    func checkAuthorization() -> Bool {
         
         locationManger.delegate = self
+        locationManger.requestWhenInUseAuthorization()
+        
+        return true
+    }
+    
+    func startUpdatingCurrentLocation() {
+        
+        locationManger.desiredAccuracy = kCLLocationAccuracyKilometer
+        
+        locationManger.distanceFilter = kCLDistanceFilterNone
+        
+        locationManger.allowsBackgroundLocationUpdates = true
+        
+        locationManger.pausesLocationUpdatesAutomatically = true
         
         locationManger.startMonitoringSignificantLocationChanges()
 
     }
     
-    func checkAuthorization() -> Bool {
+    func moveToNextViewController() {
         
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedAlways, .authorizedWhenInUse:
-            return true
-        default:
-            return false
+        if CLLocationManager.locationServicesEnabled() {
+            self.startUpdatingCurrentLocation()
         }
-        
+        else {
+            print("Location services are not enabled")
+        }
     }
     
     func getCurrentCoordinates() -> (latitude:Double, longitude:Double)? {
@@ -57,12 +61,20 @@ class LocationService: NSObject {
 
 extension LocationService: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            print("NotDetermined")
+        case .restricted, .denied: break
+        case .authorizedAlways,  .authorizedWhenInUse:
+            print("Access")
+            self.moveToNextViewController()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if let moduleType = UserDefaults.standard.value(forKey: "moduleType") as? String {
-            
-            if (moduleType == "survey")
-            {
                 guard let locValue: CLLocationCoordinate2D = locations.last?.coordinate else { return }
                 print("locations = \(locValue.latitude) \(locValue.longitude)")
                 
@@ -86,13 +98,15 @@ extension LocationService: CLLocationManagerDelegate {
                         LocationSettingManager.shared().setUserCurrentLongitude(locValue.longitude)
                         
                         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                            
+                            UserDefaults.standard.set("", forKey: "moduleType")
+                            UserDefaults.standard.set("", forKey: "moduleTypeID")
+                            UserDefaults.standard.synchronize()
+                            
                             appDelegate.reloadRootViewController()
                         }
                     }
                 }
-                
-            }
-        }
     }
 }
 

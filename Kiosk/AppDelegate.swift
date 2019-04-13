@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        let font  = UIFont(name: "Bebas", size: 22)
         
-        let _ = LocationService.shared
+        let _ = LocationService.shared.checkAuthorization()
         
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
