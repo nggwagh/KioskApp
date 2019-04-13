@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //for silent notification
+        UserDefaults.standard.set(false, forKey: "silentNotification")
+        UserDefaults.standard.synchronize()
+        
         MagicalRecord.setupAutoMigratingCoreDataStack()
         MagicalRecord.setShouldDeleteStoreOnModelMismatch(true)
 
@@ -107,13 +111,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+       
+        self.handlePushNotification(userInfo: userInfo)
+
+        /*
         SyncEngine.shared.startEngine { (someNetworkCallSucceeded, errorOccured) in
             
         }
+        */
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    
+        self.handlePushNotification(userInfo: userInfo)
         
+
+        //OLD CODE
+        /*
         SyncEngine.shared.startEngine { (someNetworkCallSucceeded, errorOccured) in
             
             if errorOccured {
@@ -125,7 +139,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
+        */
         
+    }
+    
+    func handlePushNotification(userInfo: [AnyHashable : Any]){
+        
+        //for silent notification
+        UserDefaults.standard.set(true, forKey: "silentNotification")
+        UserDefaults.standard.set("", forKey: "moduleType")
+        UserDefaults.standard.set("", forKey: "moduleTypeID")
+        UserDefaults.standard.synchronize()
+        
+    
+        if (userInfo["type"] as? String == "all") {
+            //BRING IPAD TO DEVICE NAME SCREEN
+            
+            self.reloadRootViewController()
+            
+            
+        } else {
+            //UPDATE MANAGER SCREEN DEVICE NAME WITH RECEIVED DATA
+            
+        }
         
     }
     

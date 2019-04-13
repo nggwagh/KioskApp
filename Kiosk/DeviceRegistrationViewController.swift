@@ -23,6 +23,14 @@ class DeviceRegistrationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         btnClose.isHidden = !isFromSetting
+        
+        if UserDefaults.standard.bool(forKey: "silentNotification"){
+            
+            self.getDeviceStateMode()
+            UserDefaults.standard.set(false, forKey: "silentNotification")
+            UserDefaults.standard.synchronize()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,6 +40,64 @@ class DeviceRegistrationViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - Private Method
+    
+    func getDeviceStateMode(){
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        //Show progress hud
+        self.showHUD(progressLabel: "")
+        
+        //Check for Device Mode
+        KioskNetworkManager.shared.getDeviceStateMode(deviceId: DeviceUniqueIDManager.shared.uniqueID, completion: { (responseObject) in
+            
+            // hiding progress hud
+            self.dismissHUD(isAnimated: true)
+            
+            let moduleDetails = responseObject!["group"] as? [String : Any]
+            
+            var moduleType = moduleDetails!["moduleType"] as? String
+            
+            var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
+            
+            moduleType = "survey"
+            moduleTypeId = 2
+            
+            if (moduleType != nil && moduleTypeId != nil) {
+                
+                UserDefaults.standard.set(moduleType, forKey: "moduleType")
+                UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
+                UserDefaults.standard.synchronize()
+                
+                if (moduleType == "survey")
+                {
+                    self.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
+                }
+                else if (moduleType == "survey_admin")
+                {
+                    self.performSegue(withIdentifier: "segueToManager", sender: self)
+                }
+                else if ((moduleType == "signup") || (moduleType == "contest"))
+                {
+                    appDelegate?.reloadRootViewController()
+                    SyncEngine.shared.startEngine()
+                }
+                
+            } else {
+                
+                self.btnSubmit.isEnabled = true
+                
+                let networkAlert = UIAlertController(title: "Milwaukee", message: "Module details are not avaliable for your device. Please contact support team.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                    self.dismiss(animated: true)
+                }
+                networkAlert.addAction(okAction)
+                self.present(networkAlert, animated: true)
+            }
+        })
     }
     
     //MARK: - IBAction
@@ -73,60 +139,7 @@ class DeviceRegistrationViewController: UIViewController {
                         
                         if !(self?.isFromSetting)!
                         {
-                            //Show progress hud
-                            self!.showHUD(progressLabel: "")
-                            
-                            //Check for Device Mode
-                            KioskNetworkManager.shared.getDeviceStateMode(deviceId: DeviceUniqueIDManager.shared.uniqueID, completion: { (responseObject) in
-
-                                // hiding progress hud
-                                self!.dismissHUD(isAnimated: true)
-                                
-                                let moduleDetails = responseObject!["group"] as? [String : Any]
-                                
-                                var moduleType = moduleDetails!["moduleType"] as? String
-                                
-                                var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
-
-//                                moduleType = "survey"
-//                                moduleTypeId = 2
-                                
-                                if (moduleType != nil && moduleTypeId != nil) {
-                                    
-                                    UserDefaults.standard.set(moduleType, forKey: "moduleType")
-                                    UserDefaults.standard.set(moduleTypeId, forKey: "moduleTypeID")
-                                    UserDefaults.standard.synchronize()
-                                    
-                                    if (moduleType == "survey")
-                                    {
-                                        self?.performSegue(withIdentifier: "segueToQuestionnaire", sender: self)
-                                    }
-                                    else if (moduleType == "survey_admin")
-                                    {
-                                        self?.performSegue(withIdentifier: "segueToManager", sender: self)
-                                    }
-                                    else if ((moduleType == "signup") || (moduleType == "contest"))
-                                    {
-                                        appDelegate.reloadRootViewController()
-                                        SyncEngine.shared.startEngine()
-                                    }
-                                    
-                                } else {
-                                    
-                                   // Uncomment when testing
-//                                    moduleType = "survey"
-//                                    moduleTypeId = 1
-                                    
-                                    sender.isEnabled = true
-
-                                    let networkAlert = UIAlertController(title: "Milwaukee", message: "Module details are not avaliable for your device. Please contact support team.", preferredStyle: .alert)
-                                    let okAction = UIAlertAction(title: "OK", style: .default) { action in
-                                        self?.dismiss(animated: true)
-                                    }
-                                    networkAlert.addAction(okAction)
-                                    self?.present(networkAlert, animated: true)
-                                }
-                            })
+                            self?.getDeviceStateMode()
                         }
                         else
                         {
