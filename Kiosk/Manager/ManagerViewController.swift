@@ -9,20 +9,27 @@
 import UIKit
 
 class ManagerViewController: UIViewController {
-
-    var iPad1VC = ManagerContainerController()
-    var iPad2VC = ManagerContainerController()
-    var iPad3VC = ManagerContainerController()
-    var iPad4VC = ManagerContainerController()
+    
+    var iPad1VC : ManagerContainerController?
+    var iPad2VC : ManagerContainerController?
+    var iPad3VC : ManagerContainerController?
+    var iPad4VC : ManagerContainerController?
     
     let appDel = UIApplication.shared.delegate as! AppDelegate
     
+    var devices = [DeviceElement]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         appDel.myOrientation = .landscape
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getDeviceWinnerList()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,24 +40,84 @@ class ManagerViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    
+    func getDeviceWinnerList() {
+        
+        //Show progress hud
+        self.showHUD(progressLabel: "")
+        
+        let id = UserDefaults.standard.value(forKey: "moduleTypeID")
+        
+        KioskNetworkManager.shared.getDevicewiseWinners(id: id as! Int) { (responseJson) in
+            
+            // hiding progress hud
+            self.dismissHUD(isAnimated: true)
+            
+            do {
+                // Convert object to JSON as NSData
+                let jsonData = try JSONSerialization.data(withJSONObject: responseJson!, options: [])
+                let decoder = JSONDecoder()
+                let deviceDetails = try decoder.decode(Devices.self, from: jsonData) as Devices
+                self.devices = deviceDetails.group.devices.filter { $0.isManagerDevice == 0 }
+                self.reloadDevices()
+                print("success")
+            } catch {
+                print("error writing JSON: \(error)")
+            }
+        }
+    }
+    
+    func reloadDevices() {
+        if (iPad1VC != nil) {
+            if (self.devices.count >= 1) {
+                iPad1VC?.usersArray = self.devices[0].lastEntries
+            }
+            iPad1VC?.reloadDeviceEntries()
+        }
+        
+        if (iPad2VC != nil) {
+            if (self.devices.count >= 2) {
+                iPad2VC?.usersArray = self.devices[1].lastEntries
+            }
+            iPad2VC?.reloadDeviceEntries()
+        }
+        
+        if (iPad3VC != nil) {
+            if (self.devices.count >= 3) {
+                iPad3VC?.usersArray = self.devices[2].lastEntries
+            }
+            iPad3VC?.reloadDeviceEntries()
+        }
+        
+        if (iPad4VC != nil) {
+            if (self.devices.count >= 4) {
+                iPad4VC?.usersArray = self.devices[3].lastEntries
+            }
+            iPad4VC?.reloadDeviceEntries()
+        }
+    }
 
+    // MARK: - IBAction Methods
+
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        self.getDeviceWinnerList()
+    }
+    
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "iPadOneIdentifier" {
-            iPad1VC = segue.destination as! ManagerContainerController
-            iPad1VC.usersArray = ["Device 1"]
+            iPad1VC = segue.destination as? ManagerContainerController
         }
         if segue.identifier == "iPadTwoIdentifier" {
-            iPad2VC = segue.destination as! ManagerContainerController
-            iPad2VC.usersArray = ["Device 2"]
+            iPad2VC = segue.destination as? ManagerContainerController
         }
         if segue.identifier == "iPadThreeIdentifier" {
-            iPad3VC = segue.destination as! ManagerContainerController
-            iPad3VC.usersArray = ["Device dddsdsdsdsdsd ds3"]
+            iPad3VC = segue.destination as? ManagerContainerController
         }
         if segue.identifier == "iPadFourIdentifier" {
-            iPad4VC = segue.destination as! ManagerContainerController
-            iPad4VC.usersArray = ["Device 4"]
+            iPad4VC = segue.destination as? ManagerContainerController
         }
     }
 }

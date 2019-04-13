@@ -10,8 +10,10 @@ import UIKit
 
 class ManagerContainerController: UIViewController {
 
-    public var usersArray = [String]()
+    public var usersArray = [LastEntry]()
     
+    @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,9 @@ class ManagerContainerController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func reloadDeviceEntries() {
+        self.tableView.reloadData()
+    }
 
 }
 
@@ -40,7 +45,7 @@ extension ManagerContainerController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let userCell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserTableViewCell
-        userCell.userName?.text = usersArray[indexPath.row]
+        userCell.userName?.text = "\(usersArray[indexPath.row].firstName) \(usersArray[indexPath.row].lastName)"
         return userCell
     }
     

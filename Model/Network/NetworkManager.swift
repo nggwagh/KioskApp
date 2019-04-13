@@ -402,6 +402,38 @@ class KioskNetworkManager {
                 
             }).disposed(by: disposeBag)
     }
+    
+    func getDevicewiseWinners(id: Int, completion : @escaping ([String: Any]?) -> Void) {
+        
+        let stringURL = KioskNetworkManager.liveUrl + "survey_admin/\(id)"
+        let manager = SessionManager.default
+        
+        manager.rx.request(.get, stringURL, parameters: nil, encoding: URLEncoding.default)
+            
+            .validate(statusCode: 200 ..< 300)
+            .validate(contentType: ["application/json"])
+            .json()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { response in
+                
+                let response = response as! [String: Any]
+                print(response)
+                completion(response)
+                
+            }, onError: { error in
+                if error is AFError  {
+                    completion(nil)
+                    
+                } else {
+                    completion(nil)
+                }
+                print(error)
+            }, onCompleted: {
+                
+            }).disposed(by: disposeBag)
+        
+    }
 }
+
 
 
