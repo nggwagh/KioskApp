@@ -63,7 +63,7 @@ class DeviceRegistrationViewController: UIViewController {
             
             var moduleTypeId = moduleDetails!["moduleTypeID"] as? Int
             
-            moduleType =  "survey" //"survey" //"survey_admin" // "contest" // "signup"
+            moduleType =  "survey_admin" //"survey" //"survey_admin" // "contest" // "signup"
             moduleTypeId = 2
             
             if (moduleType != nil && moduleTypeId != nil) {

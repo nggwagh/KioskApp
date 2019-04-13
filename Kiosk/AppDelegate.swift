@@ -158,11 +158,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //BRING IPAD TO DEVICE NAME SCREEN
             //for silent notification
             UserDefaults.standard.set(true, forKey: "silentNotification")
-            UserDefaults.standard.set("", forKey: "moduleType")
-            UserDefaults.standard.set("", forKey: "moduleTypeID")
             UserDefaults.standard.synchronize()
             
-            self.reloadRootViewController()
+            self.loadDeviceNameScreen()
             
             
         } else {
@@ -171,9 +169,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = self.window?.rootViewController
             
             if (viewController is ManagerViewController) {
-                (viewController as! ManagerViewController).reloadDevicesFromPushNotification(id: 99, entry: userInfo["entry"] as! String, deviceID: userInfo["deviceID"] as! String)
+                (viewController as! ManagerViewController).reloadDevicesFromPushNotification(id: (userInfo["id"] as? Int)!, entry: userInfo["entry"] as! String, deviceID: userInfo["deviceID"] as! String)
             }
         }
+        
+    }
+    
+    func loadDeviceNameScreen() {
+        
+        UserDefaults.standard.set("", forKey: "moduleType")
+        UserDefaults.standard.set("", forKey: "moduleTypeID")
+        UserDefaults.standard.synchronize()
+        
+        self.reloadRootViewController()
         
     }
     

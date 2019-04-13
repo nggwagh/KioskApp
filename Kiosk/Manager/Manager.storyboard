@@ -138,6 +138,16 @@
                                     <action selector="refreshButtonTapped:" destination="9ri-64-aVR" eventType="touchUpInside" id="t3m-wT-qo3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-1x-kLR">
+                                <rect key="frame" x="20" y="20" width="350" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YLT-4i-APn"/>
+                                    <constraint firstAttribute="width" constant="350" id="aoC-9A-FDw"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="logoTapped:" destination="9ri-64-aVR" eventType="touchUpInside" id="tnL-4s-CSe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -156,6 +166,7 @@
                             <constraint firstItem="hAS-1i-oEU" firstAttribute="trailing" secondItem="zGU-hX-o62" secondAttribute="trailing" id="Qsh-Lk-HZH"/>
                             <constraint firstItem="Mek-rj-0H2" firstAttribute="centerX" secondItem="8ox-wy-bAa" secondAttribute="centerX" id="T5i-0H-jow"/>
                             <constraint firstItem="wPC-xP-lTp" firstAttribute="top" secondItem="Dp7-PV-1SY" secondAttribute="top" id="V61-lr-OWT"/>
+                            <constraint firstItem="oKU-1x-kLR" firstAttribute="leading" secondItem="zGU-hX-o62" secondAttribute="leading" constant="20" id="YA0-hN-nLB"/>
                             <constraint firstItem="fXy-ss-0Kn" firstAttribute="centerY" secondItem="Mek-rj-0H2" secondAttribute="centerY" id="Yx8-lj-uBg"/>
                             <constraint firstItem="2UP-L6-LNS" firstAttribute="top" secondItem="zGU-hX-o62" secondAttribute="top" id="ZGv-tR-McZ"/>
                             <constraint firstItem="2UP-L6-LNS" firstAttribute="leading" secondItem="zGU-hX-o62" secondAttribute="leading" constant="20" id="aQa-GZ-yKE"/>
@@ -170,6 +181,7 @@
                             <constraint firstItem="ODX-Wt-NCG" firstAttribute="centerX" secondItem="6eY-ek-r3a" secondAttribute="centerX" id="sbw-71-tup"/>
                             <constraint firstItem="rbr-3Z-uD1" firstAttribute="centerX" secondItem="Dp7-PV-1SY" secondAttribute="centerX" id="tHt-mP-raQ"/>
                             <constraint firstAttribute="trailing" secondItem="os0-tZ-jZI" secondAttribute="trailing" constant="40" id="xwe-jm-sng"/>
+                            <constraint firstItem="oKU-1x-kLR" firstAttribute="top" secondItem="zGU-hX-o62" secondAttribute="top" id="z4j-t3-nDH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zGU-hX-o62"/>
                     </view>
@@ -217,7 +229,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="thJ-4F-NIp"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -300,7 +312,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="KfN-p0-53s"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -383,7 +395,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="EzQ-uY-Dki"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -466,7 +478,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="WNw-xU-SW8"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

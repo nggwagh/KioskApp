@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ManagerViewController: UIViewController {
     
@@ -18,17 +19,31 @@ class ManagerViewController: UIViewController {
     let appDel = UIApplication.shared.delegate as! AppDelegate
     
     var devices = [DeviceElement]()
+    var numberOfLogoTaps = 0
+    var isloaded = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        appDel.myOrientation = .landscape
-        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        
+        if isloaded {
+            appDel.myOrientation = .landscape
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if !isloaded {
+            appDel.myOrientation = .landscape
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        } else {
+            isloaded = false
+        }
+        
         self.getDeviceWinnerList()
     }
     
@@ -156,6 +171,78 @@ class ManagerViewController: UIViewController {
 
     @IBAction func refreshButtonTapped(_ sender: Any) {
         self.getDeviceWinnerList()
+    }
+    
+    @IBAction func logoTapped(_ sender: Any) {
+        
+        numberOfLogoTaps += 1
+        
+        if numberOfLogoTaps == 5 {
+            
+            numberOfLogoTaps = 0
+            
+            let masterPasswordAlertController = UIAlertController(title: "Milwaukee", message: "Please enter master key.", preferredStyle: .alert)
+            
+            masterPasswordAlertController.addTextField { (textField) in
+                textField.placeholder = "Master key"
+                textField.isSecureTextEntry = true
+                textField.borderStyle = .roundedRect
+            }
+            
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { submitAction in
+                let passwordField = masterPasswordAlertController.textFields![0]
+                
+                if passwordField.text == "tticanada" {
+                    self.showOptions()
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
+                
+            }
+            
+            masterPasswordAlertController.addAction(submitAction)
+            masterPasswordAlertController.addAction(cancelAction)
+            
+            self.present(masterPasswordAlertController, animated: true)
+        }
+    }
+    
+    func showOptions() {
+        let masterPasswordAlertController = UIAlertController(title: "Milwaukee", message: "Please select one option.", preferredStyle: .alert)
+        
+        let dashboardAction = UIAlertAction(title: "DashBoard", style: .default) { submitAction in
+            
+            let serverUrlString =  KioskNetworkManager.serverUrl
+            let completeURLString = serverUrlString + "#" + "/device/" + DeviceUniqueIDManager.shared.uniqueID + "/stats"
+            
+            let dashboardViewController = SFSafariViewController(url: URL(string: completeURLString)!)
+            dashboardViewController.navigationItem.setRightBarButtonItems([], animated: true)
+            self.present(dashboardViewController, animated: true){
+                let width: CGFloat = 130
+                let x: CGFloat = self.view.frame.width - width
+                
+                // It can be any overlay. May be your logo image here inside an imageView.
+                let overlay = UIView(frame: CGRect(x: x, y: 20, width: width, height: 44))
+                overlay.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+                dashboardViewController.view.addSubview(overlay)
+            }
+        }
+        
+        let deviceNameAction = UIAlertAction(title: "Change Device Name", style: .default) { submitAction in
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.loadDeviceNameScreen()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
+            
+        }
+        
+        masterPasswordAlertController.addAction(dashboardAction)
+        masterPasswordAlertController.addAction(deviceNameAction)
+        masterPasswordAlertController.addAction(cancelAction)
+        
+        self.present(masterPasswordAlertController, animated: true)
     }
     
     // MARK: - Navigation

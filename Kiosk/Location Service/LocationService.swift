@@ -98,12 +98,8 @@ extension LocationService: CLLocationManagerDelegate {
                         LocationSettingManager.shared().setUserCurrentLongitude(locValue.longitude)
                         
                         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                            
-                            UserDefaults.standard.set("", forKey: "moduleType")
-                            UserDefaults.standard.set("", forKey: "moduleTypeID")
-                            UserDefaults.standard.synchronize()
-                            
-                            appDelegate.reloadRootViewController()
+                        
+                            appDelegate.loadDeviceNameScreen()
                         }
                     }
                 }

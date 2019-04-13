@@ -360,7 +360,7 @@ class CustomerSubscriptionViewController: UIViewController {
         
         let deviceNameAction = UIAlertAction(title: "Change Device Name", style: .default) { submitAction in
             let appDel = UIApplication.shared.delegate as! AppDelegate
-            appDel.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DeviceRegistrationViewController")
+            appDel.loadDeviceNameScreen()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { cancelAction in
