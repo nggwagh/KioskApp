@@ -169,7 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = self.window?.rootViewController
             
             if (viewController is ManagerViewController) {
-                (viewController as! ManagerViewController).reloadDevicesFromPushNotification(id: (userInfo["id"] as? Int)!, entry: userInfo["entry"] as! String, deviceID: userInfo["deviceID"] as! String)
+                (viewController as! ManagerViewController).reloadDevicesFromPushNotification(id: (userInfo["id"] != nil) ? userInfo["id"] as! Int : 99, entry: userInfo["entry"] as! String, deviceID: userInfo["deviceID"] as! String)
             }
         }
         

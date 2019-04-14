@@ -13,14 +13,14 @@ struct Devices: Codable {
 }
 
 struct Group: Codable {
-    let id: Int
+    let id: Int?
     let name: String
-    let surveyID: Int
+    let surveyID: Int?
     let devices: [DeviceElement]
 }
 
 struct DeviceElement: Codable {
-    let id, surveyGroupID: Int
+    let id, surveyGroupID: Int?
     let deviceID: String
     let isManagerDevice: Int
     var lastEntries: [LastEntry]
@@ -32,13 +32,13 @@ struct DeviceDevice: Codable {
 }
 
 struct LastEntry: Codable {
-    let id: Int
+    let id: Int?
     let firstName: String
     let lastName: String
 }
 
 struct Survey: Codable {
-    let id: Int
+    let id: Int?
     let name, createdAt, updatedAt: String
     let screensaverID: Int
     

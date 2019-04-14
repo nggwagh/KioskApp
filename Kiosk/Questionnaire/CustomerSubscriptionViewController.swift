@@ -59,7 +59,7 @@ class CustomerSubscriptionViewController: UIViewController {
     var frenchTrades = ["Mécanique d'auto/avion/équipement",
                         "Charpentier",
                         "DIY",
-                        "Drywall/Ceiling Installer",
+                        "Installateur de cloisons sèches / plafonds",
                         "Électricien",
                         "Entretien / réparation d'installation",
                         "Ferme/Ranch/Agriculture",
