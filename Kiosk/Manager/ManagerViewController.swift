@@ -83,10 +83,17 @@ class ManagerViewController: UIViewController {
     }
     
     func reloadDevicesFromPushNotification(id: Int, entry: String, deviceID: String) {
+        
+        let name = entry.components(separatedBy: " ")
+        
+        let firstname = name[0]
+        let lastname = name[1]
+        
+        
         if (iPad1VC != nil) {
             if (self.devices.count >= 1) {
                 if (self.devices[0].deviceID == deviceID) {
-                    let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
+                    let latestEntry = LastEntry.init(id: id, firstName: firstname, lastName: lastname)
                     self.devices[0].lastEntries.insert(latestEntry, at: 0)
                     iPad1VC?.usersArray = self.devices[0].lastEntries
                     iPad1VC?.deviceName = self.devices[0].device.name
@@ -98,7 +105,7 @@ class ManagerViewController: UIViewController {
         if (iPad2VC != nil) {
             if (self.devices.count >= 2) {
                 if (self.devices[1].deviceID == deviceID) {
-                    let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
+                    let latestEntry = LastEntry.init(id: id, firstName: firstname, lastName: lastname)
                     self.devices[1].lastEntries.insert(latestEntry, at: 0)
                     iPad2VC?.usersArray = self.devices[1].lastEntries
                     iPad2VC?.deviceName = self.devices[1].device.name
@@ -110,7 +117,7 @@ class ManagerViewController: UIViewController {
         if (iPad3VC != nil) {
             if (self.devices.count >= 3) {
                 if (self.devices[2].deviceID == deviceID) {
-                    let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
+                    let latestEntry = LastEntry.init(id: id, firstName: firstname, lastName: lastname)
                     self.devices[2].lastEntries.insert(latestEntry, at: 0)
                     iPad3VC?.usersArray = self.devices[2].lastEntries
                     iPad3VC?.deviceName = self.devices[2].device.name
@@ -122,7 +129,7 @@ class ManagerViewController: UIViewController {
         if (iPad4VC != nil) {
             if (self.devices.count >= 4) {
                 if (self.devices[3].deviceID == deviceID) {
-                    let latestEntry = LastEntry.init(id: id, firstName: entry, lastName: "")
+                    let latestEntry = LastEntry.init(id: id, firstName: firstname, lastName: lastname)
                     self.devices[3].lastEntries.insert(latestEntry, at: 0)
                     iPad4VC?.usersArray = self.devices[3].lastEntries
                     iPad4VC?.deviceName = self.devices[3].device.name
