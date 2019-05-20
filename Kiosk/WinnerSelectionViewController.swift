@@ -19,7 +19,13 @@ protocol WinnerSelectionViewControllerDelegate: class {
 class WinnerSelectionViewController: UIViewController {
 
     //MARK: - IBOutlets
+    var isFromSurveyMode: Bool? = false
+    @IBOutlet weak var screenBackground: UIImageView!
+    @IBOutlet weak var showHeadAboutLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+
     
+    @IBOutlet weak var totalWinnerLabel: UILabel!
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var btnShowWinner: UIButton!
@@ -34,7 +40,6 @@ class WinnerSelectionViewController: UIViewController {
     @IBOutlet weak var hearAboutSwitch: UISwitch!
     
     //Winner view outlets and variables
-    @IBOutlet weak var totalWinnerLabel: UILabel!
     var totalWinnerDropDown: DropDown = {
         let dropDown = DropDown()
         dropDown.dataSource = ["1","2","3","4","5"]
@@ -59,6 +64,30 @@ class WinnerSelectionViewController: UIViewController {
         lblWinner.morphingEffect = .burn
         hearAboutSwitch.isOn = UserDefaults.standard.bool(forKey: Constant.UserDefaultKey.shouldShowHearedAbout)
         
+        if (isFromSurveyMode!)
+        {
+            self.screenBackground.alpha = 1
+            self.screenBackground.image = UIImage.init(named: "QuesionaireBackground")
+            
+            self.btnChangeDeviceName.setTitleColor(UIColor.black, for:.normal)
+            self.closeButton.setTitleColor(UIColor.black, for:.normal)
+
+            self.totalWinnerLabel.textColor = UIColor.black
+            self.totalWinnerLabel.backgroundColor = UIColor.clear
+            
+            self.showHeadAboutLabel.isHidden = true
+            self.hearAboutSwitch.isHidden = true
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if (isFromSurveyMode!)
+        {
+            self.btnChangeDeviceName.isHidden = false
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,6 +196,7 @@ class WinnerSelectionViewController: UIViewController {
                     winnersListViewController.startDate = strongSelf.startDatePicker.date
                     winnersListViewController.endDate = strongSelf.endDatePicker.date
                     winnersListViewController.count = strongSelf.totalWinner
+                    winnersListViewController.isFromSurveyMode = self?.isFromSurveyMode
                     let winners = chosenWinners.map({ (winnerDictionary) -> Winner
                         in
                         
@@ -209,6 +239,7 @@ class WinnerSelectionViewController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
+        
         self.dismiss(animated: true)
     }
     

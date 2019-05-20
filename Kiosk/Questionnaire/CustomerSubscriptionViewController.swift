@@ -322,7 +322,8 @@ class CustomerSubscriptionViewController: UIViewController {
                 let passwordField = masterPasswordAlertController.textFields![0]
                 
                 if passwordField.text == "tticanada" {
-                    self.showOptions()
+                    self.presentWinnerSelectionScreen()
+                  //  self.showOptions() //temp
                 }
             }
             
@@ -335,6 +336,14 @@ class CustomerSubscriptionViewController: UIViewController {
             
             self.present(masterPasswordAlertController, animated: true)
         }
+    }
+    
+    func presentWinnerSelectionScreen () {
+        
+        let winnerSelectionController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WinnerSelectionViewController") as! WinnerSelectionViewController
+        winnerSelectionController.isFromSurveyMode = true
+        self.present(winnerSelectionController, animated: true)
+        
     }
     
     func showOptions() {

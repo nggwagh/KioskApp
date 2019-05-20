@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -107,8 +107,8 @@
         <!--Questionnaire-->
         <scene sceneID="rw4-Hg-65X">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yXz-dI-bQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Questionnaire" id="rWd-9H-009" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXz-dI-bQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="292" y="-4"/>
         </scene>
@@ -327,7 +327,7 @@
                                     <constraint firstAttribute="bottom" secondItem="r1F-Pb-Rby" secondAttribute="bottom" id="vrx-9b-6Jx"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-xc-vLk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-xc-vLk">
                                 <rect key="frame" x="276.5" y="927" width="215" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="CHANGE DEVICE NAME">
@@ -363,13 +363,16 @@
                     <connections>
                         <outlet property="btnChangeDeviceName" destination="bcb-xc-vLk" id="MCj-ve-Teo"/>
                         <outlet property="btnShowWinner" destination="gzv-lc-ayP" id="HzY-oJ-QyL"/>
+                        <outlet property="closeButton" destination="wAY-KX-jzp" id="ZyF-co-ruL"/>
                         <outlet property="dateRangeSelectionView" destination="kkG-5Y-XDg" id="Lkh-Yl-Q1G"/>
                         <outlet property="endDatePicker" destination="E4G-Gl-uaK" id="1L8-KA-1Ss"/>
                         <outlet property="hearAboutSwitch" destination="wvM-tz-hLn" id="CF6-UJ-ReS"/>
                         <outlet property="imageViewForSpinner" destination="r1F-Pb-Rby" id="9OX-si-bmm"/>
                         <outlet property="lblWinner" destination="XAb-Ul-OAS" id="tI2-8i-er0"/>
+                        <outlet property="screenBackground" destination="5Iw-1g-8yl" id="wDK-Gz-DWe"/>
+                        <outlet property="showHeadAboutLabel" destination="7Pj-Q1-5nJ" id="QPz-pv-EIf"/>
                         <outlet property="startDatePicker" destination="fgO-s6-CqC" id="K0X-lP-UHt"/>
-                        <outlet property="totalWinnerLabel" destination="sZt-60-LUa" id="wpJ-Ro-Hr2"/>
+                        <outlet property="totalWinnerLabel" destination="eGB-uS-hIX" id="b4o-lw-NvF"/>
                         <outlet property="winnerDisplayView" destination="Ut6-5C-VFj" id="ejw-ih-pMo"/>
                     </connections>
                 </viewController>
@@ -851,35 +854,20 @@
                                     <action selector="closeButtonTapped:" destination="l5H-LG-H33" eventType="touchUpInside" id="aVs-uJ-apU"/>
                                 </connections>
                             </button>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mbh-ba-bSA">
-                                <rect key="frame" x="20" y="178" width="728" height="826"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i1D-br-dbg" firstAttribute="top" secondItem="W6p-k4-1sV" secondAttribute="top" constant="20" id="2pF-IW-8oI"/>
                             <constraint firstAttribute="trailing" secondItem="MeF-Yb-WA4" secondAttribute="trailing" id="4Ks-N6-4fJ"/>
                             <constraint firstItem="i1D-br-dbg" firstAttribute="centerX" secondItem="MeF-Yb-WA4" secondAttribute="centerX" id="Bkf-LN-jGZ"/>
-                            <constraint firstItem="k8D-de-Iq8" firstAttribute="bottom" secondItem="Mbh-ba-bSA" secondAttribute="bottom" constant="20" id="EYs-Ba-kte"/>
-                            <constraint firstItem="k8D-de-Iq8" firstAttribute="trailing" secondItem="Mbh-ba-bSA" secondAttribute="trailing" constant="20" id="KQT-Y2-9db"/>
-                            <constraint firstItem="Mbh-ba-bSA" firstAttribute="leading" secondItem="k8D-de-Iq8" secondAttribute="leading" constant="20" id="VcC-Bu-bNr"/>
                             <constraint firstItem="k8D-de-Iq8" firstAttribute="trailing" secondItem="5VY-Th-c2U" secondAttribute="trailing" constant="20" id="WyS-PP-fkT"/>
                             <constraint firstItem="MeF-Yb-WA4" firstAttribute="leading" secondItem="k8D-de-Iq8" secondAttribute="leading" id="cQd-Nr-6Fj"/>
                             <constraint firstItem="5VY-Th-c2U" firstAttribute="top" secondItem="k8D-de-Iq8" secondAttribute="top" id="ddJ-oR-F2j"/>
                             <constraint firstItem="k8D-de-Iq8" firstAttribute="bottom" secondItem="MeF-Yb-WA4" secondAttribute="bottom" id="fcm-Di-Uvp"/>
                             <constraint firstItem="MeF-Yb-WA4" firstAttribute="top" secondItem="W6p-k4-1sV" secondAttribute="top" id="l1H-bN-rHA"/>
-                            <constraint firstItem="Mbh-ba-bSA" firstAttribute="top" secondItem="i1D-br-dbg" secondAttribute="bottom" constant="8" symbolic="YES" id="pTz-fA-Iax"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k8D-de-Iq8"/>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="Mbh-ba-bSA" id="gdB-97-yar"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vPK-qS-hMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1023,6 +1011,8 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="closeButton" destination="8h0-pM-qLW" id="k1q-sS-uzf"/>
+                        <outlet property="screenBackground" destination="tAE-2U-55z" id="s8v-3W-J5a"/>
                         <outlet property="winnersTableView" destination="C5Q-Ae-zdk" id="wYQ-oc-Lze"/>
                         <outlet property="winnersTableViewHeightConstraint" destination="2ug-Nv-Rd0" id="Do2-lu-PbW"/>
                     </connections>
@@ -1033,11 +1023,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Milwaukee_logo_tagline" width="747" height="236"/>
-        <image name="background" width="1024" height="1368"/>
+        <image name="Milwaukee_logo_tagline" width="747.5" height="236"/>
+        <image name="background" width="1024" height="1368.5"/>
         <image name="frame_0" width="1602" height="1564"/>
         <image name="ic-unfilled-arrow-down" width="16" height="9"/>
-        <image name="red_button_background" width="216" height="64"/>
-        <image name="textbox_background" width="565" height="70"/>
+        <image name="red_button_background" width="216.5" height="64.5"/>
+        <image name="textbox_background" width="565.5" height="70"/>
     </resources>
 </document>

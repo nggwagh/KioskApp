@@ -16,6 +16,10 @@ struct Winner: Equatable {
 
 class WinnersListViewController: UIViewController {
     
+    var isFromSurveyMode: Bool? = false
+    @IBOutlet weak var screenBackground: UIImageView!
+    @IBOutlet weak var closeButton: UIButton!
+
     var winnersList = [Winner]()
     var startDate: Date!
     var endDate: Date!
@@ -38,6 +42,15 @@ class WinnersListViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
+        
+        if (isFromSurveyMode!)
+        {
+            self.screenBackground.alpha = 1
+            self.screenBackground.image = UIImage.init(named: "QuesionaireBackground")
+            
+            self.closeButton.setTitleColor(UIColor.black, for:.normal)
+        }
+        
     }
     
     class func initWithStoryboard() -> WinnersListViewController {
